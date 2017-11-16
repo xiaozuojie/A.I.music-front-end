@@ -1,0 +1,149 @@
+#header {
+	position: fixed;
+	width: 100%;	
+	z-index: 5;
+}
+
+.arrow-up {
+    width:0; 
+    height:0; 
+    margin-left: 490px;
+    margin-top:-10px;
+    position: absolute;
+    margin-top: ;
+    border-left:10px solid transparent;
+    border-right:10px solid transparent;
+    border-bottom:10px solid rgb(192,12,12);
+}
+/**
+ * z-index 属性设置元素的堆叠顺序。拥有更高堆叠顺序的元素总是会处于堆叠顺序较低的元素的前面。
+注释：元素可拥有负的 z-index 属性值。
+注释：Z-index 仅能在定位元素上奏效（例如 position:absolute;）！
+ */
+#headerone{
+	width: 100%;
+	background-color: rgb(36,36,36);
+	height: 70px;
+}
+.logo{
+	height: 70px;
+	line-height: 70px;
+	text-align: center;
+	margin: 0px;
+	padding: 0px;
+  }	
+.logo ul li{
+	text-align: center;
+	list-style: none;
+	float: left;
+	font-size: large;
+	font-weight: 400;
+	color: rgb(255,255,255);
+}	
+
+.xcenter{
+	margin: 0px;
+	padding: 0px;
+}
+.xcenterone{
+	margin: 0px;
+	padding: 0px;
+}
+.xcenterone ul{
+	margin: 0px;
+	padding: 0px;
+	height: 70px;
+	line-height: 70px;
+}
+.xcenterone ul li{	
+	width: 50%;
+	text-align: center;
+	list-style: none;
+	float: left;
+	font-size: large;
+	color: #D5D5D5;
+}
+.xcenterone ul li:hover{
+	background-color: rgb(0,0,0);
+	color: white;
+}
+.daohang a{
+	text-decoration: none;
+	color: #D5D5D5;
+}
+.daohang a:hover{
+	background-color: rgb(0,0,0);
+	color: white;
+}
+
+.xcenteroneone{
+	background-color: rgb(0,0,0);
+	color: white;
+}
+.xright{
+	margin: 0px;
+	padding: 0px;
+	margin-top: 14px;
+}
+.xright ul{
+	margin: 0px;
+	padding: 0px;
+	height: 34px;
+	line-height: 33px;
+}
+.xright ul li{	
+	text-align: center;
+	list-style: none;
+	float: left;
+	font-size: large;
+	 
+}
+.xright ul li img{
+	margin-left: 40px;	
+	border-radius: 25px; 
+	 
+}
+.xright ul li input{
+	text-align: center;
+    border-radius: 25px;
+    border: 1px solid white; 
+    font-size: 13px;   
+}
+.xright ul li a{	
+	margin-left: 10px;
+	color: rgb(119,136,153);
+	text-decoration: none;
+	font-size: 11px;  
+}
+ .xright ul li a:hover{
+ 	color: white;
+ }
+#headertwo{
+	height: 35px;
+	line-height: 35px;
+	background-color: rgb(192,12,12);
+}
+.lefelist{
+	
+	height: 25px;
+	line-height: 25px;	
+	width: 80px;	
+	margin:0px 20px;
+	margin-top: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+	list-style: none;
+	float: left;
+	font-size: 12px;  
+	text-align: center;
+}
+.lefelist a{
+	text-decoration: none;
+	color: white;	
+ }
+.navsearch{
+	color: white;
+	border-radius: 12px; 
+	background-color: rgb(114,24,24);
+}
+

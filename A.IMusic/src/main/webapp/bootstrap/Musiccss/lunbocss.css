@@ -1,0 +1,14 @@
+/**
+ * 封面轮播的样式
+ */
+
+@charset "utf-8";
+div,ul,li,h4,p{margin:0;padding:0;}
+/* box */
+#box{position:relative;width:754px;height:240px;margin:0px auto 0;}
+#box ul{width:754px;height:240px;}
+#box li{position:absolute;border:1px solid #000;list-style:none;background:#000;width:0;height:0;z-index:0;cursor:pointer;overflow:hidden;border-radius:3px;}
+#box li img{width:240px;height:240px;vertical-align:top;}
+#box .prev, #box .next{position:absolute;top:50%;width:39px;height:80px;margin-top:-40px;overflow:hidden;text-indent:-999px;cursor:pointer;background-image: url(../musicimage/mainpageimage/btn.png);}
+#box .prev{left:-80px;}
+#box .next{right:-80px;background-position:-39px 0;}

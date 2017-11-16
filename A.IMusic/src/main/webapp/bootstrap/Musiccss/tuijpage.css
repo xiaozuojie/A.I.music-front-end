@@ -1,0 +1,130 @@
+
+/**
+ * 热门推荐的播放器图标
+ */
+.rementupian img{
+	border-radius: 30px; 
+}
+/**
+ * 专辑的播放器图标
+ */
+.zhuajitupian img{
+	border-radius: 30px; 
+}
+
+.lefelist:hover{
+	color: white;
+	border-radius: 12px;
+	background-color: rgb(114,24,24);
+}
+.xialaliebiao div:hover{
+	background-color: #000000;
+	color: white;
+}
+/**
+ * 下方内容开始
+ */
+.content{        
+	    left: 80px;
+	    top: 106px;
+	    position:absolute;			
+		width: 975px;
+	    height: 1750px;	
+	    background-color:#FAF4FF;
+}
+/**
+ * 热门推荐样式
+ */
+
+.rementuijian{
+width: 70%;
+float: left; 
+height: 40px;
+line-height: 40px;
+}
+.rementuijian ul li{
+	text-align: center;
+	width: 16%;
+	list-style: none;	
+	float: left;
+	font-size: 11px;
+	color:#686868;
+	
+}
+.rementuijian ul li a{
+	font-size: 12px;
+	color:#686868;
+	
+}
+.rementuijiangengduo{
+text-align: right;
+float: right;
+height: 40px;
+line-height: 40px;
+}
+.rementuijiangengduo a{
+	
+color:	#686868;		
+}
+
+
+
+
+/**
+ *  榜单样式
+*/
+
+.rementuijianbandan{
+width: 70%;
+float: left; 
+height: 40px;
+line-height: 40px;
+}
+.rementuijianbandan ul li{	
+	width: 16%;
+	list-style: none;	
+	float: left;
+	font-size: 11px;
+	color:#686868;
+	
+}
+.rementuijianbandan ul li a{
+	font-size: 12px;
+	color:#686868;
+	
+}
+.rementuijiangengduobandan{
+text-align: right;
+float: right;
+height: 40px;
+line-height: 40px;
+}
+.rementuijiangengduobandan a{
+	
+color:	#686868;		
+}
+/**
+ * 音乐飙升版
+ */
+.aibiaosheng ul li{
+	list-style: none;
+	float: left;
+}
+/**
+ * 右侧的歌手列表
+ */
+.youcegeshou ul li{
+	list-style: none;
+	float: ;
+}
+/**
+ * 热门推荐播放器图标
+ */
+.rementupian span:hover{
+	color: 	#FFFAF0;
+}
+
+.rementupian span{
+	
+	color:#C0C0C0;
+}

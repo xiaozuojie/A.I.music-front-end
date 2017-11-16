@@ -1,0 +1,33 @@
+#header {
+	position: fixed;
+	width: 100%;	
+	z-index: 5;
+}	
+/**
+ * 下方内容开始
+ */
+.content{
+  
+	    left: 80px;
+	    top: 106px;
+	    position:absolute;			
+		
+		width: 975px;
+	    height: 1700px;	
+}
+
+.rementuijian ul li{
+	list-style: none;	
+	float: left;
+	margin-left: 30px;
+}
+.rementuijian ul li a{
+	text-decoration: none;
+	font: '微软雅黑' ; font-size: large;
+}
+
+.rementuijian ul li a:hover {
+	border-radius: 10px;
+	background-color: #fff8e7;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 10px 45px 0 rgba(0, 0, 0, 0.15);
+	color: orangered;
