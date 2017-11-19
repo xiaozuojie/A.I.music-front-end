@@ -28,4 +28,9 @@ public class BlogController {
 	{		
 		return "tuijpage";
 	}
+	@RequestMapping(value="/tuijinalist",method = RequestMethod.GET)
+	public String listgedan(Model model)
+	{		
+		return "gedan";
+	}
 }
