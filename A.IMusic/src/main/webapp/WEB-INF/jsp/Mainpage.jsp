@@ -6,15 +6,42 @@
 		<meta charset="UTF-8">
 		<script src="bootstrap/js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
-		<script src="bootstrap/musicjs/script.js" type="text/javascript" charset="utf-8"></script>
-		<script src="bootstrap/musicjs/audio.js" type="text/javascript" charset="utf-8"></script>
+		<script src="bootstrap/musicjs/jaudio.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="bootstrap/musicjs/main.css"/>
 		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css"/>
 		<link rel="stylesheet" type="text/css" href="bootstrap/Musiccss/mainpage.css"/>
-		<link rel="stylesheet" type="text/css" href="bootstrap/Musiccss/lunbocss.css"/>
-		<link rel="stylesheet" type="text/css" href="bootstrap/Musiccss/audio.css"/>
+		
 		<title></title>
+		<style type="text/css">
+	.jAudio--playlist{
+		
+		height: 120px;
+		over-x:hidden;
+		overflow-y:auto;
+	}
+	.jAudio--ui{
+		height: 120px;
+		border: 1px solid red;
+	}
+	.jAudio--status-bar{
+   position: absolute;
+		border: 1px solid blue;
+		margin-top: -80px;
+	}
+	.jAudio--time{
+		margin-top: -15px;
+	}
+	.jAudio--controls{
+		border: 1px solid black;
+		height: 60px;
+	}
+	.jAudio--details {
+		width: 150px;
+	}
+	
+</style>
   
-  <script>
+<!--   <script>
   	function tiaozuan(){
   		location.href="Mymusic.jsp";
   	}
@@ -22,7 +49,7 @@
   	function tiaozuan1(){
   		location.href="Mainpage.jsp";
   	}
-  </script>
+  </script> -->
 	</head>
 	<body style="background-color:rgb(245,245,245);">
 <!--头部logo以及导航栏开始-->
@@ -45,8 +72,8 @@
 					<div class="col-md-6 column xcenter" >
 						<div class="col-md-5 xcenterone" >
 						 <ul>
-						 	<li class="daohang" id="li1" onclick="tiaozuan1()" ><span class="glyphicon glyphicon-home"><a  href="#">首页</a></li>
-						 	<li class="daohang" id="li2" onclick="tiaozuan()"><a>我的音乐</a></li>	
+						 	<li class="daohang" id="li1" onclick="tiaozuan1()" ><span class="glyphicon glyphicon-home"><a  href="list" >首页</a></li>
+						 	<li class="daohang" id="li2" onclick="tiaozuan()"><a href="mymusiclist" target="vistorcontent">我的音乐</a></li>	
 						 </ul>
 						</div>
 					</div>
@@ -116,28 +143,28 @@
    	<!--推荐、排行榜、歌单等-->  
    	  <div class="col-md-5 headertwotwo" >  
       <div class="list lefelist" style="border: none;">
-				<a href="tuijpage.jsp" class="list-group" target="vistorcontent">
+				<a href="tuijinalist" class="list-group" target="vistorcontent">
 				<div>						
 				推荐
 				</div>			
 				</a>
 	  </div>
 	  <div class="list lefelist" style="border: none;">
-				<a href="Paihangbang.jsp" class="list-group " target="vistorcontent">
+				<a href="paihanglist" class="list-group " target="vistorcontent">
 				<div>						
 				排行榜
 				</div>			
 				</a>
 	  </div>
 	  <div class="list lefelist" style="border: none;">
-				<a href="gedan.jsp" class="list-group " target="vistorcontent">
+				<a href="gedanlist" class="list-group " target="vistorcontent">
 				<div>						
 				歌单
 				</div>			
 				</a>
 	  </div>
 	  <div class="list lefelist" style="border: none;">
-				<a href="singermorepage.jsp" class="list-group " target="vistorcontent">
+				<a href="singermorepagelist" class="list-group " target="vistorcontent">
 				<div>						
 				歌手
 				</div>			
@@ -145,7 +172,7 @@
 
 	  </div>
 	  <div class="list lefelist" style="border: none;">
-				<a href="xindieshangjia.jsp" class="list-group " target="vistorcontent">
+				<a href="xindieshangjialist" class="list-group " target="vistorcontent">
 				<div>						
 				新碟上架
 				</div>			
@@ -186,55 +213,58 @@
 	时间：2017-11-11
 	描述：音乐播放器开始
 -->	
+<div id="12">
+	
 
+<div class='jAudio--player'   style="position: fixed;  width: 70px;  margin-left: -185px;margin-top: -1800px;background-image: url(bootstrap/musicjs/1jpg.jpg); background-size:400px 100px; background-repeat:no-repeat; ">
 
-	<div class="audio-box" style="border: 1px solid red;">
-		<div class="audio-container">
-			<div class="audio-view">
-				<div class="audio-cover" ></div>
-				<div class="audio-body">
-					<h3 class="audio-title">未知歌曲</h3>
-					<div class="audio-backs">
-						<div class="audio-this-time">00:00</div>
-						<div class="audio-count-time">00:00</div>
-						<div class="audio-setbacks">
-							<i class="audio-this-setbacks">
-								<span class="audio-backs-btn"></span>
-							</i>
-							<span class="audio-cache-setbacks">
-							</span>
-						</div>
-					</div>
-				</div>
-				<div class="audio-btn">
-					<div class="audio-select">
-						<div class="audio-prev"></div>
-						<div class="audio-play"></div>
-						<div class="audio-next"></div>
-						<div class="audio-menu"></div>
-						<div class="audio-volume"></div>
-					</div>
-					<div class="audio-set-volume">
-						<div class="volume-box">
-							<i><span></span></i>
-						</div>
-					</div>
-					<div class="audio-list">
-						<div class="audio-list-head">
-							<p>歌单</p>
-							<span class="menu-close">关闭</span>
-						</div>
-						<ul class="audio-inline">
-						</ul>
-					</div>
-				</div>
-			</div>
+<audio></audio>
+
+<div class='jAudio--ui'>
+
+  <div class='jAudio--thumb'></div>
+
+  <div class='jAudio--status-bar' >
+
+	<div class='jAudio--details'></div>
+	<div class='jAudio--volume-bar'></div>
+
+	<div class='jAudio--progress-bar'>
+	  <div class='jAudio--progress-bar-wrapper'>
+		<div class='jAudio--progress-bar-played'>
+		  <span class='jAudio--progress-bar-pointer'></span>
 		</div>
+	  </div>
 	</div>
 
+	<div class='jAudio--time'>
+	  <span class='jAudio--time-elapsed'>00:00</span>
+	  <span class='jAudio--time-total'>00:00</span>
+	</div>
+
+  </div>
+
+</div>
 
 
+<div class='jAudio--playlist' style="background-image:url(bootstrap/musicjs/1jpg.jpg);">
+	
+	
+	
+</div>
+<input type="button" class="bofang" name="" id="" value="播放" />
+<div class='jAudio--controls' style="background-image:url(bootstrap/musicjs/1jpg.jpg);">
+  <ul>
+	<li><button class='btn' data-action='prev' id='btn-prev'><span></span></button></li>
+	<li><button class='btn' data-action='play' id='btn-play'><span></span></button></li>
+	<li><button class='btn' data-action='next' id='btn-next'><span></span></button></li>
+  </ul>
+</div>
 
+</div>
+</div>
+
+	
 <!--
 	作者：offline
 	时间：2017-11-11
@@ -289,51 +319,28 @@
   }});  
 
 
-$.extend({'aaa':function(funk){
-	alert("歌曲列表");
-	var song = [
-	
-		{
-			'cover' : 'bootstrap/musicimage/mainpageimage/封面1.jpg',
-			'src' : 'bootstrap/music/第一个清晨.mp3',
-			'title' : '陶喆-太平盛世'
-		},
-		{
-			'cover' : 'bootstrap/musicimage/mainpageimage/封面3.jpg',
-			'src' : 'bootstrap/music/花田错.mp3',
-			'title' : '王力宏-花田错'
-		},
+   
+   
+   
+   $(".bofang").click(function(){
+		var t = {
+		playlist:[
+			{
+			  file: "bootstrap/musicjs/伯牙绝弦.mp3",
+			  thumb: "thumbs/01.jpg",
+			  trackName: "飘向北方",
+			  trackArtist: "王力宏",
+			  trackAlbum: "Single",
+			}
 		
-	];
-
-	var audioFn = audioPlay({
-		song : song,
-		autoPlay : true  //是否立即播放第一首，autoPlay为true且song为空，会alert文本提示并退出
-	});
-
-	/* 向歌单中添加新曲目，
-	 * 第二个参数true为新增后立即播放该曲目，false则不播放
-	 * 意思是，当你在听第一首歌的时候，列表还有很多歌没放，但是当你在浏览的网页的歌曲时候，突然发现有立刻想听的歌曲，然后添加列表中，如果为true，则点击
-	 * 下一首时，会立刻播放刚刚添加的这首，如果为false则，默认最后播放
-	 * 
-	 * */
-	audioFn.newSong({
-		'cover' : 'bootstrap/musicimage/mainpageimage/封面2.jpg',
-		'src' : 'bootstrap/music/伯牙绝弦.mp3',
-		'title' : '王力宏-伯牙绝弦'
-	},false);
+		],
+		autoPlay:true
+	}
+		$(".jAudio--player").jAudio(t);
+	})
 
 
-	/* 暂停播放 */
-	//audioFn.stopAudio();
-
-	/* 开启播放 */
-	//audioFn.playAudio();
-
-	/* 选择歌单中索引为3的曲目(索引是从0开始的)，第二个参数true立即播放该曲目，false则不播放 */
-	
-
-}});
+   
 
  });	
 </script>
