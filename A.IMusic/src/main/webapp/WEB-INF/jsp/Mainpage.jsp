@@ -171,7 +171,7 @@
 		<div class="col-md-10 column" >	    
 		     <iframe id="musicmainpage" name="vistorcontent"
 						 scrolling="no"
-						src="tuijpage.jsp" width="1400px" height="2200px" scrolling="no"
+						src="tuijinalist" width="1400px" height="2200px" scrolling="no"
 						frameborder="0">
 	     </iframe> 
 	             

@@ -20,10 +20,12 @@ public class BlogController {
 	
 	@RequestMapping(value="/list",method = RequestMethod.GET)
 	public String listBlog(Model model)
-	{
-		
-		List<Blog> list = bs.getAllBlog();
-		model.addAttribute("list", list);
+	{		
 		return "Mainpage";
+	}
+	@RequestMapping(value="/tuijinalist",method = RequestMethod.GET)
+	public String listtuijian(Model model)
+	{		
+		return "tuijpage";
 	}
 }
