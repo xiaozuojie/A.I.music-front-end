@@ -82,7 +82,6 @@ public class musicController {
 	 * ¸èµ¥Ò³Ãæ
 	 */
 	@RequestMapping(value = "/gedanlist",method = RequestMethod.GET)
-	@ResponseBody
 	public String listgedan(Model model)
 	{	
 		List<Playlist> listgedan=ps.getallplaylistbytypename("");

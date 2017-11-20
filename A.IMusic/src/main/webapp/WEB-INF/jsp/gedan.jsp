@@ -11,6 +11,11 @@
 	    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="bootstrap/Musiccss/gedangpage.css" />
 		<title></title>
+		<style type="text/css">
+			.gedanlists ul li{
+				list-style: none;
+			}
+		</style>
 	</head>
 
 	<body style="background-color:#FAF4FF;">
@@ -73,29 +78,29 @@
                 	时间：2017-11-12
                 	描述：這是歌單
                 -->
-								<div style="margin-left: 40px; margin-top: 20px; ">
+								<div class="gedanlists" style="margin-left: 40px; margin-top: 20px; ">
 									<ul class="m-cvrlst f-cb" id="m-pl-container">
-									<%-- <c:if test="${listgedan!=null}">
-									<c:forEach items="${listgedan}" var="gedan"> --%>
+								  <c:if test="${listgedan!=null}">
+									<c:forEach items="${listgedan}" var="gedan">  
 									<li style="">
-											<div class="u-cover u-cover-1" style="border: 1px solid black; width: 18%; height: 190px; float: left;">
-												<img class="j-flag" height="150px" width="140px" src="bootstrap/musicimage/deipian/3.jpg">
-												<a title="" href="#" class="msk"></a>
-												<div class="bottom" style="border: 1px solid red; text-overflow:ellipsis; white-space:nowrap;overflow:hidden;width:140px;">
-													<a class="icon-play f-fr" title="播放" href="javascript:;" data-res-type="13" data-res-id="937264651" data-res-action="play"></a>
+											<div class="u-cover u-cover-1" style=" width: 18%; height: 190px; float: left;">
+												<img title="${gedan.playlistName}" class="j-flag" height="150px" width="140px" src="bootstrap/musicimage/deipian/3.jpg">
+												<a  href="#" class="msk"></a>
+												<div class="bottom" style="text-overflow:ellipsis; white-space:nowrap;overflow:hidden;width:140px;">
+													<a class="icon-play f-fr"  href="javascript:;" data-res-type="13" data-res-id="937264651" data-res-action="play"></a>
 
 												<span class="icon-headset"></span>
                                                         <a href="#" style="position: absolute;margin-left: 120px;margin-top: -20px;">
-                                              <span class="glyphicon glyphicon-expand"></span>
+                                              <span title="播放" class="glyphicon glyphicon-expand"></span>
                                             </a>
 														<p class="dec" style="margin-top: 8px;">
-														<a title=""  href="#" class="tit f-thide s-fc0">发射点犯得上</a>
+														<a title="${gedan.playlistName}"  href="#" class="tit f-thide s-fc0">${gedan.playlistName}</a>
 													</p>								
 												</div>
 											</div>
 									</li>
-									<%--</c:forEach>
-								 	</c:if> --%>
+								    </c:forEach>
+								 	</c:if>  
 									</ul>
 								</div>
 							</div>
