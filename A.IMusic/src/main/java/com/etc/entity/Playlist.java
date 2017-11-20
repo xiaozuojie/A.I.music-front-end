@@ -8,7 +8,7 @@ public class Playlist {
 	private String playlistTypeName;// 歌单类型
 	private String playlistImage;// 歌单照片
 	private String playlistProfile;// 歌单内容
-	private int playlistComments;// 歌单评论
+	private int playlistComments;// 歌单收藏量
 	private int type;// 收藏类型
 
 	public int getPlaylistId() {

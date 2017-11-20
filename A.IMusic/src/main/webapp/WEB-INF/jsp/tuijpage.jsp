@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -25,12 +26,11 @@
     <pre class="prev">prev</pre>
     <pre class="next">next</pre>
     <ul>
-        <li class="tupianxe" ><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面1.jpg" />1</li>
-        <li class="tupianxe"><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面2.jpg" />2</li>
-        <li class="tupianxe"><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面3.jpg" />3</li>
-        <li class="tupianxe"><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面4.jpg" />4</li>
-        <li class="tupianxe"><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面5.jpg" />5</li>
-        <li class="tupianxe"><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面6.jpg" />6</li>
+    <c:if test="${listzhuanjinumber!=null}">
+    <c:forEach items="${listzhuanjinumber}" var="zhuanji">
+        <li class="tupianxe" ><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面2.jpg" />${zhuanji.albumsId}</li>
+    </c:forEach>
+   </c:if>
     </ul>
      </div>
 		
@@ -58,16 +58,16 @@
 	
 				<div  class="rementuijian" >
 				<ul>
-					<li><span class="glyphicon glyphicon-record" style="color: red;font-weight: 1000;"></span><a href="#" style="text-decoration: none;font-weight: 600; font-size: 17px;color: #202020;">热门推荐</a></li>
-					<li ><a href="#">华语</a></li>
+					<li><span class="glyphicon glyphicon-record" style="color: red;font-weight: 1000;"></span><a href="#" style="text-decoration: none;font-weight: 600; font-size: 17px;color: #202020;">热门推荐</a></li>					
 					<li><a href="#">流行</a></li>
-					<li><a href="#">摇滚</a></li>
+					<li ><a href="#">古风</a></li>
 					<li><a href="#">民谣</a></li>
+					<li><a href="#">摇滚</a></li>
 					<li><a href="#">电子</a></li>
 				</ul>
 			    </div>
 			    <div id="" class="rementuijiangengduo" style="width: 30%;">
-			    	<a href="" >更多</a><span class="glyphicon glyphicon-arrow-right" style="color: red;margin-right: 10px;"></span>
+			    	<a href="gedanlist" >更多</a><span class="glyphicon glyphicon-arrow-right" style="color: red;margin-right: 10px;"></span>
 			    </div>
 			              	        
  <!-- 描述：横线   --> <div id="" style="border-top: 2px solid #D80000;margin-top: 40px;margin-right: 10px;"> </div>
@@ -83,22 +83,25 @@
                 	时间：2017-11-12
                 	描述：第一歌单开始
                 -->	
+                <c:if test="${listgedannumber!=null}">
+                <c:forEach items="${listgedannumber}" var="gedan">
 			    <div id="" class="rementuibofangqi"  style="float:left; width: 25%;height: 200px;padding-bottom: 8px; text-align: left;padding-right: 8px;" >
-		               <div title="你好" id=""  style="padding-bottom: 5px;">
+		               <div title="${gedan.playlistName}" id=""  style="padding-bottom: 5px;">
 		               	<a href="" class="dagedantupian"><img src="bootstrap/musicimage/mainpageimage/封面1.jpg"/ height="150px" width="100%">	
 		          </a>
 		               <div class="bofangtubiao" style="position: absolute;margin-top: -20px;">
 		             	  <p><span class="glyphicon glyphicon-headphones" style="margin-left: 10px;"></span>	          	  	
-		             	  	161万
+		             	  	${gedan.playlistComments}
 		             	  <a href="#"  style="margin-left: 80px;" class="rementupian">
-		                   <span class="glyphicon glyphicon-expand" ></span>
-                          <!--<span class="glyphicon glyphicon-music"></span>-->
+		                   <span class="glyphicon glyphicon-expand" ></span>            
                           </a>
 		             	  </p> 		             			             	  		             	
 		             </div>             
 		             </div>		 	    	
-			           <a href="" style="color:RGB(72,72,72);">我走路带风，可以这样形容带风啥发手动阀收到</a>			   					    	
+			           <a href="" style="color:RGB(72,72,72);">${gedan.playlistName}</a>			   					    	
 			    </div>
+			    </c:forEach>
+			    </c:if>
 			     <!-- 
                 	作者：offline
                 	时间：2017-11-12
@@ -131,16 +134,17 @@
 				</ul>
 			    </div>
               		    <div id="" class="rementuijiangengduo" style="width: 30%;">
-			    	<a href="" >更多</a><span class="glyphicon glyphicon-arrow-right" style="color: red;margin-right: 10px;"></span>
+			    	<a href="xindieshangjialist">更多</a><span class="glyphicon glyphicon-arrow-right" style="color: red;margin-right: 10px;"></span>
 			    </div>
 			              	        
              
    <!-- 描述：横线   --> <div id="" style="border-top: 2px solid #D80000;margin-top: 40px;margin-right: 10px;"> </div>
    <div id="" style="height: 200px;background-color: rgb(245,245,245); margin-right: 10px;margin-top: 15px;border: 1px solid #E0E0E0;">
-   	
+   	  <c:if test="${listzhuanjitime!=null}">
+      <c:forEach items="${listzhuanjitime}" var="zhuanji">
    	 <div id="" class="xindiediyi"  style="float:left; width: 20%;height: 200px;padding-bottom: 8px; text-align: center;padding-right: 8px;margin-top: 20px;" >
 		               <div id=""style="">
-		               	<a href=""><img src="bootstrap/musicimage/mainpageimage/封面3.jpg"/ height="135px" width="100%">	
+		               	<a href=""><img src="bootstrap/musicimage/mainpageimage/封面4.jpg"/ height="135px" width="100%">	
 		          </a>
 		               <div  style="position: absolute;margin-top: -30px;">
 		             	  <p>
@@ -150,61 +154,10 @@
 		             	  </p> 		             			             	  		             	
 		             </div>             
 		             </div>		 	    	
-	               <a href="" style="color: RGB(72,72,72);">周杰伦</a>			   					    	
+	               <a href="" style="color: RGB(72,72,72);">${zhuanji.singerName}</a>			   					    	
 	</div>
-	 <div id="" class="xindiediyi"  style="float:left; width: 20%;height: 200px;padding-bottom: 8px; text-align: center;padding-right: 8px;margin-top: 20px;" >
-		               <div id=""style="">
-		               	<a href=""><img src="bootstrap/musicimage/mainpageimage/封面3.jpg"/ height="135px" width="100%">	
-		          </a>
-		               <div  style="position: absolute;margin-top: -30px;">
-		             	  <p>
-		             	  <a href="#" style="margin-left: 114px;" class="zhuajitupian">
-                          <span class="glyphicon glyphicon-expand botupiao" style="color:#FFF5EE;margin-top: 8px;" ></span>
-                          </a>
-		             	  </p> 		             			             	  		             	
-		             </div>             
-		             </div>		 	    	
-	               <a href="" style="color: RGB(72,72,72);">周杰伦</a>			   					    	
-	</div> <div id="" class="xindiediyi"  style="float:left; width: 20%;height: 200px;padding-bottom: 8px; text-align: center;padding-right: 8px;margin-top: 20px;" >
-		               <div id=""style="">
-		               	<a href=""><img src="bootstrap/musicimage/mainpageimage/封面3.jpg"/ height="135px" width="100%">	
-		          </a>
-		               <div  style="position: absolute;margin-top: -30px;">
-		             	  <p>
-		             	  <a href="#" style="margin-left: 114px;" class="zhuajitupian">
-                          <span class="glyphicon glyphicon-expand botupiao" style="color:#FFF5EE;margin-top: 8px;" ></span>
-                          </a>
-		             	  </p> 		             			             	  		             	
-		             </div>             
-		             </div>		 	    	
-	               <a href="" style="color: RGB(72,72,72);">周杰伦</a>			   					    	
-	</div> <div id="" class="xindiediyi"  style="float:left; width: 20%;height: 200px;padding-bottom: 8px; text-align: center;padding-right: 8px;margin-top: 20px;" >
-		               <div id=""style="">
-		               	<a href=""><img src="bootstrap/musicimage/mainpageimage/封面3.jpg"/ height="135px" width="100%">	
-		          </a>
-		               <div  style="position: absolute;margin-top: -30px;">
-		             	  <p>
-		             	  <a href="#" style="margin-left: 114px;" class="zhuajitupian">
-                          <span class="glyphicon glyphicon-expand botupiao" style="color:#FFF5EE;margin-top: 8px;" ></span>
-                          </a>
-		             	  </p> 		             			             	  		             	
-		             </div>             
-		             </div>		 	    	
-	               <a href="" style="color: RGB(72,72,72);">周杰伦</a>			   					    	
-	</div> <div id="" class="xindiediyi"  style="float:left; width: 20%;height: 200px;padding-bottom: 8px; text-align: center;padding-right: 8px;margin-top: 20px;" >
-		               <div id=""style="">
-		               	<a href=""><img src="bootstrap/musicimage/mainpageimage/封面3.jpg"/ height="135px" width="100%">	
-		          </a>
-		               <div  style="position: absolute;margin-top: -30px;">
-		             	  <p>
-		             	  <a href="#" style="margin-left: 114px;" class="zhuajitupian">
-                          <span class="glyphicon glyphicon-expand botupiao" style="color:#FFF5EE;margin-top: 8px;" ></span>
-                          </a>
-		             	  </p> 		             			             	  		             	
-		             </div>             
-		             </div>		 	    	
-	               <a href="" style="color: RGB(72,72,72);">周杰伦</a>			   					    	
-	</div>
+      </c:forEach>
+      </c:if>
 
 	
 	

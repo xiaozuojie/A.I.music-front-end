@@ -6,28 +6,26 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import com.etc.entity.Song;
+import com.etc.service.SongService;
 
-import com.etc.dao.BlogDao;
-import com.etc.entity.Blog;
-
-public class TestBlogDao {
+public class TestSongService {
 
 	
-	BlogDao blogdao = null;
+	SongService ss = null;
 
 	@Before
 	public void init() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml","mybatis-config.xml");
 
-		blogdao = context.getBean(BlogDao.class);
+		ss = context.getBean(SongService.class);
 	}
 
 	@Test
-	public void getAllBlog() {
-		List<Blog> list = blogdao.getAllBlog();
-
-		for (Blog blog : list) {
-			System.out.println(blog);
+	public void getallsongs() {
+		List<Song> list = ss.getsong();
+		for (Song Song : list) {
+			System.out.println(Song);
 		}
 
 	}
