@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -79,7 +80,7 @@ public class musicController {
 	}
 	
 	/**
-	 * 歌单页面
+	 * 歌单页面（推荐页面点击时）
 	 */
 	@RequestMapping(value = "/gedanlist",method = RequestMethod.GET)
 	public String listgedan(Model model)
@@ -88,6 +89,17 @@ public class musicController {
 		model.addAttribute("listgedan", listgedan);
 		return "gedan";
 	}
+	/**
+	 * 歌单页面（ajax点击时）
+	 */
+	@RequestMapping(value = "/gedanlist/{typename}",method = RequestMethod.GET)
+	@ResponseBody
+	public List<Playlist> listgedanajax(@PathVariable(value="typename")String typename)
+	{	
+		System.out.println("到了");
+		return ps.getallplaylistbytypename(typename);
+	}
+	
 	/**
 	 * 歌手页面
 	 */
@@ -107,10 +119,7 @@ public class musicController {
 		model.addAttribute("alllistzhuanjiti", alllistzhuanjiti);
 		return "xindieshangjia";
 	}
-	
-	
-	
-	
+
 	/**
 	 * 我的音乐
 	 */

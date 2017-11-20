@@ -40,22 +40,22 @@
 									<div class="rementuijian" style="width: 80%;float: left; height: 40px;border: 1px ;border-bottom: 2px solid red;				
     							" align="center">
 										<ul>
-											<li style="margin-left: 20px;">
+											<li class="gedantype" style="margin-left: 20px;">
 												<a href="#">所有</a>
 											</li>
-											<li>
+											<li class="gedantype">
 												<a href="#">流行</a>
 											</li>
-											<li>
+											<li class="gedantype">
 												<a href="#">古风</a>
-											</li>
-											<li>
+											</li >
+											<li class="gedantype">
 												<a href="#">民谣</a>
 											</li>
-											<li>
+											<li class="gedantype">
 												<a href="#">摇滚</a>
 											</li>
-											<li>
+											<li class="gedantype">
 												<a href="#">电子</a>
 											</li>
 										</ul>
@@ -124,23 +124,40 @@
 	</body>
 
 	<script type="text/javascript">
-	/* 	$(function() {
-					$("#m-pl-container").append("<li style=''>"+
-											"<div class='u-cover u-cover-1' style='border: 1px solid black; width: 18%; height: 190px; float: left;'>"+
-												"<img class='j-flag' height='150px' width='140px' src='bootstrap/musicimage/deipian/3.jpg'>"+
-												"<a title='说唱的艺术，不止押韵而已' href='#' class='msk'></a>"+
-												"<div class='bottom' style='border: 1px solid red; text-overflow:ellipsis; white-space:nowrap;overflow:hidden;width:140px;'>"+
-													"<a class='icon-play f-fr' title='播放' href='javascript:;' data-res-type='13' data-res-id='937264651' data-res-action='play'></a>"+
-												"<span class='icon-headset'></span>"+
-                                                        "<a href='#' style='position: absolute;margin-left: 120px;margin-top: -20px;'>"+
-                                              "<span class='glyphicon glyphicon-expand'></span></a>"+                                   
-														"<p class='dec' style='margin-top: 8px;'>"+
-														"<a title='说唱的艺术，不止押韵而已'  href='#' class='tit f-thide s-fc0'></a>"+
-													"</p>"+								
-												"</div>"+
-											"</div>"+
-										"</li>");
-					}) */
+	
+	$(function(){
+		$(".gedantype").click(function(){
+			var typename=$(this).find("a").text();
+			$.get("gedanlist/"+typename,function(data,status){			
+			$("#m-pl-container li").remove();	
+			$.each(data, function(index,gedan) {
+			$("#m-pl-container").append("<li style=''>"+
+					"<div class='u-cover u-cover-1' style='border: 1px solid black; width: 18%; height: 190px; float: left;'>"+
+						"<img class='j-flag' height='150px' width='140px' src='bootstrap/musicimage/deipian/3.jpg'>"+
+						"<a title='"+gedan.playlistName+"' href='#' class='msk'></a>"+
+						"<div class='bottom' style='border: 1px solid red; text-overflow:ellipsis; white-space:nowrap;overflow:hidden;width:140px;'>"+
+							"<a class='icon-play f-fr' title='播放' href='javascript:;' data-res-type='13' data-res-id='937264651' data-res-action='play'></a>"+
+						"<span class='icon-headset'></span>"+
+                                "<a href='#' style='position: absolute;margin-left: 120px;margin-top: -20px;'>"+
+                      "<span class='glyphicon glyphicon-expand'></span></a>"+                                   
+								"<p class='dec' style='margin-top: 8px;'>"+
+								"<a title='说唱的艺术，不止押韵而已'  href='#' class='tit f-thide s-fc0'></a>"+
+							"</p>"+								
+						"</div>"+
+					"</div>"+
+				"</li>");
+			
+			});	
+			});	
+			
+			})
+		})
+	
+	   
+	
+	
+	
+
 	</script>
 
 </html>
