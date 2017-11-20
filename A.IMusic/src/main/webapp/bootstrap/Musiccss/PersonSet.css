@@ -1,0 +1,29 @@
+#setstart{
+	margin-top: 10%;
+}
+#setbody{
+	margin-top: 3%;
+	margin-left: 5%;
+}
+#setdaohang{
+	margin-left: -5%;
+}
+.xinxi{
+	margin-top: 5%;
+	display: flex;
+}
+.zifu{
+	margin-top: 8px;
+}
+.check{
+	padding-left: 15px;
+}
+#touxinag{
+	margin-top: 2%;
+	margin-left: 5%;
+	float: left;
+}
+.zhxx{
+	display: flex;
+	margin-top: 3%;
+}

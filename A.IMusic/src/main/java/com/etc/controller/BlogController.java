@@ -65,8 +65,14 @@ public class BlogController {
 	{		
 		return "xindieshangjia";
 	}
-	
-	
+	/**
+	 * 注册页面
+	 */
+	@RequestMapping(value="/register",method = RequestMethod.GET)
+	public String listregister(Model model)
+	{		
+		return "register";
+	}
 	
 	
 	/**
@@ -115,6 +121,14 @@ public class BlogController {
 	{		
 		return "Mymusicxiaoxi";
 	}
+	/**
+	 * 个人中心界面
+	 */
 	
+	@RequestMapping(value="/gerenzhongxin",method = RequestMethod.GET)
+	public String gerenzhongxin(Model model)
+	{		
+		return "gerenzhongxin";
+	}
 	
 }
