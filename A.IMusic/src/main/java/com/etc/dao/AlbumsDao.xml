@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.AlbumsDao">
+	
+	<!-- 再解释 select id 就是接口中的方法名 使用了自定义的resultMap,此时resultType属性就要删除咯 -->
+	<select id="allalubms" resultMap="AlbumsMap">
+		SELECT * FROM albums ORDER BY collectionnumber DESC
+	</select> 
+	<select id="allalubmstime" resultMap="AlbumsMap">
+		SELECT * FROM albums ORDER BY issueTime DESC
+	</select> 
+	<!-- 自定义一个结果的映射 -->
+	<resultMap type="com.etc.entity.Albums" id="AlbumsMap">
+		<!-- 指定主属性 -->
+		<id property="albumsId" column="albumsId" />
+		<!-- 其他属性 -->
+		<result property="albumsName" column="albumsName" />
+		<result property="singerName" column="singerName" />
+		<result property="issueTime" column="issueTime" />
+		<result property="albumsProfile" column="albumsProfile" />
+		<result property="albumsImage" column="albumsImage" />
+		<result property="collection" column="collection" />
+		<result property="collectionnumber" column="collectionnumber" />
+	</resultMap>
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+

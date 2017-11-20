@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -7,12 +8,8 @@
 		<meta charset="UTF-8">
 		<script src="bootstrap/js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
 		<script src="bootstrap/js/bootstrap.js" type="text/javascript" charset="utf-8"></script>
-		<script src="bootstrap/musicjs/script.js" type="text/javascript" charset="utf-8"></script>
-		<script src="bootstrap/musicjs/audio.js" type="text/javascript" charset="utf-8"></script>
-		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
+	    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.css" />
 		<link rel="stylesheet" type="text/css" href="bootstrap/Musiccss/gedangpage.css" />
-		<link rel="stylesheet" type="text/css" href="bootstrap/Musiccss/lunbocss.css" />
-		<link rel="stylesheet" type="text/css" href="bootstrap/Musiccss/audio.css" />
 		<title></title>
 	</head>
 
@@ -42,16 +39,16 @@
 												<a href="#">所有</a>
 											</li>
 											<li>
-												<a href="#">华语</a>
-											</li>
-											<li>
 												<a href="#">流行</a>
 											</li>
 											<li>
-												<a href="#">摇滚</a>
+												<a href="#">古风</a>
 											</li>
 											<li>
 												<a href="#">民谣</a>
+											</li>
+											<li>
+												<a href="#">摇滚</a>
 											</li>
 											<li>
 												<a href="#">电子</a>
@@ -76,25 +73,29 @@
                 	时间：2017-11-12
                 	描述：這是歌單
                 -->
-								<div style="margin-left: 40px; margin-top: 20px; border: 1px solid red;">
+								<div style="margin-left: 40px; margin-top: 20px; ">
 									<ul class="m-cvrlst f-cb" id="m-pl-container">
-										<!--<li style="">
+									<%-- <c:if test="${listgedan!=null}">
+									<c:forEach items="${listgedan}" var="gedan"> --%>
+									<li style="">
 											<div class="u-cover u-cover-1" style="border: 1px solid black; width: 18%; height: 190px; float: left;">
 												<img class="j-flag" height="150px" width="140px" src="bootstrap/musicimage/deipian/3.jpg">
-												<a title="说唱的艺术，不止押韵而已" href="#" class="msk"></a>
+												<a title="" href="#" class="msk"></a>
 												<div class="bottom" style="border: 1px solid red; text-overflow:ellipsis; white-space:nowrap;overflow:hidden;width:140px;">
 													<a class="icon-play f-fr" title="播放" href="javascript:;" data-res-type="13" data-res-id="937264651" data-res-action="play"></a>
 
 												<span class="icon-headset"></span>
                                                         <a href="#" style="position: absolute;margin-left: 120px;margin-top: -20px;">
                                               <span class="glyphicon glyphicon-expand"></span>
-                                         </a>
+                                            </a>
 														<p class="dec" style="margin-top: 8px;">
-														<a title="说唱的艺术，不止押韵而已"  href="#" class="tit f-thide s-fc0">说唱的艺术，不止押韵而已</a>
+														<a title=""  href="#" class="tit f-thide s-fc0">发射点犯得上</a>
 													</p>								
 												</div>
 											</div>
-										</li>-->
+									</li>
+									<%--</c:forEach>
+								 	</c:if> --%>
 									</ul>
 								</div>
 							</div>
@@ -118,7 +119,7 @@
 	</body>
 
 	<script type="text/javascript">
-		$(function() {
+	/* 	$(function() {
 					$("#m-pl-container").append("<li style=''>"+
 											"<div class='u-cover u-cover-1' style='border: 1px solid black; width: 18%; height: 190px; float: left;'>"+
 												"<img class='j-flag' height='150px' width='140px' src='bootstrap/musicimage/deipian/3.jpg'>"+
@@ -134,7 +135,7 @@
 												"</div>"+
 											"</div>"+
 										"</li>");
-					})
+					}) */
 	</script>
 
 </html>
