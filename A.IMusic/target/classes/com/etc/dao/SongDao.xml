@@ -6,7 +6,7 @@
 	
 	<!-- 再解释 select id 就是接口中的方法名 使用了自定义的resultMap,此时resultType属性就要删除咯 -->
 	<select id="getallsong" resultType="com.etc.entity.Song">
-		select * from Song
+		select * from Song order by colletionnumber desc
 	</select>
 	<!-- 自定义一个结果的映射 -->
 <!-- 	<resultMap type="com.etc.entity.Blog" id="BlogMap">

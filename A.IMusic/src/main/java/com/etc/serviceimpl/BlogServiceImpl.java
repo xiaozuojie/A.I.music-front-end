@@ -1,4 +1,4 @@
-package com.etc.service.impl;
+package com.etc.serviceimpl;
 
 import java.util.List;
 

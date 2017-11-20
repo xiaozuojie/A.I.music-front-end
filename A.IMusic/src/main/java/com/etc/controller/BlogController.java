@@ -1,22 +1,30 @@
 package com.etc.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.etc.entity.Blog;
+import com.etc.entity.Song;
 import com.etc.service.BlogService;
+import com.etc.service.SongService;
+
 
 @Controller
 public class BlogController {
 
 	@Resource
 	private BlogService bs;
+	
+	@Resource
+	private SongService ss;
 	/**
 	 * 首页
 	 */
@@ -33,14 +41,24 @@ public class BlogController {
 	{		
 		return "tuijpage";
 	}
+	
+	
+	
 	/**
 	 * 排行榜页面
 	 */
 	@RequestMapping(value="/paihanglist",method = RequestMethod.GET)
 	public String listpaihang(Model model)
-	{		
+	{	List<Song>  list=new ArrayList<Song>();
+ 		list=ss.getsong();
+ 		System.out.println(list);
+ 		model.addAttribute("list", list);
 		return "Paihangbang";
 	}
+	
+
+	
+	
 	/**
 	 * 歌单页面
 	 */
