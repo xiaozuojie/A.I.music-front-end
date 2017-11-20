@@ -167,5 +167,23 @@ public class musicController {
 		return "Mymusicxiaoxi";
 	}
 	
+	/**
+	 * 注册页面
+	 */
+	@RequestMapping(value="/register",method = RequestMethod.GET)
+	public String listregister(Model model)
+	{		
+		return "register";
+	}
+	/**
+	 * 个人中心界面
+	 */
+	
+	@RequestMapping(value="/gerenzhongxin",method = RequestMethod.GET)
+	public String gerenzhongxin(Model model)
+	{		
+		return "gerenzhongxin";
+	}
+	
 	
 }
