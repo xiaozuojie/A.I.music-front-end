@@ -9,6 +9,15 @@ public class Singer {
 	private String singerAccount;// 收藏类型
 	private String singerImage;// 歌手图片
 	private int collection;// 收藏数
+	private String location;//歌手地区
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
 
 	public int getSingerId() {
 		return singerId;
@@ -70,11 +79,11 @@ public class Singer {
 	public String toString() {
 		return "Singer [singerId=" + singerId + ", singerName=" + singerName + ", singerSex=" + singerSex
 				+ ", singerProfile=" + singerProfile + ", singerAccount=" + singerAccount + ", singerImage="
-				+ singerImage + ", collection=" + collection + "]";
+				+ singerImage + ", collection=" + collection + ", location=" + location + "]";
 	}
 
 	public Singer(int singerId, String singerName, String singerSex, String singerProfile, String singerAccount,
-			String singerImage, int collection) {
+			String singerImage, int collection, String location) {
 		super();
 		this.singerId = singerId;
 		this.singerName = singerName;
@@ -83,10 +92,14 @@ public class Singer {
 		this.singerAccount = singerAccount;
 		this.singerImage = singerImage;
 		this.collection = collection;
+		this.location = location;
 	}
 
 	public Singer() {
+		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	
 
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.SingerDao">
+	
+	<!-- 再解释 select id 就是接口中的方法名 使用了自定义的resultMap,此时resultType属性就要删除咯 -->
+	<select id="getSingerbysix" resultType="com.etc.entity.Singer">
+		select *  from Singer  limit    0,6   
+	</select>
+	
+	<!-- 获取前面10个入驻歌手 -->
+	<select id="getSingerbyten" resultType="com.etc.entity.Singer">
+		select *  from Singer  limit    0,10   
+	</select>
+	<!-- 自定义一个结果的映射 -->
+<!-- 	<resultMap type="com.etc.entity.Blog" id="BlogMap">
+		指定主属性
+		<id property="id" column="id" />
+		其他属性
+		<result property="blogTitle" column="title" />
+		<result property="blogContent" column="content" />
+	</resultMap> -->
+	
+	
+</mapper>
+
+
+
+
+
+
+
+
+

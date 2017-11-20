@@ -333,7 +333,7 @@
             <div class="col-md-4 column xraright" style="border: 1px solid #C0C0C0 ;width:23%; height: 550px;">
 			<div id="" class="youcegeshou" >
 			    <h6 style="display: inline-block;color: black;">入驻歌手</h6>
-			    <h6 style="display: inline-block;margin-left: 80px;"><a href="#" style="color:#A9A9A9; ">查看更多></a></h6>
+			   <h6 style="display: inline-block;margin-left: 80px;"><a href="singermorepagelist" style="color:#A9A9A9; ">查看更多></a></h6>
 			</div>
 			<!--横线--> <div id="" style="border-top: 1px solid 	#D3D3D3;"></div>
            <!--
@@ -343,8 +343,7 @@
            -->
            
            <div id="" style=" height: 510px;">
-            
-         
+         <c:forEach items="${listsinger}" var="listsinger">
  
            <!-- 第一个-->   
            <div id="" style=" height: 80px;margin: 5px 0px;">
@@ -353,61 +352,13 @@
             	</div>
            	
             	<div id="" style="float: right;text-align: center;"><!--名字、介绍 -->             		
-            			<h4 style="margin-top: 14px;">张惠妹aMEI</h4>
-            			<h5>台湾歌手</h5>      	           		
+            			<h4 style="margin-top: 14px;margin-right: 35px">${listsinger.singerName}</h4>
+            			<h5 style="margin-top: 14px;margin-right: 50px">${listsinger.location}</h5>      	           		
             	</div>
             </div>
-             <!-- 第一个-->   
-           <div id="" style=" height: 80px;margin: 5px 0px;">
-            	<div id="" style="float: left;"><!-- 歌手头像--> 
-            		<img height="75px" width="85px" src="bootstrap/musicimage/mainpageimage/cover4.jpg"/>
-            	</div>
-           	
-            	<div id="" style="float: right;text-align: center;"><!--名字、介绍 -->             		
-            			<h4 style="margin-top: 14px;">张惠妹aMEI</h4>
-            			<h5>台湾歌手</h5>      	           		
-            	</div>
-            </div> <!-- 第一个-->   
-           <div id="" style=" height: 80px;margin: 5px 0px;">
-            	<div id="" style="float: left;"><!-- 歌手头像--> 
-            		<img height="75px" width="85px" src="bootstrap/musicimage/mainpageimage/cover4.jpg"/>
-            	</div>
-           	
-            	<div id="" style="float: right;text-align: center;"><!--名字、介绍 -->             		
-            			<h4 style="margin-top: 14px;">张惠妹aMEI</h4>
-            			<h5>台湾歌手</h5>      	           		
-            	</div>
-            </div> <!-- 第一个-->   
-           <div id="" style=" height: 80px;margin: 5px 0px;">
-            	<div id="" style="float: left;"><!-- 歌手头像--> 
-            		<img height="75px" width="85px" src="bootstrap/musicimage/mainpageimage/cover4.jpg"/>
-            	</div>
-           	
-            	<div id="" style="float: right;text-align: center;"><!--名字、介绍 -->             		
-            			<h4 style="margin-top: 14px;">张惠妹aMEI</h4>
-            			<h5>台湾歌手</h5>      	           		
-            	</div>
-            </div> <!-- 第一个-->   
-           <div id="" style=" height: 80px;margin: 5px 0px;">
-            	<div id="" style="float: left;"><!-- 歌手头像--> 
-            		<img height="75px" width="85px" src="bootstrap/musicimage/mainpageimage/cover4.jpg"/>
-            	</div>
-           	
-            	<div id="" style="float: right;text-align: center;"><!--名字、介绍 -->             		
-            			<h4 style="margin-top: 14px;">张惠妹aMEI</h4>
-            			<h5>台湾歌手</h5>      	           		
-            	</div>
-            </div> <!-- 第一个-->   
-           <div id="" style=" height: 80px;margin: 5px 0px;">
-            	<div id="" style="float: left;"><!-- 歌手头像--> 
-            		<img height="75px" width="85px" src="bootstrap/musicimage/mainpageimage/cover4.jpg"/>
-            	</div>
-           	
-            	<div id="" style="float: right;text-align: center;"><!--名字、介绍 -->             		
-            			<h4 style="margin-top: 14px;">张惠妹aMEI</h4>
-            			<h5>台湾歌手</h5>      	           		
-            	</div>
-            </div>
+        
+           </c:forEach>
+       
               
             
             </div>
