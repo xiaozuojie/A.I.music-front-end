@@ -104,9 +104,19 @@ public class musicController {
 	 */
 	@RequestMapping(value = "/gedanlist/{typename}", method = RequestMethod.GET)
 	@ResponseBody
-	public List<Playlist> listgedanajax(@PathVariable(value = "typename") String typename) {
+
+public List<Playlist> listgedanajax(@PathVariable(value="typename")String typename)
+	{	
+		List<Playlist> listajax=new ArrayList<Playlist>();
+
 		System.out.println("到了");
-		return ps.getallplaylistbytypename(typename);
+		if(typename.equals("所有")) {
+			listajax=ps.getallplaylistbytypename("");
+		}else {
+			listajax=ps.getallplaylistbytypename(typename);
+		}
+		System.out.println(listajax);
+		return listajax;
 	}
 
 	/**
