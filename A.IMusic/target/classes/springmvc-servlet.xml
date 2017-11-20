@@ -17,8 +17,6 @@
 <!-- 	<mvc:resources location="/WEB-INF/jsp" mapping="/WEB-INF/jsp/**"></mvc:resources> -->
 	<!-- 可以保证我们的控制器类正常被访问-->
 	<mvc:annotation-driven></mvc:annotation-driven> 
-
-
 	<!-- 这里的路径 com.etc.controller应该是我们的控制器所在的包的名字 自动扫描 -->
 	<context:component-scan base-package="com.etc.controller"></context:component-scan>
 	<!-- 视图的解析器 -->

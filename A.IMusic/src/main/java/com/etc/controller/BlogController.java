@@ -5,28 +5,20 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.etc.entity.Albums;
-import com.etc.entity.Playlist;
 import com.etc.entity.Song;
-import com.etc.service.AlbumsService;
-import com.etc.service.PlayListService;
 import com.etc.service.SongService;
 
 
-
 @Controller
-public class musicController {
-	@Resource
-    private AlbumsService as;
-	@Resource
-	private PlayListService ps;
+public class BlogController {
+	
 	@Resource
 	private SongService ss;
 	/**
@@ -42,31 +34,12 @@ public class musicController {
 	 */
 	@RequestMapping(value="/tuijinalist",method = RequestMethod.GET)
 	public String listtuijian(Model model)
-	{	//按照收藏率获取前七张专辑	
-		List<Albums> listzhuanjinumber=new ArrayList<Albums>();
-		List<Albums> alllistzhuanji=as.getallalbums();	
-		if(alllistzhuanji.size()>6) {
-			listzhuanjinumber=alllistzhuanji.subList(0, 6);
-		}
-		//按照发布时间获取五张专辑
-		List<Albums>listzhuanjitime=new ArrayList<Albums>();
-		List<Albums> alllistzhuanjiti=as.getallalbumstime();
-		if(alllistzhuanjiti.size()>5) {
-			listzhuanjitime=alllistzhuanjiti.subList(0, 5);
-		}
-		//按照歌单的收藏数，获取前10张歌单
-		List<Playlist> listgedannumber=new ArrayList<Playlist>();
-		List<Playlist> listgedan=ps.getallplaylist();
-		if(listgedan.size()>10) {
-			listgedannumber=listgedan.subList(0, 10);
-		}else {
-			listgedannumber=listgedan.subList(0, listgedan.size());
-		}
-		model.addAttribute("listzhuanjinumber", listzhuanjinumber);
-		model.addAttribute("listzhuanjitime", listzhuanjitime);
-		model.addAttribute("listgedannumber", listgedannumber);
+	{		
 		return "tuijpage";
 	}
+	
+	
+	
 	/**
 	 * 排行榜页面
 	 */
@@ -74,19 +47,20 @@ public class musicController {
 	public String listpaihang(Model model)
 	{	List<Song>  list=new ArrayList<Song>();
  		list=ss.getsong();
+ 		System.out.println(list);
  		model.addAttribute("list", list);
 		return "Paihangbang";
 	}
 	
+
+	
+	
 	/**
 	 * 歌单页面
 	 */
-	@RequestMapping(value = "/gedanlist",method = RequestMethod.GET)
-	@ResponseBody
+	@RequestMapping(value="/gedanlist",method = RequestMethod.GET)
 	public String listgedan(Model model)
-	{	
-		List<Playlist> listgedan=ps.getallplaylistbytypename("");
-		model.addAttribute("listgedan", listgedan);
+	{		
 		return "gedan";
 	}
 	/**
@@ -102,10 +76,7 @@ public class musicController {
 	 */
 	@RequestMapping(value="/xindieshangjialist",method = RequestMethod.GET)
 	public String listzhuanji(Model model)
-	{	
-		List<Albums>listzhuanjitime=new ArrayList<Albums>();
-		List<Albums> alllistzhuanjiti=as.getallalbumstime();
-		model.addAttribute("alllistzhuanjiti", alllistzhuanjiti);
+	{		
 		return "xindieshangjia";
 	}
 	
