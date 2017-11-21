@@ -24,8 +24,8 @@ public class TestSong {
 	}
 
 	@Test
-	public void getAllBlog() {
-		List<Song> list = songdao.getallsong();
+	public void getNewSong() {
+		List<Song> list = songdao.getNewSong(10);
 
 		for (Song song : list) {
 			System.out.println(song);
@@ -33,12 +33,5 @@ public class TestSong {
 
 	}
 	
-	@Test
-	public void getAllsongbyname() {
-		List<Song> list = songdao.getSingerSongbycollect("Ѧ֮ǫ");
-		for (Song song : list) {
-			System.out.println(song);
-		}
 
-	}
 }

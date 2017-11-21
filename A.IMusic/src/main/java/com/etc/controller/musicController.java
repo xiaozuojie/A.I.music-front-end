@@ -85,7 +85,7 @@ public class musicController {
 	@RequestMapping(value = "/paihanglist", method = RequestMethod.GET)
 	public String listpaihang(Model model) {
 		List<Song> list = new ArrayList<Song>();
-		list = ss.getsong();
+		list = ss.getSongByPaiHang(20);
 		model.addAttribute("list", list);
 		return "Paihangbang";
 	}
@@ -286,4 +286,44 @@ public List<Playlist> listgedanajax(@PathVariable(value="typename")String typena
 	}
 	
 
+	/**
+	 * 获取收藏数量前十的歌曲作为排行榜前十
+	 */
+	@RequestMapping(value = "/tuijianpaihang", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Song> getSongByPaiHang() {
+		List<Song> biaoshenlist = ss.getSongByPaiHang(10);
+		return biaoshenlist;
+	}
+
+	/**
+	 * 获取新歌榜前十（倒序前十）
+	 */
+	@RequestMapping(value = "/tuijiannewsong", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Song> getNewSong() {
+		List<Song> newsonglist = ss.getNewSong(10);
+		return newsonglist;
+	}
+	
+	/**
+	 * 获取新歌榜前十（倒序前十）
+	 */
+	@RequestMapping(value = "/paihangnewsong", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Song> getPaihangNewSong() {
+		List<Song> newsonglist = ss.getNewSong(20);
+		return newsonglist;
+	}
+	
+	/**
+	 * 获取收藏数量前十的歌曲作为排行榜前十
+	 */
+	@RequestMapping(value = "/paihangbiaoshen", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Song> getSongByBiaoshen() {
+		List<Song> biaoshenlist = ss.getSongByPaiHang(20);
+		return biaoshenlist;
+	}
+	
 }
