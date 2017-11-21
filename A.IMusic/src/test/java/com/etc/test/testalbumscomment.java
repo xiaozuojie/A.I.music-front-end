@@ -5,33 +5,26 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.etc.dao.AlbumsDao;
-import com.etc.entity.Albums;
-public class testalbums {  
-	AlbumsDao ao=null;
+import com.etc.dao.AlbumscommentDao;
+import com.etc.entity.Albumscomment;
+public class testalbumscomment {  
+	AlbumscommentDao ad=null;
 	
 	@Before
 	public void init() {
 		ApplicationContext context=new ClassPathXmlApplicationContext("applicationContext.xml","mybatis-config.xml");
-		ao=context.getBean(AlbumsDao.class);
+		ad=context.getBean(AlbumscommentDao.class);
 		
 	}
 	@Test
     public void test() {
-    	List<Albums> list=ao.allalubms();
-    	for (Albums albums : list) {
-			System.out.println(albums);
+    	List<Albumscomment> list=ad.allAlbumscomment(25);
+    	 for (Albumscomment albumsinfo : list) {
+			System.out.println(albumsinfo);
 		}
     	
     }
-	@Test
-    public void test1() {
-    	List<Albums> list=ao.allalubmstime();
-    	for (Albums albums : list) {
-			System.out.println(albums);
-		}
-    	
-    }
+	
 	
 	
 }

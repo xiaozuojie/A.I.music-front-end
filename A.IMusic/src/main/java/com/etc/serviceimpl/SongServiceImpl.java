@@ -24,4 +24,9 @@ public class SongServiceImpl implements SongService {
 		return sd.getallsong();
 	}
 
+	public List<Song> getsongalbumsid(String albumsname) {
+		// TODO Auto-generated method stub
+		return sd.allsongalbumsname(albumsname);
+	}
+
 }

@@ -8,6 +8,9 @@
 	<select id="getallsong" resultType="com.etc.entity.Song">
 		select * from Song order by colletionnumber desc
 	</select>
+	<select id="allsongalbumsname" resultType="com.etc.entity.Song">
+		select * from Song where albumsName=#{albumsname}
+	</select>
 	<!-- 自定义一个结果的映射 -->
 <!-- 	<resultMap type="com.etc.entity.Blog" id="BlogMap">
 		指定主属性

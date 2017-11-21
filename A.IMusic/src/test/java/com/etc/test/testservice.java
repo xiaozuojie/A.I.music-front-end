@@ -31,5 +31,13 @@ public class testservice {
 			System.out.println(albums);
 		}
 	}
+	@Test
+	public void test3() {
+		List<Albums> list=as.getallalbumssingername("ÍõÁ¦ºê");
+		for (Albums albums : list) {
+			System.out.println(albums);
+		}
+	}
+	
 
 }

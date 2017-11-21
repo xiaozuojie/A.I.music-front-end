@@ -14,5 +14,7 @@ public List<Singer> getSingerbysix();
  * 前10个入驻歌手
  */
 public List<Singer> getSingerbyten();
-
+/**
+ * 
+ */
 }

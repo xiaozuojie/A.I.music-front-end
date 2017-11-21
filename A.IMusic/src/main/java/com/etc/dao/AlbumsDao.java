@@ -2,6 +2,8 @@ package com.etc.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.etc.entity.Albums;
 
 public interface AlbumsDao {
@@ -16,8 +18,14 @@ public interface AlbumsDao {
 	 */
     public List<Albums> allalubmstime();
     /**
-	 * 根据id获取专辑详情
-	 * @return
-	 */
-    public List<Albums> allalubms(int albumsid);
+     * 根据专辑id获取专辑详情
+     * 
+     */
+    public List<Albums> allalbumsid(int albumsid);
+    /**
+     * 根据歌手名获取其相关专辑
+     * 
+     */
+    public List<Albums> allalbumssinger(@Param(value="singername") String singername);
+    
 }

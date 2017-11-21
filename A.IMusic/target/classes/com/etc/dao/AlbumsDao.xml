@@ -11,6 +11,12 @@
 	<select id="allalubmstime" resultMap="AlbumsMap">
 		SELECT * FROM albums ORDER BY issueTime DESC
 	</select> 
+	<select id="allalbumsid" resultMap="AlbumsMap">
+		SELECT * FROM albums where albumsId=#{albumsid}
+	</select> 
+	<select id="allalbumssinger" resultMap="AlbumsMap">
+		SELECT * FROM albums where singerName=#{singername}
+	</select> 
 	<!-- 自定义一个结果的映射 -->
 	<resultMap type="com.etc.entity.Albums" id="AlbumsMap">
 		<!-- 指定主属性 -->

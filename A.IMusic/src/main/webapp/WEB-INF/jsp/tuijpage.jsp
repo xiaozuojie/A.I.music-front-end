@@ -28,7 +28,8 @@
     <ul>
     <c:if test="${listzhuanjinumber!=null}">
     <c:forEach items="${listzhuanjinumber}" var="zhuanji">
-        <li class="tupianxe" ><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面2.jpg" />${zhuanji.albumsId}</li>
+        <li class="tupianxe" ><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面2.jpg" />${zhuanji.albumsId}     
+        </li>
     </c:forEach>
    </c:if>
     </ul>
@@ -59,11 +60,11 @@
 				<div  class="rementuijian" >
 				<ul>
 					<li><span class="glyphicon glyphicon-record" style="color: red;font-weight: 1000;"></span><a href="#" style="text-decoration: none;font-weight: 600; font-size: 17px;color: #202020;">热门推荐</a></li>					
-					<li><a href="#">流行</a></li>
-					<li ><a href="#">古风</a></li>
-					<li><a href="#">民谣</a></li>
-					<li><a href="#">摇滚</a></li>
-					<li><a href="#">电子</a></li>
+					<li><a href="gedanlist">流行</a></li>
+					<li ><a href="gedanlist">古风</a></li>
+					<li><a href="gedanlist">民谣</a></li>
+					<li><a href="gedanlist">摇滚</a></li>
+					<li><a href="gedanlist">电子</a></li>
 				</ul>
 			    </div>
 			    <div id="" class="rementuijiangengduo" style="width: 30%;">
@@ -90,7 +91,7 @@
 		               	<a href="" class="dagedantupian"><img src="bootstrap/musicimage/mainpageimage/封面1.jpg"/ height="150px" width="100%">	
 		          </a>
 		               <div class="bofangtubiao" style="position: absolute;margin-top: -20px;">
-		             	  <p><span class="glyphicon glyphicon-headphones" style="margin-left: 10px;"></span>	          	  	
+		             	  <p><span class="glyphicon glyphicon-headphones" style="margin-left: 25px;"></span>	          	  	
 		             	  	${gedan.playlistComments}
 		             	  <a href="#"  style="margin-left: 80px;" class="rementupian">
 		                   <span class="glyphicon glyphicon-expand" ></span>            
@@ -144,17 +145,19 @@
       <c:forEach items="${listzhuanjitime}" var="zhuanji">
    	 <div id="" class="xindiediyi"  style="float:left; width: 20%;height: 200px;padding-bottom: 8px; text-align: center;padding-right: 8px;margin-top: 20px;" >
 		               <div id=""style="">
-		               	<a href=""><img src="bootstrap/musicimage/mainpageimage/封面4.jpg"/ height="135px" width="100%">	
+		               	<a class="zhuanjitupian"><img src="bootstrap/musicimage/mainpageimage/封面4.jpg"/ height="135px" width="100%">	
+		            <h5 class="zhuanid">${zhuanji.albumsId}</h5>	
 		          </a>
 		               <div  style="position: absolute;margin-top: -30px;">
 		             	  <p>
-		             	  <a href="#" style="margin-left: 114px;" class="zhuajitupian">
+		             	  <a  class="zhuanjibofang" title="${zhuanji.albumsName}" style="margin-left: 114px;" >
                           <span class="glyphicon glyphicon-expand botupiao" style="color:#FFF5EE;margin-top: 8px;" ></span>
                           </a>
 		             	  </p> 		             			             	  		             	
 		             </div>             
 		             </div>		 	    	
-	               <a href="" style="color: RGB(72,72,72);">${zhuanji.singerName}</a>			   					    	
+	               <a href="#"   style="color: RGB(72,72,72);">${zhuanji.singerName}</a>	
+	               	   					    	
 	</div>
       </c:forEach>
       </c:if>
@@ -393,7 +396,12 @@
    $(function(){
    
    	$(".botupiao").hide();
+   	$(".albumsName").hide();
+   	$(".singerName").hide();
+   	$(".zhuanid").hide();
    	$(".rementupian").hover().css("cursor", "pointer");
+	$(".zhuanjitupian").hover().css("cursor", "pointer");
+	$(".zhuanjibofang").hover().css("cursor", "pointer");
    	$(".xindiediyi").mouseover(function(){
         $(this).find(".botupiao").show();
      });
@@ -406,14 +414,19 @@
     	var aa="播放";
         window.parent.$.judgelogin(aa);     
     })
-
- 
  })
-   
- /*    $(".tupianxe").click(function(){
-    	alert($(this).text());	
+   //推荐轮播点击事件
+   $(".tupianxe").click(function(){
+	   var zhuanjiid=parseInt($(this).text());
+	   location.href="zhuanjixiangqing?zhuanjiid="+zhuanjiid;
+		 
     })  
-   */
+    //新碟上架点击事件
+    $(".zhuanjitupian").click(function(){
+        var zhuanjiid=parseInt($(this).find(".zhuanid").text());
+        location.href="zhuanjixiangqing?zhuanjiid="+zhuanjiid;
+    });	
+  
     
 
 

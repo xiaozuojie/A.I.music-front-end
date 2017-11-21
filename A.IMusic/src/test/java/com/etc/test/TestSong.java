@@ -32,4 +32,12 @@ public class TestSong {
 		}
 
 	}
+	@Test
+	public void getAllBlog1() {
+		List<Song> list = songdao.allsongalbumsname("∏« ¿”¢–€");
+		for (Song song : list) {
+			System.out.println(song);
+		}
+
+	}
 }

@@ -21,5 +21,14 @@ public class AlbumsServiceimpl implements AlbumsService {
 		// TODO Auto-generated method stub
 		return ad.allalubmstime();
 	}
+	public List<Albums> getallalbumsid(int albumsid) {
+		// TODO Auto-generated method stub
+		return ad.allalbumsid(albumsid);
+	}
+	public List<Albums> getallalbumssingername(String singername) {
+		// TODO Auto-generateds method stub
+		return ad.allalbumssinger(singername);
+	}
+	
 
 }

@@ -218,7 +218,7 @@
 
 
 			<div class='jAudio--player'
-				style="position: fixed; width: 70px; margin-left: -185px; margin-top: -1800px; background-image: url(bootstrap/musicjs/1jpg.jpg); background-size: 400px 100px; background-repeat: no-repeat;">
+				style="position: fixed; width: 70px; margin-left: -270px; margin-top: -1710px; background-image: url(bootstrap/musicjs/1jpg.jpg); background-size: 400px 100px; background-repeat: no-repeat;">
 
 				<audio></audio>
 
@@ -348,9 +348,8 @@
 		});
 		$.extend({
 			'judgelogin' : function(th) {
-				if (th != null) {
-					var funk = "keyi";
-					$.aaa(funk);
+				if (th != null) {			
+					alert("父页面");
 				}
 			}
 		});

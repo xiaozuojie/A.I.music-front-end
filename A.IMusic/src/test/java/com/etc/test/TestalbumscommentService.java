@@ -6,35 +6,34 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.etc.entity.Albumscomment;
+import com.etc.entity.Singer;
 import com.etc.entity.Song;
+import com.etc.service.AlbumsService;
+import com.etc.service.Albumscommentservice;
+import com.etc.service.SingerService;
 import com.etc.service.SongService;
 
-public class TestSongService {
+public class TestalbumscommentService {
 
 	
-	SongService ss = null;
+	Albumscommentservice ae = null;
 
 	@Before
 	public void init() {
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml","mybatis-config.xml");
 
-		ss = context.getBean(SongService.class);
+		ae = context.getBean(Albumscommentservice.class);
 	}
 
 	@Test
 	public void getallsongs() {
-		List<Song> list = ss.getsong();
-		for (Song Song : list) {
-			System.out.println(Song);
+		List<Albumscomment> list = ae.getallalbumscomment(25);
+		for (Albumscomment albumscomment : list) {
+			System.out.println(albumscomment);
 		}
-
+      
 	}
-	@Test
-	public void getallsongs1() {
-		List<Song> list = ss.getsongalbumsid("∏« ¿”¢–€");
-		for (Song Song : list) {
-			System.out.println(Song);
-		}
-
-	}
+ 
 }

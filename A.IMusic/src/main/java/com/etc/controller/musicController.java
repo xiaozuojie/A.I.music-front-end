@@ -1,6 +1,8 @@
 package com.etc.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -10,13 +12,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.etc.entity.Albums;
+import com.etc.entity.Albumscomment;
+import com.etc.entity.Comments;
 import com.etc.entity.Playlist;
 import com.etc.entity.Singer;
 import com.etc.entity.Song;
 import com.etc.service.AlbumsService;
+import com.etc.service.Albumscommentservice;
+import com.etc.service.CommentsService;
 import com.etc.service.PlayListService;
 import com.etc.service.SingerService;
 import com.etc.service.SongService;
@@ -31,7 +38,11 @@ public class musicController {
 	private SongService ss;
 	@Resource
 	private SingerService sis;
-
+	@Resource
+	private Albumscommentservice ace;
+   //专辑评论
+	@Resource
+	private CommentsService coms;
 	/**
 	 * 首页
 	 */
@@ -59,8 +70,8 @@ public class musicController {
 		// 按照歌单的收藏数，获取前10张歌单
 		List<Playlist> listgedannumber = new ArrayList<Playlist>();
 		List<Playlist> listgedan = ps.getallplaylist();
-		if (listgedan.size() > 10) {
-			listgedannumber = listgedan.subList(0, 10);
+		if (listgedan.size() > 8) {
+			listgedannumber = listgedan.subList(0, 8);
 		} else {
 			listgedannumber = listgedan.subList(0, listgedan.size());
 		}
@@ -70,7 +81,6 @@ public class musicController {
 		if (listsinger.size()<5) {
 			listsinger = listsinger.subList(0, listsinger.size());
 		}
-		
 		model.addAttribute("listsinger", listsinger);
 		model.addAttribute("listzhuanjinumber", listzhuanjinumber);
 		model.addAttribute("listzhuanjitime", listzhuanjitime);
@@ -104,18 +114,14 @@ public class musicController {
 	 */
 	@RequestMapping(value = "/gedanlist/{typename}", method = RequestMethod.GET)
 	@ResponseBody
-
-public List<Playlist> listgedanajax(@PathVariable(value="typename")String typename)
+   public List<Playlist> listgedanajax(@PathVariable(value="typename")String typename)
 	{	
-		List<Playlist> listajax=new ArrayList<Playlist>();
-
-		System.out.println("到了");
+		List<Playlist> listajax=new ArrayList<Playlist>();		
 		if(typename.equals("所有")) {
 			listajax=ps.getallplaylistbytypename("");
 		}else {
 			listajax=ps.getallplaylistbytypename(typename);
 		}
-		System.out.println(listajax);
 		return listajax;
 	}
 
@@ -137,7 +143,64 @@ public List<Playlist> listgedanajax(@PathVariable(value="typename")String typena
 		model.addAttribute("alllistzhuanjiti", alllistzhuanjiti);
 		return "xindieshangjia";
 	}
-
+	/**
+	 * 根据专辑id获取的详情页面
+	 */
+    @RequestMapping(value="/zhuanjixiangqing",method=RequestMethod.GET) 
+	public String zhuanjimore(int zhuanjiid,Model model){	
+    	//专辑详情
+    	List<Albums> albumsmore=as.getallalbumsid(zhuanjiid);
+    	String albumsname=albumsmore.get(0).getAlbumsName();
+    	String singername=albumsmore.get(0).getSingerName();
+        //专辑的评论
+        List<Albumscomment> Albumscomment=ace.getallalbumscomment(zhuanjiid);  
+    	//根据歌手名这歌手的相关的专辑
+    	List<Albums> albumsother=as.getallalbumssingername(singername);         
+    	//根据专辑名这专辑里面的歌曲
+    	
+    	List<Song> albumssinger=ss.getsongalbumsid(albumsname);   	
+        model.addAttribute("albumsmore", albumsmore);
+    	model.addAttribute("Albumscomment", Albumscomment);
+    	model.addAttribute("albumsother", albumsother);
+    	model.addAttribute("albumssinger", albumssinger);
+		return "zhuangjipage";	
+	}
+    /**
+     * 点赞事件的
+     */
+    @RequestMapping(value = "/albumsdianzan", method = RequestMethod.GET)
+    @ResponseBody
+	public String albumddianzan(int commentid,int zannumber) {
+    	zannumber=zannumber+1;
+    	
+    	return "Mymusic";
+	}
+    /**
+     * 专辑评论
+     */
+    @RequestMapping(value="/zhuanjipinglun/{zhuanjiid}", method = RequestMethod.GET)
+    @ResponseBody
+    public List<Albumscomment> addcomment(@PathVariable(value="zhuanjiid")int zhuanjiid,String usercomment){	
+    	//获取用户当前评论时间
+    	Date now = new Date(); 
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//可以方便地修改日期格式
+		String usernow = dateFormat.format(now); 
+    	Comments usercomments=new Comments(4, usernow, usercomment, "二哈", zhuanjiid);
+    	coms.gaddcomments(usercomments);
+    	List<Albumscomment> zhuajiajax=ace.getallalbumscomment(zhuanjiid); 
+    	return zhuajiajax;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 	/**
 	 * 我的音乐
 	 */
