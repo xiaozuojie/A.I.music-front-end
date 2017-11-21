@@ -12,16 +12,35 @@ import com.etc.service.SongService;
 @Service
 public class SongServiceImpl implements SongService {
 
-	
 	@Resource
 	private SongDao sd;
-	
+
 	/**
-	 * 按收藏数量来得到飙升版的歌单数据
+	 * 获取新歌榜前十（倒序前十）
 	 */
-	public List<Song> getsong() {
+	public List<Song> getNewSong(int size) {
+		// TODO Auto-generated method stub
+		return sd.getNewSong(size);
+	}
+
+	/**
+	 * 获取收藏数量前十的歌曲作为排行榜前十
+	 */
+	public List<Song> getSongByPaiHang(int size) {
+		// TODO Auto-generated method stub
+		return sd.getSongByPaiHang(size);
+	}
+
+	/**
+	 * 排行榜页面
+	 * 
+	 * @return
+	 */
+	public List<Song> getallsong() {
 		// TODO Auto-generated method stub
 		return sd.getallsong();
 	}
 
+	
+	
 }

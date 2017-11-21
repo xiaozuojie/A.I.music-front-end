@@ -165,10 +165,13 @@
 											</thead>
 											<div id="gequ">
 												<tbody class="tbodyxra">
-													<!-- <tr>
-														<td>1</td>
-														<td><a href="javascript:void(0);">我杰哥的嘴</a></td>
-														<td><div class="shicang" style="display: block;">4:24</div>
+												<%int i=0;%>
+												<c:forEach items="${list}" var="song">
+													<%i++;%>
+													<tr>
+														<td><%=i%></td>
+														<td><a href="javascript:void(0);">${song.songName}</a></td>
+														<td><div class="shicang" style="display: block;">${song.songTime}</div>
 															<div id="1" class="xiazai btn-group"
 																style="display: none; background-color: white; margin-top: -18px;">
 																<a href="javascript:void(0);"
@@ -180,8 +183,10 @@
 																	<span class="glyphicon glyphicon-log-out"
 																	style="color: #101010"></span></a>
 															</div></td>
-														<td><a href="javascript:void(0);">杰哥床边的故事</a></td>
-													</tr> -->
+														<td><a href="javascript:void(0);">${song.singerName}</a></td>
+													</tr>
+													
+												</c:forEach>
 												</tbody>
 											</div>
 
@@ -227,16 +232,22 @@
 		$("#yiyuebang").text("音乐飙升榜");										
 		$("#tupian4").attr('src','bootstrap/musicimage/mymusic/飙升榜.jpg');
 		$(".tbodyxra tr").remove();
-		  $(".tbodyxra").append("<tr><td>1</td><td><a href='javascript:void(0);'>我杰哥的嘴</a>"+
-					"</td><td><div class='shicang' style='display: block;'>4:24</div>"+
-					"<div id='1' class='xiazai btn-group' style='display: none; background-color: white; margin-top: -18px;'>"+
-					"<a href='javascript:void(0);' style='text-decoration: none;'>"+
-					"<span class='glyphicon glyphicon-download-alt'  style='color:#101010'></span>"+
-					"<span class='glyphicon glyphicon-play' id='bofang2'></span>"+
-					"<span class='glyphicon glyphicon-pause' id='bofang1'></span>"+
-	                "<span class='glyphicon glyphicon-log-out' style='color:#101010'></span></a></div></td><td>"+
-					"<a href='javascript:void(0);'>杰哥床边的故事</a></td>"+
-					"</tr>"); 
+		var i=0;
+		$.get("paihangbiaoshen",function(biaoshenlist,status){
+			$.each(biaoshenlist,function(index,biaoshenlist){
+				i++;
+				$(".tbodyxra").append("<tr><td>"+i+"</td><td><a href='javascript:void(0);'>"+biaoshenlist.songName+"</a>"+
+						"</td><td><div class='shicang' style='display: block;'>"+biaoshenlist.songTime+"</div>"+
+						"<div id='1' class='xiazai btn-group' style='display: none; background-color: white; margin-top: -18px;'>"+
+						"<a href='javascript:void(0);' style='text-decoration: none;'>"+
+						"<span class='glyphicon glyphicon-download-alt'  style='color:#101010'></span>"+
+						"<span class='glyphicon glyphicon-play' id='bofang2'></span>"+
+						"<span class='glyphicon glyphicon-pause' id='bofang1'></span>"+
+		                "<span class='glyphicon glyphicon-log-out' style='color:#101010'></span></a></div></td><td>"+
+						"<a href='javascript:void(0);'>"+biaoshenlist.singerName+"</a></td>"+
+						"</tr>");
+			})
+		}); 
 			
 		})
 		
@@ -244,17 +255,22 @@
 		$("#yiyuebang").text("音乐新歌榜");
 		$("#tupian4").attr('src','bootstrap/musicimage/mymusic/新歌榜.jpg');	
 		$(".tbodyxra tr").remove();
-		  $(".tbodyxra").append("<tr><td>1</td><td><a href='javascript:void(0);'>我杰哥的嘴</a>"+
-					"</td><td><div class='shicang' style='display: block;'>4:24</div>"+
-					"<div id='1' class='xiazai btn-group' style='display: none; background-color: white; margin-top: -18px;'>"+
-					"<a href='javascript:void(0);' style='text-decoration: none;'>"+
-					"<span class='glyphicon glyphicon-download-alt'  style='color:#101010'></span>"+
-					"<span class='glyphicon glyphicon-play' id='bofang2'></span>"+
-					"<span class='glyphicon glyphicon-pause' id='bofang1'></span>"+
-	                "<span class='glyphicon glyphicon-log-out' style='color:#101010'></span></a></div></td><td>"+
-					"<a href='javascript:void(0);'>王力宏</a></td>"+
-					"</tr>");
-			 
+		var i=0;
+		$.get("paihangnewsong",function(newsonglist,status){
+			$.each(newsonglist,function(index,newsonglist){
+				i++;
+				$(".tbodyxra").append("<tr><td>"+i+"</td><td><a href='javascript:void(0);'>"+newsonglist.songName+"</a>"+
+						"</td><td><div class='shicang' style='display: block;'>"+newsonglist.songTime+"</div>"+
+						"<div id='1' class='xiazai btn-group' style='display: none; background-color: white; margin-top: -18px;'>"+
+						"<a href='javascript:void(0);' style='text-decoration: none;'>"+
+						"<span class='glyphicon glyphicon-download-alt'  style='color:#101010'></span>"+
+						"<span class='glyphicon glyphicon-play' id='bofang2'></span>"+
+						"<span class='glyphicon glyphicon-pause' id='bofang1'></span>"+
+		                "<span class='glyphicon glyphicon-log-out' style='color:#101010'></span></a></div></td><td>"+
+						"<a href='javascript:void(0);'>"+newsonglist.singerName+"</a></td>"+
+						"</tr>");
+			})
+		});
 		})
 		})
 		

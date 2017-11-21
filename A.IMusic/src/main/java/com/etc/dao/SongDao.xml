@@ -17,6 +17,13 @@
 		<result property="blogContent" column="content" />
 	</resultMap> -->
 	
+	<select id="getSongByPaiHang" resultType="com.etc.entity.Song">
+		select * from Song order by colletionnumber desc limit 0,#{size}
+	</select>
+	
+	<select id="getNewSong" resultType="com.etc.entity.Song">
+		select * from Song order by songId desc limit 0,#{size}
+	</select>
 	
 </mapper>
 
