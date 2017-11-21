@@ -23,5 +23,12 @@ public class SongServiceImpl implements SongService {
 		// TODO Auto-generated method stub
 		return sd.getallsong();
 	}
+	/**
+	 * 根据歌手的姓名来获取其中的歌手按照收藏排行的前20首歌曲
+	 */
+	public List<Song> getsongbysingerName(String singername) {
+		// TODO Auto-generated method stub
+		return sd.getSingerSongbycollect(singername);
+	}
 
 }

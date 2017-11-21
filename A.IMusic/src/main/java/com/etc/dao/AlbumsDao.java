@@ -20,4 +20,8 @@ public interface AlbumsDao {
 	 * @return
 	 */
     public List<Albums> allalubms(int albumsid);
+    /**
+     * 根据歌手的姓名来获取歌手所有专辑
+     */
+    public List<Albums> allalubmsbysingername(String singername);
 }

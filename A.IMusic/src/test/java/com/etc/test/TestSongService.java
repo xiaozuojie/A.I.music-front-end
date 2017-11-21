@@ -29,4 +29,13 @@ public class TestSongService {
 		}
 
 	}
+	
+	@Test
+	public void getallsongsbysingername() {
+		List<Song> list = ss.getsongbysingerName("Ѧ֮ǫ");
+		for (Song Song : list) {
+			System.out.println(Song);
+		}
+
+	}
 }

@@ -21,5 +21,9 @@ public class AlbumsServiceimpl implements AlbumsService {
 		// TODO Auto-generated method stub
 		return ad.allalubmstime();
 	}
+	public List<Albums> getallalbumsbysingername(String singername) {
+		// TODO Auto-generated method stub
+		return ad.allalubmsbysingername(singername);
+	}
 
 }

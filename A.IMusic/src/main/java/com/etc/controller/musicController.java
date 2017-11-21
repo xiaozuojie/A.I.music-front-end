@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.etc.entity.Albums;
@@ -108,14 +109,12 @@ public class musicController {
 public List<Playlist> listgedanajax(@PathVariable(value="typename")String typename)
 	{	
 		List<Playlist> listajax=new ArrayList<Playlist>();
-
-		System.out.println("到了");
 		if(typename.equals("所有")) {
 			listajax=ps.getallplaylistbytypename("");
 		}else {
 			listajax=ps.getallplaylistbytypename(typename);
 		}
-		System.out.println(listajax);
+	
 		return listajax;
 	}
 
@@ -124,9 +123,100 @@ public List<Playlist> listgedanajax(@PathVariable(value="typename")String typena
 	 */
 	@RequestMapping(value = "/singermorepagelist", method = RequestMethod.GET)
 	public String listsinger(Model model) {
+
+		List<Singer> listsingerten=new ArrayList<Singer>();
+		List<Singer> listsingerremen=new ArrayList<Singer>();
+		//获取前面10个人作为入驻歌手
+		listsingerten=sis.getSingerbysten();
+		//获取收藏前面的10个人作为热门的歌手
+		
+		listsingerremen=sis.getSingerbyremen();
+		model.addAttribute("listsingerremen",listsingerremen);
+		model.addAttribute("listsingerten",listsingerten);		
 		return "singermorepage";
 	}
-
+	/**
+	 * 歌手页面的ajax返回值 所有的入驻歌手信息
+	 * @param typename
+	 * @return
+	 */
+	@RequestMapping(value = "/geshouall", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Singer> listSingerallsinger(){
+		List<Singer> listallsinger=new ArrayList<Singer>();
+		listallsinger=sis.getallsinger();
+		return listallsinger;
+	}
+/**
+ * 歌手页面的ajax 返回值是所有的推荐歌手的信息
+ * 
+ */
+	@RequestMapping(value="/tuijiandegeshouxinxi", method=RequestMethod.GET)
+	@ResponseBody
+	public List<Singer> listgetallsingertuijian(){
+		List<Singer> listbyshouchang=new ArrayList<Singer>();		
+		listbyshouchang=sis.getallSingerbyshouchang();
+		return listbyshouchang;
+	}
+	/**
+	 * 歌曲页面跳转到详情页面
+	 */
+	@RequestMapping(value="/xiangqingjiemian",method=RequestMethod.GET)
+	public String listgetallsingerinfo(int op,Model model){
+		List<Singer> listSinger=new ArrayList<Singer>();
+		List<Song> listsong=new ArrayList<Song>();
+	
+		//获取歌手的基本信息
+	    listSinger=sis.getallSinerbyId(op);
+	 
+		//获取歌手的编号
+		String Singername=listSinger.get(0).getSingerName();
+	    //获取歌手的热门歌曲信息
+        listsong=ss.getsongbysingerName(Singername);
+	
+	    model.addAttribute("listsong", listsong);
+		model.addAttribute("listSinger", listSinger);
+		return "singermore";
+	}
+	/**
+	 * 歌手详情界面的ajax返回值(热门的歌曲)
+	 */
+	
+	@RequestMapping(value="/remendanqu",method=RequestMethod.GET)
+	@ResponseBody
+	public List<Song> listgetallsingerturnyourself(String a){
+		List<Song> listsong=new ArrayList<Song>();
+		//根据歌手的姓名来获取歌手的热门歌曲
+		listsong=ss.getsongbysingerName(a);
+		return listsong;
+	}
+	/**
+	 * 歌手详情界面的ajax返回值(歌手的个人信息 个人简介)
+	 */
+	
+	@RequestMapping(value="/remendanqu123",method=RequestMethod.GET)
+	@ResponseBody
+	public List<Singer> listgetallsingertings(String a){
+		List<Singer> listsingername=new ArrayList<Singer>();
+		//根据歌手的姓名来获取歌手个人简介
+		listsingername=sis.getallsingerinfobysingername(a);
+		return listsingername;
+	}	
+	/**
+	 * 歌手详情界面的ajax返回值(歌手的专辑信息)
+	 */
+	
+	@RequestMapping(value="/zhuanjixinxi",method=RequestMethod.GET)
+	@ResponseBody
+	public List<Albums> listgetallzhuanji(String a){
+		List<Albums> listgetallzhuanji=new ArrayList<Albums>();
+		//根据歌手的姓名来获取歌手个人简介
+		listgetallzhuanji=as.getallalbumsbysingername(a);
+		return listgetallzhuanji;
+	}	
+	
+	
+	
 	/**
 	 * 新碟专辑页面
 	 */
@@ -194,5 +284,6 @@ public List<Playlist> listgedanajax(@PathVariable(value="typename")String typena
 	public String gerenzhongxin(Model model) {
 		return "gerenzhongxin";
 	}
+	
 
 }

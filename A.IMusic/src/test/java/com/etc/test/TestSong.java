@@ -32,4 +32,13 @@ public class TestSong {
 		}
 
 	}
+	
+	@Test
+	public void getAllsongbyname() {
+		List<Song> list = songdao.getSingerSongbycollect("Ѧ֮ǫ");
+		for (Song song : list) {
+			System.out.println(song);
+		}
+
+	}
 }

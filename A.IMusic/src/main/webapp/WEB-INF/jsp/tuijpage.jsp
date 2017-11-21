@@ -330,7 +330,7 @@
 	时间：2017-11-12
 	描述：右侧的歌手推荐表
 -->
-            <div class="col-md-4 column xraright" style="border: 1px solid #C0C0C0 ;width:23%; height: 550px;">
+            <div class="col-md-4 column xraright" style="border: 1px solid #C0C0C0 ;width:23%; height: 500px;">
 			<div id="" class="youcegeshou" >
 			    <h6 style="display: inline-block;color: black;">入驻歌手</h6>
 			   <h6 style="display: inline-block;margin-left: 80px;"><a href="singermorepagelist" style="color:#A9A9A9; ">查看更多></a></h6>

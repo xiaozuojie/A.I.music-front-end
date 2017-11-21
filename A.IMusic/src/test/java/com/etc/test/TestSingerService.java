@@ -41,4 +41,46 @@ public class TestSingerService {
 		}
 
 	}
+	@Test
+	public void getallsinger() {
+		List<Singer> list = ss.getallsinger();
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
+	@Test
+	public void getallsingerbydesc() {
+		List<Singer> list = ss.getallSingerbyshouchang();
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
+	@Test
+	public void getallsingerbyid() {
+		List<Singer> list = ss.getallSinerbyId(4);
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
+	
+	
+	@Test
+	public void getallsingerbysingername() {
+		List<Singer> list = ss.getallSinerbyId(4);
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
+	@Test
+	public void getallsinger123bysingername() {
+		List<Singer> list = ss.getallsingerinfobysingername("Ѧ֮ǫ");
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
 }

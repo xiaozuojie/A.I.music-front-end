@@ -44,4 +44,54 @@ public class TestSinger {
 		}
 
 	}
+	@Test
+	public void singerremeng() {
+		List<Singer> list = singerdao.getSingerbyremeng();
+
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
+	
+	@Test
+	public void singerall() {
+		List<Singer> list = singerdao.getallSinger();
+
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
+	@Test
+	public void singerallbysinggershouc() {
+		List<Singer> list = singerdao.getallSingerbydesc();
+
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
+	
+	@Test
+	public void singerallbysinggerbyid() {
+		List<Singer> list = singerdao.getoneSingerbyId(4);
+	
+
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
+	
+	@Test
+	public void singerallbysinggerbysingername() {
+		List<Singer> list = singerdao.getsingerinfobySingname("Ѧ֮ǫ");
+	
+
+		for (Singer singer : list) {
+			System.out.println(singer);
+		}
+
+	}
 }

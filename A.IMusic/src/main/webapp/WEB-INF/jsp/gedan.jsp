@@ -129,7 +129,7 @@
 		$(".gedantype").click(function(){
 			var typename=$(this).find("a").text();
 			$("#m-pl-container li").remove();	
-			$.get("gedanlist/"+typename,function(listajax,status){					
+			$.get("geshouall",function(listallsinger,status){					
 			$.each(listajax, function(index,gedan) {
 			$("#m-pl-container").append("<li style=''>"+
 					"<div class='u-cover u-cover-1' style=' width: 18%; height: 190px; float: left;'>"+
