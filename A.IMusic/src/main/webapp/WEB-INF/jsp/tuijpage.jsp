@@ -47,22 +47,6 @@
 		
 <!--
 
--->
-		<div id="box">
-			<pre class="prev">prev</pre>
-			<pre class="next">next</pre>
-			<ul>
-				<c:if test="${listzhuanjinumber!=null}">
-					<c:forEach items="${listzhuanjinumber}" var="zhuanji">
-						<li class="tupianxe"><img width="240px" height="240px"
-							src="bootstrap/musicimage/mainpageimage/封面2.jpg" />${zhuanji.albumsId}</li>
-					</c:forEach>
-				</c:if>
-			</ul>
-		</div>
-
-		<!--
-
 	作者：offline
 	时间：2017-11-11
 	描述：轮播滚动结束
@@ -84,24 +68,6 @@
 	  描述：热门推荐开始
 
          -->	
-			<div class="col-md-8 column" style=" width: 75%; margin: 0px;padding: 0px;padding-left: 10px;margin-right: 10px;">		
-	
-				<div  class="rementuijian" >
-				<ul>
-					<li><span class="glyphicon glyphicon-record" style="color: red;font-weight: 1000;"></span><a href="#" style="text-decoration: none;font-weight: 600; font-size: 17px;color: #202020;">热门推荐</a></li>					
-					<li><a href="gedanlist">流行</a></li>
-					<li ><a href="gedanlist">古风</a></li>
-					<li><a href="gedanlist">民谣</a></li>
-					<li><a href="gedanlist">摇滚</a></li>
-					<li><a href="gedanlist">电子</a></li>
-				</ul>
-			    </div>
-			    <div id="" class="rementuijiangengduo" style="width: 30%;">
-			    	<a href="gedanlist" >更多</a><span class="glyphicon glyphicon-arrow-right" style="color: red;margin-right: 10px;"></span>
-			    </div>
-			              	        
- <!-- 描述：横线   --> <div id="" style="border-top: 2px solid #D80000;margin-top: 40px;margin-right: 10px;"> </div>
-			    	
 						<div class="col-md-8 column"
 							style="width: 75%; margin: 0px; padding: 0px; padding-left: 10px; margin-right: 10px;">
 
@@ -162,37 +128,6 @@
 			    </c:forEach>
 			    </c:if>
 			     
-								<c:if test="${listgedannumber!=null}">
-									<c:forEach items="${listgedannumber}" var="gedan">
-										<div id="" class="rementuibofangqi"
-											style="float: left; width: 25%; height: 200px; padding-bottom: 8px; text-align: left; padding-right: 8px;">
-											<div title="${gedan.playlistName}" id=""
-												style="padding-bottom: 5px;">
-												<a href="" class="dagedantupian"><img
-													src="bootstrap/musicimage/mainpageimage/封面1.jpg"
-													/ height="150px" width="100%"> </a>
-												<div class="bofangtubiao"
-													style="position: absolute; margin-top: -20px;">
-													<p>
-														<span class="glyphicon glyphicon-headphones"
-															style="margin-left: 10px;"></span>
-														${gedan.playlistComments} <a href="#"
-															style="margin-left: 80px;" class="rementupian"> <span
-															class="glyphicon glyphicon-expand"></span>
-														</a>
-													</p>
-												</div>
-											</div>
-											<a href="" style="color: RGB(72, 72, 72);">${gedan.playlistName}</a>
-										</div>
-									</c:forEach>
-								</c:if>
-								<!-- 
-
-                	作者：offline
-                	时间：2017-11-12
-                	描述：第一歌单结束
-                -->
 
 
 
@@ -225,46 +160,7 @@
 			    </div>
 			              	        
              
-   <!-- 描述：横线   --> <div id="" style="border-top: 2px solid #D80000;margin-top: 40px;margin-right: 10px;"> </div>
-   <div id="" style="height: 200px;background-color: rgb(245,245,245); margin-right: 10px;margin-top: 15px;border: 1px solid #E0E0E0;">
-   	  <c:if test="${listzhuanjitime!=null}">
-      <c:forEach items="${listzhuanjitime}" var="zhuanji">
-   	 <div id="" class="xindiediyi"  style="float:left; width: 20%;height: 200px;padding-bottom: 8px; text-align: center;padding-right: 8px;margin-top: 20px;" >
-		               <div id=""style="">
-		               	<a class="zhuanjitupian"><img src="bootstrap/musicimage/mainpageimage/封面4.jpg"/ height="135px" width="100%">	
-		            <h5 class="zhuanid">${zhuanji.albumsId}</h5>	
-		          </a>
-		               <div  style="position: absolute;margin-top: -30px;">
-		             	  <p>
-		             	  <a  class="zhuanjibofang" title="${zhuanji.albumsName}" style="margin-left: 114px;" >
-                          <span class="glyphicon glyphicon-expand botupiao" style="color:#FFF5EE;margin-top: 8px;" ></span>
-                          </a>
-		             	  </p> 		             			             	  		             	
-		             </div>             
-		             </div>		 	    	
-	               <a href="#"   style="color: RGB(72,72,72);">${zhuanji.singerName}</a>	
-	               	   					    	
-	</div>
-      </c:forEach>
-      </c:if>
-
-							<div id=""
-								style="height: 260px; width: 100%; border: 1px solid white; margin-top: 70px;">
-								<div class="rementuijian">
-									<ul>
-										<li><span class="glyphicon glyphicon-record"
-											style="color: red; font-weight: 1000;"></span><a href="#"
-											style="text-decoration: none; font-weight: 600; font-size: 17px; color: #202020;">新碟上架</a></li>
-									</ul>
-								</div>
-								<div id="" class="rementuijiangengduo" style="width: 30%;">
-									<a href="xindieshangjialist">更多</a><span
-										class="glyphicon glyphicon-arrow-right"
-										style="color: red; margin-right: 10px;"></span>
-								</div>
-
-
-
+  
 								<!-- 描述：横线   -->
 								<div id=""
 									style="border-top: 2px solid #D80000; margin-top: 40px; margin-right: 10px;">
@@ -385,17 +281,7 @@
 			    <h6 style="display: inline-block;color: black;">入驻歌手</h6>
 			   <h6 style="display: inline-block;margin-left: 80px;"><a href="singermorepagelist" style="color:#A9A9A9; ">查看更多></a></h6>
 			</div>
-			<!--横线--> <div id="" style="border-top: 1px solid 	#D3D3D3;"></div>
-          
-
-						<div class="col-md-4 column xraright"
-							style="border: 1px solid #C0C0C0; width: 23%; height: 550px;">
-							<div id="" class="youcegeshou">
-								<h6 style="display: inline-block; color: black;">入驻歌手</h6>
-								<h6 style="display: inline-block; margin-left: 80px;">
-									<a href="singermorepagelist" style="color: #A9A9A9;">查看更多></a>
-								</h6>
-							</div>
+			
 							<!--横线-->
 							<div id="" style="border-top: 1px solid #D3D3D3;"></div>
 							<!--
