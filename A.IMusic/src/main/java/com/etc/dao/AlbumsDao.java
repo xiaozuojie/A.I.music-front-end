@@ -18,6 +18,7 @@ public interface AlbumsDao {
 	 */
     public List<Albums> allalubmstime();
     /**
+<<<<<<< HEAD
      * 根据专辑id获取专辑详情
      * 
      */
@@ -28,4 +29,13 @@ public interface AlbumsDao {
      */
     public List<Albums> allalbumssinger(@Param(value="singername") String singername);
     
+     /*
+	 * 根据id获取专辑详情
+	 * @return
+	 */
+    public List<Albums> allalubms(int albumsid);
+    /**
+     * 根据歌手的姓名来获取歌手所有专辑
+     */
+    public List<Albums> allalubmsbysingername(String singername);
 }

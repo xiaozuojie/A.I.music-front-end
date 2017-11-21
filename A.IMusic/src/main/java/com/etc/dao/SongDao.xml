@@ -8,8 +8,15 @@
 	<select id="getallsong" resultType="com.etc.entity.Song">
 		select * from Song order by colletionnumber desc
 	</select>
+
 	<select id="allsongalbumsname" resultType="com.etc.entity.Song">
 		select * from Song where albumsName=#{albumsname}
+     </select>
+	
+	
+	<!--根据歌手的编号来获取他按收藏排序的前20首歌曲-->
+	<select id="getSingerSongbycollect" resultType="com.etc.entity.Song">
+		select * from Song where singerName=#{singername}  order by colletionnumber desc  limit 0,20                 
 	</select>
 	<!-- 自定义一个结果的映射 -->
 <!-- 	<resultMap type="com.etc.entity.Blog" id="BlogMap">
@@ -20,6 +27,13 @@
 		<result property="blogContent" column="content" />
 	</resultMap> -->
 	
+	<select id="getSongByPaiHang" resultType="com.etc.entity.Song">
+		select * from Song order by colletionnumber desc limit 0,#{size}
+	</select>
+	
+	<select id="getNewSong" resultType="com.etc.entity.Song">
+		select * from Song order by songId desc limit 0,#{size}
+	</select>
 	
 </mapper>
 

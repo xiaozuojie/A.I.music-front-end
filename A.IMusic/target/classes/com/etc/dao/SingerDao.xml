@@ -6,14 +6,40 @@
 	
 	<!-- 再解释 select id 就是接口中的方法名 使用了自定义的resultMap,此时resultType属性就要删除咯 -->
 	<select id="getSingerbysix" resultType="com.etc.entity.Singer">
-		select *  from Singer  limit    0,6   
+		select *  from Singer  limit    0,5   
 	</select>
 	
 	<!-- 获取前面10个入驻歌手 -->
 	<select id="getSingerbyten" resultType="com.etc.entity.Singer">
 		select *  from Singer  limit    0,10   
 	</select>
-	<!-- 自定义一个结果的映射 -->
+
+	<!-- 获取前面10个入驻歌手 -->
+	<select id="getSingerbyremeng" resultType="com.etc.entity.Singer">
+		select *  from Singer order by  collection desc limit    0,10   
+	</select>
+	
+	<!-- 获取所有的入驻歌手的信息 -->	
+	<select id="getallSinger" resultType="com.etc.entity.Singer">
+		select *  from Singer    
+	</select>
+	<!--按收藏来排列所有的歌手  -->	
+	<select id="getallSingerbydesc" resultType="com.etc.entity.Singer">
+		select *  from Singer  order by  collection desc
+	</select>
+	<!-- 根据歌手的编号来获取歌手的信息 -->
+	
+	<select id="getoneSingerbyId" resultType="com.etc.entity.Singer">
+		select *  from Singer where singerId=#{singerId}
+	</select>
+	
+	
+	<!-- 根据歌手的姓名来获取歌手的信息 -->
+	
+	<select id="getsingerinfobySingname" resultType="com.etc.entity.Singer">
+		select *  from Singer where singerName=#{singername}
+	</select>
+	
 <!-- 	<resultMap type="com.etc.entity.Blog" id="BlogMap">
 		指定主属性
 		<id property="id" column="id" />

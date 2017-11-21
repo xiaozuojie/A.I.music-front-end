@@ -24,14 +24,15 @@ public class TestSong {
 	}
 
 	@Test
-	public void getAllBlog() {
-		List<Song> list = songdao.getallsong();
+	public void getNewSong() {
+		List<Song> list = songdao.getNewSong(10);
 
 		for (Song song : list) {
 			System.out.println(song);
 		}
 
 	}
+
 	@Test
 	public void getAllBlog1() {
 		List<Song> list = songdao.allsongalbumsname("∏« ¿”¢–€");
@@ -40,4 +41,7 @@ public class TestSong {
 		}
 
 	}
+
+	
+
 }

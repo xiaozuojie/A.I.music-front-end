@@ -11,19 +11,34 @@ import com.etc.service.SongService;
 
 public class TestSongService {
 
-	
 	SongService ss = null;
 
 	@Before
 	public void init() {
-		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml","mybatis-config.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml", "mybatis-config.xml");
 
 		ss = context.getBean(SongService.class);
 	}
 
 	@Test
-	public void getallsongs() {
-		List<Song> list = ss.getsong();
+	public void getNewSong() {
+		List<Song> list = ss.getNewSong(10);
+		for (Song Song : list) {
+			System.out.println(Song);
+		}
+	}
+	
+	@Test
+	public void getSongByPaiHang() {
+		List<Song> list = ss.getSongByPaiHang(10);
+		for (Song song : list) {
+			System.out.println(song);
+		}
+	}
+	
+	@Test
+	public void getallsongsbysingername() {
+		List<Song> list = ss.getsongbysingerName("Ѧ֮ǫ");
 		for (Song Song : list) {
 			System.out.println(Song);
 		}
