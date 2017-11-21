@@ -19,8 +19,7 @@
 	href="bootstrap/Musiccss/tuijpage.css" />
 <link rel="stylesheet" type="text/css"
 	href="bootstrap/Musiccss/lunbocss.css" />
-<link rel="stylesheet" type="text/css"
-	href="bootstrap/Musiccss/audio.css" />
+
 	
 <title></title>
 </head>
@@ -169,6 +168,7 @@
 									style="height: 200px; background-color: rgb(245, 245, 245); margin-right: 10px; margin-top: 15px; border: 1px solid #E0E0E0;">
 									<c:if test="${listzhuanjitime!=null}">
 										<c:forEach items="${listzhuanjitime}" var="zhuanji">
+										
 											<div id="" class="xindiediyi"
 												style="float: left; width: 20%; height: 200px; padding-bottom: 8px; text-align: center; padding-right: 8px; margin-top: 20px;">
 												<div id="" style="">
@@ -290,8 +290,10 @@
            	时间：2017-11-13
            	描述：歌手头像、名字、介绍开始
            -->
-							<div id="" style="height: 510px;">
+							<div  style="height: 510px;">
 								<c:forEach items="${listsinger}" var="listsinger">
+								<div class="woshigeshou">
+								<h5  class='dianjibianhao12345' hidden >${listsinger.singerId}</h5>
 									<!-- 第一个-->
 									<div id="" style="height: 80px; margin: 5px 0px;">
 										<div id="" style="float: left;">
@@ -305,7 +307,9 @@
 											<h5 style="margin-top: 14px; margin-right: 50px">${listsinger.location}</h5>
 										</div>
 									</div>
+									</div>
 								</c:forEach>
+								</div>
 							</div>
 							<!--
            	作者：offline
@@ -335,7 +339,15 @@
     */
 
    $(function(){
-   
+	   $(document).on("click",".woshigeshou",function(){
+			
+			//注意参数的传递 json格式		
+			 var a= $(this).find(".dianjibianhao12345").text();
+			console.log(a);
+		  	location.href="xiangqingjiemian?op="+a;     
+			
+			});		
+	   
    	$(".botupiao").hide();
    	$(".albumsName").hide();
    	$(".singerName").hide();

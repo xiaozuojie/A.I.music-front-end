@@ -306,7 +306,7 @@
 								"<a href=''><img src='bootstrap/musicimage/mainpageimage/封面1.jpg' / height='150px' width='150px' style='padding: 8px;'>"+
 								"</a>"+				
 							"</div>"+
-							"<div id='zi' style='padding-top: 10px; padding-left: 50px;'>"+
+							"<div id='zi' style='padding-top: 10px; padding-left: 15px;'>"+
 								"<a href='' style='color:RGB(72,72,72);'>"+listgetallzhuanji.albumsName+"</a>"+
 							"</div>"+
 						"</div>"+

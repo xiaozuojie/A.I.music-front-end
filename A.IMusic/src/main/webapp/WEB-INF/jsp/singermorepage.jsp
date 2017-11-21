@@ -61,8 +61,9 @@
 				
 				$.each(listbyshouchang,function(index,listbyshouchang){
 					
-					$(".img").append("<div style=' float: left;  width: 20%; height: 200px; border: 0px solid black;'>"+
+					$(".img").append("<div style=' float: left;  width: 20%; height: 200px; border: 0px solid black;' class='nicaibucai'>"+
 							"<div style='padding: 17px; width: 100%; height: 154px; border: 0px solid #3E8F3E;' align='center'>"+
+							"<h5  class='dianjibianhao12345' hidden >"+listbyshouchang.singerId+"</h5>"+
 							"<a href='#' title='"+listbyshouchang.singerName+"'><img src='bootstrap/musicimage/mainpageimage/1.jpg' /></a>"+
 						"</div>"+
 						"<p style='margin-top: 14px;' align='center'>"+
@@ -74,6 +75,15 @@
 				
 				
 			})
+			//获取并传值	
+			$(document).on("click",".nicaibucai",function(){
+			
+				//注意参数的传递 json格式		
+				 var a= $(this).find(".dianjibianhao12345").text();
+				
+			 	location.href="xiangqingjiemian?op="+a;   
+				
+				});		
 				  
 				
 			})
@@ -90,9 +100,9 @@
 $.get("geshouall",function(listallsinger,status){
     $.each(listallsinger,function(index,listallsinger){
    	 
-        $(".img").append("<div style=' float: left;  width: 20%; height: 200px; border: 0px solid black; id='nicai''>"+
+        $(".img").append("<div style=' float: left;  width: 20%; height: 200px; border: 0px solid black;' class='nicai1'>"+
     				"<div style='padding: 17px; width: 100%; height: 154px; border: 0px solid #3E8F3E;' align='center'>"+
-    				"<h5  class='dianjibianhao1234'>"+listallsinger.singerId+"</h5>"+
+    				"<h5  class='dianjibianhao1234' hidden >"+listallsinger.singerId+"</h5>"+
     					"<a href='#' title='"+listallsinger.singerName+"'><img src='bootstrap/musicimage/mainpageimage/1.jpg' /></a>"+
     				"</div>"+
     				"<p style='margin-top: 14px;' align='center'>"+
@@ -107,11 +117,12 @@ $.get("geshouall",function(listallsinger,status){
 	})
 
 			//获取并传值	
-	$(document).on("click",".img",function(){
+	$(document).on("click",".nicai1",function(){
+	
 		//注意参数的传递 json格式		
 		 var a= $(this).find(".dianjibianhao1234").text();
-		alert(a);
-	 	location.href="xiangqingjiemian?op="+a; 
+		
+	 	location.href="xiangqingjiemian?op="+a;   
 		
 		});		 
 			
