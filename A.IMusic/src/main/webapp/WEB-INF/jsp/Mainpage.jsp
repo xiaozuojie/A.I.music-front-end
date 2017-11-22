@@ -32,7 +32,6 @@
 
 .jAudio--status-bar {
 	position: absolute;
-
 	margin-top: -80px;
 }
 
@@ -251,7 +250,6 @@
 
 				<div class='jAudio--playlist'
 					style="background-image: url(bootstrap/musicjs/1jpg.jpg);"></div>
-				<input type="button" class="bofang" name="" id="" value="播放" />
 				<div class='jAudio--controls'
 					style="background-image: url(bootstrap/musicjs/1jpg.jpg);">
 					<ul>

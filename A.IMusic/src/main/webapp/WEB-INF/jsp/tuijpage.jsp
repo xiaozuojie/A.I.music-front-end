@@ -172,9 +172,12 @@
 											<div id="" class="xindiediyi"
 												style="float: left; width: 20%; height: 200px; padding-bottom: 8px; text-align: center; padding-right: 8px; margin-top: 20px;">
 												<div id="" style="">
-													<a href=""><img
+													<a class="zhuanjitupian"><img
 														src="bootstrap/musicimage/mainpageimage/封面4.jpg"
-														/ height="135px" width="100%"> </a>
+														 height="135px" width="100%">
+														 
+														<h5 class="zhuanid">${zhuanji.albumsId}</h5>
+														  </a>
 													<div style="position: absolute; margin-top: -30px;">
 														<p>
 															<a href="#" style="margin-left: 114px;"
@@ -299,7 +302,7 @@
 										<div id="" style="float: left;">
 											<!-- 歌手头像-->
 											<img height="75px" width="85px"
-												src="bootstrap/musicimage/mainpageimage/cover4.jpg" />
+												src="http://192.168.9.248:8080/AlMusic/${listsinger.singerImage}" />
 										</div>
 										<div id="" style="float: right; text-align: center;">
 											<!--名字、介绍 -->
@@ -381,11 +384,6 @@
         location.href="zhuanjixiangqing?zhuanjiid="+zhuanjiid;
     });	
   
-    
-
-
-
-
 
    </script>
    <script type="text/javascript">

@@ -62,11 +62,12 @@
 													<div id="ces" hidden>${listSinger.singerName}</div>
 														<h2 id="artist-name" data-rid="10559" class="sname f-thide sname-max" title="张惠妹 - aMEI;阿密特">${listSinger.singerName}</h2>
 														<h4 id="artist-alias" class="salias f-thide" style="margin-top: 4%; color: gray;" title="张惠妹 - aMEI;阿密特">${listSinger.location}</h4>
-														</c:forEach>
-														</c:if>
+														
 														<a id="artist-sub" style="margin-left: 395px;margin-top: 25px;" href="javascript:void(0)" class="btnfav f-tid"><span class="glyphicon glyphicon-star"></span>收藏</a>
 													</div>
-													<img style="width: 95%;" src="http://p3.music.126.net/-JxOlVRUl3OFqNkCIu9dlw==/678398674363509.jpg?param=640y300">
+													<img style="width: 95%;" src="http://192.168.9.248:8080/AlMusic/${listSinger.singerImage}">
+													</c:forEach>
+														</c:if>
 													<div class="mask f-alpha"></div>
 												</div>
 												<div id="" style="background-color:rgb(192,12,12) ; margin: 0 5% ; width:90%; height: 3px;">
@@ -303,7 +304,7 @@
 				$("tbody").append("<div class='albuum'>"+
 						"<div id='' class='rementuibofangqi' style='float:left;text-align: left;'>"+
 							"<div id='' style='padding-bottom: 5px;'>"+
-								"<a href=''><img src='bootstrap/musicimage/mainpageimage/封面1.jpg' / height='150px' width='150px' style='padding: 8px;'>"+
+								"<a href=''><img src='http://192.168.9.248:8080/AlMusic/"+listgetallzhuanji.albumsImage+"'  height='150px' width='150px' style='padding: 8px;'>"+
 								"</a>"+				
 							"</div>"+
 							"<div id='zi' style='padding-top: 10px; padding-left: 15px;'>"+
