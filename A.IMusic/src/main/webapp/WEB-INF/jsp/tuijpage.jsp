@@ -75,11 +75,11 @@
 									<li><span class="glyphicon glyphicon-record"
 										style="color: red; font-weight: 1000;"></span><a href="#"
 										style="text-decoration: none; font-weight: 600; font-size: 17px; color: #202020;">热门推荐</a></li>
-									<li><a href="#">流行</a></li>
-									<li><a href="#">古风</a></li>
-									<li><a href="#">民谣</a></li>
-									<li><a href="#">摇滚</a></li>
-									<li><a href="#">电子</a></li>
+									<li><a href="gedanlist">流行</a></li>
+									<li><a href="gedanlist">古风</a></li>
+									<li><a href="gedanlist">民谣</a></li>
+									<li><a href="gedanlist">摇滚</a></li>
+									<li><a href="gedanlist">电子</a></li>
 								</ul>
 							</div>
 							<div id="" class="rementuijiangengduo" style="width: 30%;">
