@@ -32,7 +32,6 @@
 
 .jAudio--status-bar {
 	position: absolute;
-	
 	margin-top: -80px;
 }
 

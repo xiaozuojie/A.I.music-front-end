@@ -64,7 +64,7 @@
 					$(".img").append("<div style=' float: left;  width: 20%; height: 200px; border: 0px solid black;' class='nicaibucai'>"+
 							"<div style='padding: 17px; width: 100%; height: 154px; border: 0px solid #3E8F3E;' align='center'>"+
 							"<h5  class='dianjibianhao12345' hidden >"+listbyshouchang.singerId+"</h5>"+
-							"<a href='#' title='"+listbyshouchang.singerName+"'><img src='bootstrap/musicimage/mainpageimage/1.jpg' /></a>"+
+							"<a href='#' title='"+listbyshouchang.singerName+"'><img src='http://192.168.9.248:8080/AlMusic/"+listbyshouchang.singerImage+"' style='width:170px ;height:160px;padding:10px' /></a>"+
 						"</div>"+
 						"<p style='margin-top: 14px;' align='center'>"+
 							"<a href='#' title='"+listbyshouchang.singerName+"' style='font-size: 20px;'>"+listbyshouchang.singerName+"</a>"+
@@ -103,7 +103,7 @@ $.get("geshouall",function(listallsinger,status){
         $(".img").append("<div style=' float: left;  width: 20%; height: 200px; border: 0px solid black;' class='nicai1'>"+
     				"<div style='padding: 17px; width: 100%; height: 154px; border: 0px solid #3E8F3E;' align='center'>"+
     				"<h5  class='dianjibianhao1234' hidden >"+listallsinger.singerId+"</h5>"+
-    					"<a href='#' title='"+listallsinger.singerName+"'><img src='bootstrap/musicimage/mainpageimage/1.jpg' /></a>"+
+    					"<a href='#' title='"+listallsinger.singerName+"'><img src='http://192.168.9.248:8080/AlMusic/"+listallsinger.singerImage+"'  style='width:170px ;height:160px;padding:10px' /></a>"+
     				"</div>"+
     				"<p style='margin-top: 14px;' align='center'>"+
     					"<a href='#' title='"+listallsinger.singerName+"' style='font-size: 20px;'>"+listallsinger.singerName+"</a>"+
@@ -193,7 +193,7 @@ $.get("geshouall",function(listallsinger,status){
 									style="padding: 17px; width: 100%; height: 154px; border: 0px solid #3E8F3E;"
 									align="center">
 									<a href="#" title="${listsingerten.singerName}"><img
-										src="bootstrap/musicimage/mainpageimage/1.jpg" /></a>
+										src="http://192.168.9.248:8080/AlMusic/${listsingerten.singerImage}"  style="width:170px ;height:160px;padding:10px"/></a>
 								</div>
 								<p style="margin-top: 14px;" align="center">
 									<a href="#" title="${listsingerten.singerName}"
@@ -219,7 +219,7 @@ $.get("geshouall",function(listallsinger,status){
 								<div
 									style="padding: 17px; width: 100%; height: 154px; border: 0px solid #3E8F3E;"
 									align="center">
-									<img src="bootstrap/musicimage/mainpageimage/11.jpg" />
+									<img src="http://192.168.9.248:8080/AlMusic/${listsingerremen.singerImage}"  style="width:170px ;height:160px;padding:10px" />
 								</div>
 								<p style="margin-top: 14px;" align="center">
 									<a href="#">${listsingerremen.singerName}</a>

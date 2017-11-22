@@ -302,7 +302,7 @@
 										<div id="" style="float: left;">
 											<!-- 歌手头像-->
 											<img height="75px" width="85px"
-												src="bootstrap/musicimage/mainpageimage/cover4.jpg" />
+												src="http://192.168.9.248:8080/AlMusic/${listsinger.singerImage}" />
 										</div>
 										<div id="" style="float: right; text-align: center;">
 											<!--名字、介绍 -->
