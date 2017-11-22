@@ -26,13 +26,13 @@
 }
 
 .jAudio--ui {
-	height: 120px;
-	border: 1px solid red;
+	height: 100px;
+	border: 1px solid blue;
 }
 
 .jAudio--status-bar {
 	position: absolute;
-	border: 1px solid blue;
+
 	margin-top: -80px;
 }
 
