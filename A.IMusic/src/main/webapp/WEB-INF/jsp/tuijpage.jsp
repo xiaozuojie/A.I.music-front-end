@@ -172,9 +172,12 @@
 											<div id="" class="xindiediyi"
 												style="float: left; width: 20%; height: 200px; padding-bottom: 8px; text-align: center; padding-right: 8px; margin-top: 20px;">
 												<div id="" style="">
-													<a href=""><img
+													<a class="zhuanjitupian"><img
 														src="bootstrap/musicimage/mainpageimage/封面4.jpg"
-														/ height="135px" width="100%"> </a>
+														 height="135px" width="100%">
+														 
+														<h5 class="zhuanid">${zhuanji.albumsId}</h5>
+														  </a>
 													<div style="position: absolute; margin-top: -30px;">
 														<p>
 															<a href="#" style="margin-left: 114px;"
@@ -381,11 +384,6 @@
         location.href="zhuanjixiangqing?zhuanjiid="+zhuanjiid;
     });	
   
-    
-
-
-
-
 
    </script>
    <script type="text/javascript">
