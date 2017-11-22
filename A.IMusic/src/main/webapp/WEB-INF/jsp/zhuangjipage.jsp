@@ -44,7 +44,7 @@
 				<c:if test="${albumsmore!=null}">
 				<c:forEach items="${albumsmore}" var="zhuanji">
 				<div  class="zhuyao"  style="width: 90%;float: right; height: 40px; ">
-					<img id="tupian4" width="170px" height="170px" src="bootstrap/musicimage/mainpageimage/头像.jpg"/>
+					<img id="tupian4" width="170px" height="170px" src="http://192.168.9.248:8080/AlMusic/${zhuanji.albumsImage}"/>
 					<div id="tupian4-1" >
           <span class="glyphicon glyphicon-align-right"style="  color: red;"></span>
      <h3>${zhuanji.albumsName}</h3><br />
@@ -133,7 +133,7 @@
         		<c:forEach items="${Albumscomment}" var="Albumscomment">
         		<li style="margin-left: -35px;">
         		<div  class="tupian1" style=" float: left;" >
-        			<img height="55px" width="55px" src="bootstrap/musicimage/mainpageimage/cover.png"/>
+        			<img height="55px" width="55px" src="http://192.168.9.248:8080/AlMusic/${Albumscomment.userImage}"/>
         		</div>	
         		
         		<div id="personpl" style="width: 80%;" >
@@ -179,7 +179,7 @@
                    <c:forEach items="${albumsother}" var="albumsother">
             	<li style="margin-left: -25px;">
             		<div id="tupian3" style=" float: left;">
-            			<img  width="55px" height="55px"  src="bootstrap/musicimage/mainpageimage/cover2.jpg"/>
+            			<img  width="55px" height="55px"  src="http://192.168.9.248:8080/AlMusic/${albumsother.albumsImage}"/>
             		</div>
             		<div id="tupianmingzi">
             			<span style="margin-top: 5px;">&nbsp;&nbsp;&nbsp;&nbsp;${albumsother.albumsName}</span><br /><br />

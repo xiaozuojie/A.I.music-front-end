@@ -37,7 +37,7 @@
     <ul>
     <c:if test="${listzhuanjinumber!=null}">
     <c:forEach items="${listzhuanjinumber}" var="zhuanji">
-        <li class="tupianxe" ><img width="240px" height="240px" src="bootstrap/musicimage/mainpageimage/封面2.jpg" />${zhuanji.albumsId}     
+        <li class="tupianxe" ><img width="240px" height="240px" src="http://192.168.9.248:8080/AlMusic/${zhuanji.albumsImage}" />${zhuanji.albumsId}     
         </li>
     </c:forEach>
    </c:if>
@@ -111,7 +111,7 @@
                 <c:forEach items="${listgedannumber}" var="gedan">
 			    <div id="" class="rementuibofangqi"  style="float:left; width: 25%;height: 200px;padding-bottom: 8px; text-align: left;padding-right: 8px;" >
 		               <div title="${gedan.playlistName}" id=""  style="padding-bottom: 5px;">
-		               	<a href="" class="dagedantupian"><img src="bootstrap/musicimage/mainpageimage/封面1.jpg"/ height="150px" width="100%">	
+		               	<a href="" class="dagedantupian"><img src="http://192.168.9.248:8080/AlMusic/${gedan.playlistImage}"/ height="150px" width="100%">	
 		          </a>
 		               <div class="bofangtubiao" style="position: absolute;margin-top: -20px;">
 		             	  <p><span class="glyphicon glyphicon-headphones" style="margin-left: 25px;"></span>	          	  	
@@ -173,7 +173,7 @@
 												style="float: left; width: 20%; height: 200px; padding-bottom: 8px; text-align: center; padding-right: 8px; margin-top: 20px;">
 												<div id="" style="">
 													<a class="zhuanjitupian"><img
-														src="bootstrap/musicimage/mainpageimage/封面4.jpg"
+														src="http://192.168.9.248:8080/AlMusic/${zhuanji.albumsImage}"
 														 height="135px" width="100%">
 														 
 														<h5 class="zhuanid">${zhuanji.albumsId}</h5>
@@ -236,7 +236,7 @@
 									<div id=""
 										style="height: 500px; width: 49%; padding: 10px; float: left; margin-top: 15px;">
 										<div id="">
-											<img src="bootstrap/musicimage/mainpageimage/cover3.jpg" />
+											<img src="bootstrap/musicimage/mymusic/飙升榜.jpg" />
 											<a href="paihanglist"
 												style="color: #696969; font-size: 14px; font-weight: 700;">A.I.爱音乐飙升榜</a>
 										</div>
@@ -252,7 +252,7 @@
 									<div id=""
 										style="height: 500px; width: 49%; float: left; padding: 10px; margin-top: 15px;">
 										<div id="">
-											<img src="bootstrap/musicimage/mainpageimage/cover2.jpg" />
+											<img  src="bootstrap/musicimage/mymusic/新歌榜.jpg" />
 											<a href="paihanglist"
 												style="color: #696969; font-size: 14px; font-weight: 700;">A.I.爱音乐新歌榜</a>
 										</div>

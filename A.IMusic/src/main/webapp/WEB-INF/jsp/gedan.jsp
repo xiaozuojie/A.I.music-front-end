@@ -84,7 +84,7 @@
 									<c:forEach items="${listgedan}" var="gedan">  
 									<li style="">
 											<div class="u-cover u-cover-1" style=" width: 18%; height: 190px; float: left;">
-												<img title="${gedan.playlistName}" class="j-flag" height="150px" width="140px" src="bootstrap/musicimage/deipian/3.jpg">
+												<img title="${gedan.playlistName}" class="j-flag" height="150px" width="140px" src="http://192.168.9.248:8080/AlMusic/${gedan.playlistImage}">
 												<a  href="#" class="msk"></a>
 												<div class="bottom" style="text-overflow:ellipsis; white-space:nowrap;overflow:hidden;width:140px;">
 													<a class="icon-play f-fr"  href="javascript:;" data-res-type="13" data-res-id="937264651" data-res-action="play"></a>
@@ -133,7 +133,7 @@
 			$.each(listajax, function(index,gedan) {
 			$("#m-pl-container").append("<li style=''>"+
 					"<div class='u-cover u-cover-1' style=' width: 18%; height: 190px; float: left;'>"+
-						"<img class='j-flag' height='150px' width='140px' src='bootstrap/musicimage/deipian/3.jpg'>"+
+						"<img class='j-flag' height='150px' width='140px' src='http://192.168.9.248:8080/AlMusic/"+gedan.playlistImage+"'>"+
 						"<a title='"+gedan.playlistName+"' href='#' class='msk'></a>"+
 						"<div class='bottom' style=' text-overflow:ellipsis; white-space:nowrap;overflow:hidden;width:140px;'>"+
 							"<a class='icon-play f-fr' title='播放' href='javascript:;' data-res-type='13' data-res-id='937264651' data-res-action='play'></a>"+
