@@ -274,16 +274,7 @@
 		var a=$(this).find(".songid").text();
 	    window.parent.$.judgelogin(a); 
 		});
-		//音乐飙升榜中的歌曲被点击的时候
-		/* $(document).on("click",".yinyue",function(){ 
-			//这里需要获取这首歌曲的音频地址、图片地址、歌曲名、歌手名、和trackAlbum : "Single" 这里只能用list
-			//歌曲的编号
-		var a=$(this).find(".songid").text();
-	    window.parent.$.judgelogin(a); 
-		});
-		 */
-		
-		
+
 		
 		})
 		
