@@ -92,6 +92,11 @@
 			<td>${zhuanjige.songName}</td>
 			<td>${zhuanjige.songTime}</td>
 			<td>${zhuanjige.singerName}</td>
+	<td> <a class="glyphicon glyphicon-save" style="color: rgb(51,122,183)" href="http://192.168.9.248:8080/AlMusic/${zhuanjige.songlocation}" download="${zhuanjige.songName}"></a></td>
+			<td class='yinyue'><h4 hidden  class="songid">${zhuanjige.songId}</h4>
+	    				  <a href="#"><span class="glyphicon glyphicon-music"></span></a>
+	    				 </td>
+	    				<td><a href="#"><span class="glyphicon glyphicon-plus"></span></a></td>
 		</tr>
 	</c:forEach>
 	</c:if>
@@ -272,6 +277,19 @@
 		    }
 	  
    	})
+   	
+   	
+   	
+  //音乐播放的歌曲编号传递到父页面
+	$(document).on("click",".yinyue",function(){ 
+		//这里需要获取这首歌曲的音频地址、图片地址、歌曲名、歌手名、和trackAlbum : "Single" 这里只能用list
+		//歌曲的编号
+	var a=$(this).find(".songid").text();
+	
+    window.parent.$.judgelogin(a);  
+	});
+   	
+   	
 
 });
 
