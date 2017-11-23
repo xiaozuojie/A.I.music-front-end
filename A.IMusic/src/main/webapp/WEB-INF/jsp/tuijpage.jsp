@@ -302,15 +302,15 @@
 								<h5  class='dianjibianhao12345' hidden >${listsinger.singerId}</h5>
 									<!-- 第一个-->
 									<div id="" style="height: 80px; margin: 5px 0px;">
-										<div id="" style="float: left;">
+										<div  id="" style="float: left;">
 											<!-- 歌手头像-->
-											<img height="75px" width="85px"
-												src="http://192.168.9.248:8080/AlMusic/${listsinger.singerImage}" />
+											<a href='javascript:void(0);'><img  height="75px" width="85px"
+												src="http://192.168.9.248:8080/AlMusic/${listsinger.singerImage}" /></a>
 										</div>
 										<div id="" style="float: right; text-align: center;">
 											<!--名字、介绍 -->
-											<h4 style="margin-top: 14px; margin-right: 35px">${listsinger.singerName}</h4>
-											<h5 style="margin-top: 14px; margin-right: 50px">${listsinger.location}</h5>
+											<a href='javascript:void(0);'><h4 style="margin-top: 14px; margin-right: 35px">${listsinger.singerName}</h4></a>
+											<a href='javascript:void(0);'><h5 style="margin-top: 14px; margin-right: 50px">${listsinger.location}</h5></a>
 										</div>
 									</div>
 									</div>
@@ -397,8 +397,13 @@
 	    		i++
 	    		$("#biaoshen").append("<tr><td>"+i+"</td>"+
 	    				"<td>"+biaoshenlist.songName+"</td>"+
-	    				"<td><a href='#'><span class='glyphicon glyphicon-music'></span></a></td>"+
-	    				"<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td></tr>");
+	    				"<td class='yinyue'>"+
+	    				"<div class='biaoshengban'>"+
+	    				"<h4 hidden  class='songid'>"+biaoshenlist.songId+"</h4>"+
+	    				"<a href='#'><span class='glyphicon glyphicon-music'></span></a></td></div>"+
+	    				"<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
+	    	            "<td> <a class='glyphicon glyphicon-save' style='color: rgb(51,122,183)' href='"+"http://192.168.9.248:8080/AlMusic/"+biaoshenlist.songlocation+"' download='"+biaoshenlist.songName+"'></a></td>"+
+                        "</tr>");
 	    	});
 	    });
 	   });
@@ -411,11 +416,34 @@
 	    		i++
 	    		$("#newsong").append("<tr><td>"+i+"</td>"+
 	    				"<td>"+newsonglist.songName+"</td>"+
-	    				"<td><a href='#'><span class='glyphicon glyphicon-music'></span></a></td>"+
-	    				"<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td></tr>");
+	    				"<td class='yinyue'>"+
+	    				"<div class='paihangban'>"+
+	    				"<h4 hidden  class='songid'>"+newsonglist.songId+"</h4>"+
+	    				"<a ><span class='glyphicon glyphicon-music'></span></a></td></div>"+
+	    				"<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
+	    				"<td> <a class='glyphicon glyphicon-save' style='color: rgb(51,122,183)' href='"+"http://192.168.9.248:8080/AlMusic/"+newsonglist.songlocation+"' download='"+newsonglist.songName+"'></a></td>"+
+	    				"</tr>");
 	    	});
 	    });
 	   });
+	
+	//音乐新歌榜被点击的时候
+	$(document).on("click",".paihangban",function(){ 
+		//这里需要获取这首歌曲的音频地址、图片地址、歌曲名、歌手名、和trackAlbum : "Single" 这里只能用list
+		//歌曲的编号
+	var a=$(this).find(".songid").text();
+	window.parent.$.judgeloginsong(a);
+	});
+	//音乐飙升榜被点击的时候
+	$(document).on("click",".biaoshengban",function(){ 
+		//这里需要获取这首歌曲的音频地址、图片地址、歌曲名、歌手名、和trackAlbum : "Single" 这里只能用list
+		//歌曲的编号
+	var a=$(this).find(".songid").text();
+	window.parent.$.judgeloginsong(a);
+	});
+	
+	
+	 	
 	
 	</script>
 </body>

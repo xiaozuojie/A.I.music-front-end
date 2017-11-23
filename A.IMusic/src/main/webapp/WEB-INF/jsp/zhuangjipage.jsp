@@ -92,6 +92,11 @@
 			<td>${zhuanjige.songName}</td>
 			<td>${zhuanjige.songTime}</td>
 			<td>${zhuanjige.singerName}</td>
+	<td> <a class="glyphicon glyphicon-save" style="color: rgb(51,122,183)" href="http://192.168.9.248:8080/AlMusic/${zhuanjige.songlocation}" download="${zhuanjige.songName}"></a></td>
+			<td class='yinyue'><h4 hidden  class="songid">${zhuanjige.songId}</h4>
+	    				  <a href="#"><span class="glyphicon glyphicon-music"></span></a>
+	    				 </td>
+	    				<td><a href="#"><span class="glyphicon glyphicon-plus"></span></a></td>
 		</tr>
 	</c:forEach>
 	</c:if>
@@ -233,11 +238,12 @@
 	
 
 <script type="text/javascript">
+
+
    	$(function(){
    	$(".zhuanjidianzan").hover().css("cursor", "pointer");
    	$(".commentid").hide();
    	$("#pinglunzhuanjiid").hide();
-   	
 		$(".zhuanjidianzan").click(function(){
 			if ($(this).css("color")=="#080808") {
 				$(this).css("color", "#C12E2A");
@@ -254,7 +260,7 @@
 		 			$.each(zhuajiajax, function(index,zhuanjicomment) {
 		 				$(".zhuanjilun").append("<li style='margin-left: -35px;'>"+
 		 		        		"<div  class='tupian1' style=' float: left;' >"+
-		 		        			"<img height='55px' width='55px' src='http://192.168.9.248:8080/AlMusic/"+${zhuanjicomment.userImage}+"'/>"+
+		 		        			"<img height='55px' width='55px' src='http://192.168.9.248:8080/AlMusic/"+zhuanjicomment.userImage+"' />"+
 		 		        		"</div>"+	
 		 		        		"<div id='personpl' style='width: 80%;' >"+
 		 		        		   "<div class='userName'><a href='#' style='color: orangered;'>"+zhuanjicomment.userName+"</a>:<span >"+zhuanjicomment.commentsContent+"</span></div>"+ 
@@ -263,15 +269,28 @@
 		 		        		"</li>");  	   	
 		 
 		 			});	
-		 			});		
+		 			});	
 
 		    }else{
 		    	alert("内容不能为空");
 		    }
+		    
 		    $(".teratext").val("");
    	})
+   	
 
-});
+})   	
+   	
+  //音乐播放的歌曲编号传递到父页面
+	$(document).on("click",".yinyue",function(){ 
+		//这里需要获取这首歌曲的音频地址、图片地址、歌曲名、歌手名、和trackAlbum : "Single" 这里只能用list
+		//歌曲的编号
+	var a=$(this).find(".songid").text();
+    window.parent.$.judgeloginsong(a);  
+	});
+   	
+   	
+
 
 /**style="color:#080808;"
  * 专辑介绍的文字展开和收起
@@ -302,5 +321,6 @@
       ctn.appendChild(a);  
         
    }  
+   
 </script>     
 </html>

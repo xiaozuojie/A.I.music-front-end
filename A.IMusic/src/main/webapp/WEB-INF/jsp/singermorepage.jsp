@@ -219,7 +219,7 @@ $.get("geshouall",function(listallsinger,status){
 								<div
 									style="padding: 17px; width: 100%; height: 154px; border: 0px solid #3E8F3E;"
 									align="center">
-									<img src="http://192.168.9.248:8080/AlMusic/${listsingerremen.singerImage}"  style="width:170px ;height:160px;padding:10px" />
+									<a href='javascript:void(0);'><img src="http://192.168.9.248:8080/AlMusic/${listsingerremen.singerImage}"  style="width:170px ;height:160px;padding:10px" /></a>
 								</div>
 								<p style="margin-top: 14px;" align="center">
 									<a href="#">${listsingerremen.singerName}</a>

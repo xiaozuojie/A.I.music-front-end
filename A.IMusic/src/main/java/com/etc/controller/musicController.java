@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.etc.entity.Albums;
@@ -428,4 +428,27 @@ public class musicController {
 		return biaoshenlist;
 	}
 	
+	
+	
+	
+	
+	/**
+	 *   单首歌被点击的时候,排行榜音乐的点击播放
+	 */
+	@RequestMapping(value="/SongInfo",method=RequestMethod.GET)
+	@ResponseBody
+	public List<SongJson> getsonginfo(int th){
+		List<Song> listsonginfo=new ArrayList<Song>();
+		listsonginfo=ss.getSongInfo(th);
+		String file="http://192.168.9.248:8080/AlMusic/"+listsonginfo.get(0).getSonglocation();
+		String thumb="http://192.168.9.248:8080/AlMusic/"+listsonginfo.get(0).getSongImage();
+		String trackName=listsonginfo.get(0).getSongName();
+		String trackArtist=listsonginfo.get(0).getSingerName();
+		String trackAlbum=listsonginfo.get(0).getAlbumsName();
+		SongJson songjson=new SongJson(file, thumb, trackName, trackArtist, trackAlbum);
+		List<SongJson> listsongjson=new  ArrayList<SongJson>();
+		listsongjson.add(songjson);
+		return listsongjson;
+		
+	}
 }

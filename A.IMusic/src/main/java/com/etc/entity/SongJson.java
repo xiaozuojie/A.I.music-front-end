@@ -10,6 +10,7 @@ public class SongJson {
 	private  String trackName ;//歌曲名字
 	private  String trackArtist ;//歌手名字
 	private  String trackAlbum ;//专辑名字
+
 	public String getFile() {
 		return file;
 	}

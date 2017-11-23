@@ -36,6 +36,10 @@ public interface SongService {
 	 * @return
 	 */
 	public List<Song> getallsong();
+	/**
+	 * 根据歌曲的编号来获取歌曲的详细信息
+	 */
+	public List<Song> getSongInfo(int songid);
 
 	
 }

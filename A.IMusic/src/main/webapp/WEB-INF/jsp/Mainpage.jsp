@@ -50,15 +50,7 @@
 }
 </style>
 
-<!--   <script>
-  	function tiaozuan(){
-  		location.href="Mymusic.jsp";
-  	}
-  	
-  	function tiaozuan1(){
-  		location.href="Mainpage.jsp";
-  	}
-  </script> -->
+
 </head>
 <body style="background-color: rgb(245, 245, 245);">
 	<!--头部logo以及导航栏开始-->
@@ -308,8 +300,8 @@
 
 
 <script type="text/javascript">
-	$(function() {
-
+ 
+	$(function(){
 		$("#vistor").show();
 		$("#userxra").hide();
 		$(".logo").hover().css("cursor", "pointer");
@@ -345,20 +337,24 @@
 			$("#vistor").hide();
 			$("#userxra").show();
 		});
+
 		//歌单点击播放的自定义函数事件
+		
 		$.extend({
 			'judgelogin' : function(typeid) {
 				if (typeid != null) {	
 				 var listenid=parseInt(typeid);
 			      $.get("listajaxsong/"+listenid,function(listajaxsong,status){
 			    	  showData(listajaxsong,status);	  	   
-				  })
+			      })
 				}
 			}
 		});
+
 		//专辑点击播放事件
 		$.extend({
 			'judgezhuanji' : function(zhuanjiname) {
+				
 				if (zhuanjiname != null) {	
 				 var listenname=zhuanjiname;
 			      $.get("zhuanjiajaxsong/"+listenname,function(listajaxsong,status){
@@ -367,16 +363,45 @@
 				}
 			}
 		});
-		
-		
-		function showData(listajaxsong,satus){
-			var t = {
-				playlist : listajaxsong,
-			    autoPlay : true
-			}
-			$(".jAudio--player").jAudio(t);
+	
+	/*//这里利用ajax获取到单曲的歌曲的内容
+		$.extend({
+				'judgeloginsong' : function(th) {
+					$.get("SongInfo?th="+th,function(listajaxsong,status){						
+						showData(listajaxsong,status); 
+		})
+		}judgeloginsongjudgelogin
 	}
+});
+	 */
+	 //单首歌曲被点击的时候
+	 $.extend({
+			'judgeloginsong' : function(th) {
+				
+			      $.get("SongInfo?th="+th,function(listsongjson,status){
+			    	  
+			    	  showData(listsongjson,status);	  	   
+				  })
+			
+			}
+		});
 
-	});
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	//播放器的封装方法
+			function showData(listajaxsong,satus){
+				var t = {
+					playlist : listajaxsong,
+				    autoPlay : true
+				}
+				$(".jAudio--player").jAudio(t);
+			}
+
+	})
 </script>
 </html>

@@ -93,8 +93,8 @@
  <div id="bogy">
 			<div  style="display: flex;">
 				<div class="btn-group" data-toggle="buttons" id="bofang123">
-					<button type="button" class="btn btn-info btn-sm">
-          <span class="glyphicon glyphicon-play-circle"  ></span>播放
+					
+         
        
 				</div>
 			
@@ -116,7 +116,12 @@
 						<td>
 							<a href="javascript:void(0);">${song.albumsName}</a>
 						</td>
-					</tr>
+						<td class='yinyue'><h4 hidden  class="songid">${song.songId}</h4>
+	    				  <a href="#"><span class="glyphicon glyphicon-music"></span></a>
+	    				 </td>
+	    				<td><a href="#"><span class="glyphicon glyphicon-plus"></span></a></td>
+    <td> <a class="glyphicon glyphicon-save" style="color: rgb(51,122,183)" href="http://192.168.9.248:8080/AlMusic/${song.songlocation}" download="${song.songName}"></a></td>
+	    			</tr>
 					</c:forEach>
 					</c:if>
 				</tbody>
@@ -137,7 +142,7 @@
 	描述：右侧的
 -->
 											<div class="col-md-4 column" style=" width:25%; height: 600px;">
-												<div>
+												<!-- <div>
 													<h3>相关歌手</h3>
 													<div style="padding-top: 5%;">
 														<div style="float:left; text-align:left; margin: 2% 2%;">
@@ -201,7 +206,7 @@
 															</ul>
 														</div>
 													</div>
-												</div>
+												</div> -->
 											</div>
 
 										</div>
@@ -267,8 +272,22 @@
 				$("#userxra").hide();
 			})
 			$(".tupianxe").click(function() {
-				alert($(this).text());
+				
 			})
+			
+			
+			//音乐播放的歌曲编号传递到父页面
+			$(document).on("click",".yinyue",function(){ 
+				//这里需要获取这首歌曲的音频地址、图片地址、歌曲名、歌手名、和trackAlbum : "Single" 这里只能用list
+				//歌曲的编号
+			var a=$(this).find(".songid").text();
+			
+		    window.parent.$.judgeloginsong(a);  
+			});
+
+			
+			
+			
 
 		});
 		
@@ -344,7 +363,12 @@
 						"<td>"+
 							"<a href='javascript:void(0);'>"+listsong.albumsName+"</a>"+
 						"</td>"+
-				"</tr>");
+						"<td class='yinyue'><h4 hidden  class='songid'>"+listsong.songId+"</h4>"+
+	    				  "<a href='#'><span class='glyphicon glyphicon-music'></span></a>"+
+	    				 "</td>"+
+	    				"<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
+	    				"<td> <a class='glyphicon glyphicon-save' style='color: rgb(51,122,183)' href='"+"http://192.168.9.248:8080/AlMusic/"+listsong.songlocation+"' download='"+listsong.songName+"'></a></td>"+
+	"</tr>");
 			})
 			
 			

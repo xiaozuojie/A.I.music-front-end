@@ -65,8 +65,9 @@ public class SongServiceImpl implements SongService {
 		// TODO Auto-generated method stub
 		return null;
 	}
-    
-
-	
+	public List<Song> getSongInfo(int songid) {
+		// TODO Auto-generated method stub
+		return sd.getSonginfo(songid);
+	}
 	
 }
