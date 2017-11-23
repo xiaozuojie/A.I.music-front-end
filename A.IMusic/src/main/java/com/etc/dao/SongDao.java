@@ -33,5 +33,9 @@ public List<Song> getSingerSongbycollect(String singername);
 	 * @return
 	 */
 	public List<Song> getSongByPaiHang(@Param(value = "size") int size);
+	/**
+	 * 根据歌曲编号来获取歌曲的信息
+	 */
+	public List<Song> getSonginfo(int songid);
 
 }

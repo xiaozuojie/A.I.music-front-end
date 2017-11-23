@@ -344,28 +344,44 @@
 			$("#vistor").hide();
 			$("#userxra").show();
 		});
-		$.extend({
+	/* 	$.extend({
 			'judgelogin' : function(th) {
-				if (th != null) {			
 					alert("父页面");
-				}
+					alert(th);
+					
 			}
 		});
-
-		$(".bofang").click(function() {
-			var t = {
-				playlist : [ {
-					file : "bootstrap/musicjs/伯牙绝弦.mp3",
-					thumb : "thumbs/01.jpg",
-					trackName : "飘向北方",
-					trackArtist : "王力宏",
-					trackAlbum : "Single",
-				}
-
-				],
-				autoPlay : true
+ */
+	//这里利用ajax获取到单曲的歌曲的内容
+		$(function() {
+			$.extend({
+				'judgelogin' : function(th) {
+					$.get("SongInfo?th="+th,function(listsongjson,status){
+						
+					 	
+						showdate(listsongjson); 
+					})
+					
 			}
-			$(".jAudio--player").jAudio(t);
+			});
+
+		
+		//播放器的封装方法
+		function  showdate(listsongjson){
+			
+				 var t = {
+						playlist : listsongjson,
+						autoPlay : true
+					} 
+					$(".jAudio--player").jAudio(t);
+			
+		}
+
+		
+		
+		
+	
+			
 		})
 
 	});

@@ -35,6 +35,12 @@
 		select * from Song order by songId desc limit 0,#{size}
 	</select>
 	
+	<!-- 根据歌曲编号来获取 歌曲信息-->
+	<select id="getSonginfo" resultType="com.etc.entity.Song">
+		select  songlocation,songImage,songName,singerName,albumsName from Song where SongId=#{songId}
+	</select>
+	
+								
 </mapper>
 
 

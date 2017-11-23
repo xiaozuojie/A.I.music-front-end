@@ -52,4 +52,12 @@ public class TestSongService {
 		}
 
 	}
+	@Test
+	public void getallsongs12() {
+		List<Song> list = ss.getSongInfo(165);
+		for (Song Song : list) {
+			System.out.println(Song);
+		}
+
+	}
 }

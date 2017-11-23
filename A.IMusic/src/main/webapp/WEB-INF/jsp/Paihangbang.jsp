@@ -169,21 +169,14 @@
 												<c:forEach items="${list}" var="song">
 													<%i++;%>
 													<tr>
-														<td><%=i%></td>
+														<td><%=i%></td>				
 														<td><a href="javascript:void(0);">${song.songName}</a></td>
-														<td><div class="shicang" style="display: block;">${song.songTime}</div>
-															<div id="1" class="xiazai btn-group"
-																style="display: none; background-color: white; margin-top: -18px;">
-																<a href="javascript:void(0);"
-																	style="text-decoration: none;"> <span
-																	class="glyphicon glyphicon-download-alt"
-																	style="color: #101010"></span> <span
-																	class="glyphicon glyphicon-play text123" id="bofang2"></span>
-																	<span class="glyphicon glyphicon-pause" id="bofang1"></span>
-																	<span class="glyphicon glyphicon-log-out"
-																	style="color: #101010"></span></a>
-															</div></td>
-														<td><a href="javascript:void(0);">${song.singerName}</a></td>
+														<td><div class="shicang" style="display: block;">${song.songTime}</div></td>
+											        	<td><a href="javascript:void(0);">${song.singerName}</a></td>
+														<td class='yinyue'><h4 hidden  class="songid">${song.songId}</h4>
+	    				                     <a href="#"><span class="glyphicon glyphicon-music"></span></a>
+	    				                     </td>
+	    				                     <td><a href="#"><span class="glyphicon glyphicon-plus"></span></a></td>
 													</tr>
 													
 												</c:forEach>
@@ -219,15 +212,7 @@
 </body>
 <script type="text/javascript">
 	$(function() {
-		$("#bofang1").hide();
-		$("#bofang2").click(function() {
-			$("#bofang2").hide();
-			$("#bofang1").show();
-		})
-		$("#bofang1").click(function() {
-			$("#bofang1").hide();
-			$("#bofang2").show();
-		})	
+		
 		$(".leftlistone").click(function(){
 		$("#yiyuebang").text("音乐飙升榜");										
 		$("#tupian4").attr('src','bootstrap/musicimage/mymusic/飙升榜.jpg');
@@ -245,6 +230,10 @@
 						"<span class='glyphicon glyphicon-pause' id='bofang1'></span>"+
 		                "<span class='glyphicon glyphicon-log-out' style='color:#101010'></span></a></div></td><td>"+
 						"<a href='javascript:void(0);'>"+biaoshenlist.singerName+"</a></td>"+
+						"<td class='yinyue'><h4 hidden  class='songid'>"+biaoshenlist.songId+"</h4>"+
+	                    "<a href='#'><span class='glyphicon glyphicon-music'></span></a>"+
+	                    "</td>"+
+	                    "<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
 						"</tr>");
 			})
 		}); 
@@ -268,24 +257,37 @@
 						"<span class='glyphicon glyphicon-pause' id='bofang1'></span>"+
 		                "<span class='glyphicon glyphicon-log-out' style='color:#101010'></span></a></div></td><td>"+
 						"<a href='javascript:void(0);'>"+newsonglist.singerName+"</a></td>"+
+						"<td class='yinyue'><h4 hidden  class='songid'>"+newsonglist.songId+"</h4>"+
+	                    "<a href='#'><span class='glyphicon glyphicon-music'></span></a>"+
+	                    "</td>"+
+	                    "<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
 						"</tr>");
 			})
 		});
 		})
+		
+		
+		//音乐播放的歌曲编号传递到父页面
+		$(document).on("click",".yinyue",function(){ 
+			//这里需要获取这首歌曲的音频地址、图片地址、歌曲名、歌手名、和trackAlbum : "Single" 这里只能用list
+			//歌曲的编号
+		var a=$(this).find(".songid").text();
+	    window.parent.$.judgelogin(a); 
+		});
+		//音乐飙升榜中的歌曲被点击的时候
+		/* $(document).on("click",".yinyue",function(){ 
+			//这里需要获取这首歌曲的音频地址、图片地址、歌曲名、歌手名、和trackAlbum : "Single" 这里只能用list
+			//歌曲的编号
+		var a=$(this).find(".songid").text();
+	    window.parent.$.judgelogin(a); 
+		});
+		 */
+		
+		
+		
 		})
 		
 	
 </script>
-<script type="text/javascript">
-	$(function() {
-		$('table').find('td').mouseover(function() {
-			var i = parseInt($(this).parents("tr").find("td").eq(0).text());
-			document.getElementById(i).style.display = 'block';
-		});
-		$('table').find('td').mouseout(function() {
-			var j = parseInt($(this).parents("tr").find("td").eq(0).text());
-			document.getElementById(j).style.display = 'none';
-		});
-	});
-</script>
+
 </html>
