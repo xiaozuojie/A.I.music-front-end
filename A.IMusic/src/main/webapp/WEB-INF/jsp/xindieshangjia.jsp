@@ -24,7 +24,7 @@
 <c:forEach items="${alllistzhuanjiti}" var="zhuanji">
 <li>
 <div class="u-cover u-cover-1"style="border: 1px ; width: 20%; height: 200px; float: left;">
-<a  class="msk"><img class="j-flag" title="${zhuanji.albumsName}" height="145px" width="150px" src="bootstrap/musicimage/mainpageimage/封面2.jpg">
+<a  class="msk"><img class="j-flag" title="${zhuanji.albumsName}" height="145px" width="150px" src="http://192.168.9.248:8080/AlMusic/${zhuanji.albumsImage}">
 <h5 class="zhuanid">${zhuanji.albumsId}</h5>
 </a>
 <div class="bottom" style="border: 1px; text-overflow:ellipsis; white-space:nowrap;overflow:hidden;width:140px;">
