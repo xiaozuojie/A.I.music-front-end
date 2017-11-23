@@ -19,12 +19,15 @@ import com.etc.entity.Albums;
 import com.etc.entity.Albumscomment;
 import com.etc.entity.Comments;
 import com.etc.entity.Playlist;
+import com.etc.entity.Playlistsongs;
 import com.etc.entity.Singer;
 import com.etc.entity.Song;
+import com.etc.entity.SongJson;
 import com.etc.service.AlbumsService;
 import com.etc.service.Albumscommentservice;
 import com.etc.service.CommentsService;
 import com.etc.service.PlayListService;
+import com.etc.service.Playlistsongservice;
 import com.etc.service.SingerService;
 import com.etc.service.SongService;
 
@@ -43,6 +46,9 @@ public class musicController {
    //专辑评论
 	@Resource
 	private CommentsService coms;
+	//根据歌单id获取所有的歌曲到播放器中
+	@Resource
+	private Playlistsongservice pce;
 	/**
 	 * 首页
 	 */
@@ -87,7 +93,45 @@ public class musicController {
 		model.addAttribute("listgedannumber", listgedannumber);
 		return "tuijpage";
 	}
-
+	/**
+	 * 添加歌单歌曲到播放器事件
+	 * @param typename
+	 * @return
+	 */
+	@RequestMapping(value = "/listajaxsong/{listenid}", method = RequestMethod.GET)
+	@ResponseBody
+    public List<SongJson> listlistensong(@PathVariable(value="listenid")int listenid)
+	{	List<SongJson>listajaxsong=new ArrayList<SongJson>(); 
+		List<Playlistsongs> listplaysongs=pce.getplaylistsongs(listenid);	
+		for(int i=0;i<listplaysongs.size();i++) {
+			
+			SongJson ajaxsong=new SongJson("http://192.168.9.248:8080/AlMusic/"+listplaysongs.get(i).getSonglocation(), "http://192.168.9.248:8080/AlMusic/"+listplaysongs.get(i).getSongImage(),listplaysongs.get(i).getSongName(), listplaysongs.get(i).getSingerName(), listplaysongs.get(i).getAlbumsName());			
+			listajaxsong.add(ajaxsong); 
+		}	
+		return listajaxsong;
+	}
+	
+	/**
+	 * 推荐专辑歌曲到播放器列表中播放事件
+	 */
+	@RequestMapping(value = "/zhuanjiajaxsong/{listenname}", method = RequestMethod.GET)
+	@ResponseBody
+    public List<SongJson> zhuanjilistensong(@PathVariable(value="listenname")String listenname)
+	{	List<SongJson>listajaxsong=new ArrayList<SongJson>(); 
+		List<Song>listplaysongs=ss.getsongbyalbumsname(listenname);	
+		for(int i=0;i<listplaysongs.size();i++) {	
+			SongJson ajaxsong=new SongJson("http://192.168.9.248:8080/AlMusic/"+listplaysongs.get(i).getSonglocation(), "http://192.168.9.248:8080/AlMusic/"+listplaysongs.get(i).getSongImage(),listplaysongs.get(i).getSongName(), listplaysongs.get(i).getSingerName(), listplaysongs.get(i).getAlbumsName());			
+			listajaxsong.add(ajaxsong); 
+		}
+		return listajaxsong;
+	}
+	
+	
+	
+	
+	
+	
+	
 	/**
 	 * 排行榜页面
 	 */
@@ -284,13 +328,7 @@ public class musicController {
     
     
     
-    
-    
-    
-    
-    
-    
-    
+
     
 	/**
 	 * 我的音乐

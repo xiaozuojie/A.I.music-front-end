@@ -18,6 +18,7 @@
 	<select id="getSingerSongbycollect" resultType="com.etc.entity.Song">
 		select * from Song where singerName=#{singername}  order by colletionnumber desc  limit 0,20                 
 	</select>
+	
 	<!-- 自定义一个结果的映射 -->
 <!-- 	<resultMap type="com.etc.entity.Blog" id="BlogMap">
 		指定主属性
@@ -33,6 +34,10 @@
 	
 	<select id="getNewSong" resultType="com.etc.entity.Song">
 		select * from Song order by songId desc limit 0,#{size}
+	</select>
+	
+	<select id="allsongbyname" resultType="com.etc.entity.Song">
+		select * from Song where albumsName=#{albumsName};
 	</select>
 	
 </mapper>

@@ -249,14 +249,12 @@
 		    var usercomment=$(".teratext").val();
 		    var zhuanjiid=parseInt($("#pinglunzhuanjiid").text());
 		    if(usercomment!=("")){	
-		            alert(zhuanjiid);
-				    alert(usercomment);
 		   			$(".zhuanjilun li").remove();
 		   		    $.get("zhuanjipinglun/"+zhuanjiid+"?usercomment="+usercomment,function(zhuajiajax,status){					
 		 			$.each(zhuajiajax, function(index,zhuanjicomment) {
 		 				$(".zhuanjilun").append("<li style='margin-left: -35px;'>"+
 		 		        		"<div  class='tupian1' style=' float: left;' >"+
-		 		        			"<img height='55px' width='55px' src='bootstrap/musicimage/mainpageimage/cover.png'/>"+
+		 		        			"<img height='55px' width='55px' src='http://192.168.9.248:8080/AlMusic/"+${zhuanjicomment.userImage}+"'/>"+
 		 		        		"</div>"+	
 		 		        		"<div id='personpl' style='width: 80%;' >"+
 		 		        		   "<div class='userName'><a href='#' style='color: orangered;'>"+zhuanjicomment.userName+"</a>:<span >"+zhuanjicomment.commentsContent+"</span></div>"+ 
@@ -270,7 +268,7 @@
 		    }else{
 		    	alert("内容不能为空");
 		    }
-	  
+		    $(".teratext").val("");
    	})
 
 });

@@ -114,12 +114,12 @@
 		               	<a href="" class="dagedantupian"><img src="http://192.168.9.248:8080/AlMusic/${gedan.playlistImage}"/ height="150px" width="100%">	
 		          </a>
 		               <div class="bofangtubiao" style="position: absolute;margin-top: -20px;">
-		             	  <p><span class="glyphicon glyphicon-headphones" style="margin-left: 25px;"></span>	          	  	
-		             	  	${gedan.playlistComments}
-		             	  <a href="#"  style="margin-left: 80px;" class="rementupian">
-		                   <span class="glyphicon glyphicon-expand" ></span>            
-                          </a>
-		             	  </p> 		             			             	  		             	
+		             	  <span class="glyphicon glyphicon-headphones" style="margin-left: 25px;"></span>	          	  	
+		             	  	${gedan.playlistComments}		               
+		                   <span class="glyphicon glyphicon-expand rementupianbobiao" style="margin-left: 80px;color: white">		                   		           
+		                   <h5 class="gedanid" hidden>${gedan.playlistId}</h5>
+		                   </span>           
+		             	   		             			             	  		             	
 		             </div>             
 		             </div>		 	    	
 			           <a href="" style="color:RGB(72,72,72);">${gedan.playlistName}</a>			   					    	
@@ -179,13 +179,16 @@
 														<h5 class="zhuanid">${zhuanji.albumsId}</h5>
 														  </a>
 													<div style="position: absolute; margin-top: -30px;">
-														<p>
-															<a href="#" style="margin-left: 114px;"
-																class="zhuajitupian"> <span
+														
+															 <span
 																class="glyphicon glyphicon-expand botupiao"
-																style="color: #FFF5EE; margin-top: 8px;"></span>
-															</a>
-														</p>
+																style="color: #FFF5EE;margin-left: 114px; margin-top: 8px;color: #C7254E
+																">
+																<h5 class="zhuanname" hidden>${zhuanji.albumsName}</h5>
+																</span>
+																
+															
+														
 													</div>
 												</div>
 												<a href="" style="color: RGB(72, 72, 72);">${zhuanji.singerName}</a>
@@ -331,10 +334,6 @@
 		</div>
 
 
-
-
-
-
 	</div>
 	<script type="text/javascript">
 	 	 /**
@@ -346,7 +345,6 @@
 			
 			//注意参数的传递 json格式		
 			 var a= $(this).find(".dianjibianhao12345").text();
-			console.log(a);
 		  	location.href="xiangqingjiemian?op="+a;     
 			
 			});		
@@ -355,7 +353,8 @@
    	$(".albumsName").hide();
    	$(".singerName").hide();
    	$(".zhuanid").hide();
-   	$(".rementupian").hover().css("cursor", "pointer");
+   	$(".botupiao").hover().css("cursor", "pointer");
+   	$(".rementupianbobiao").hover().css("cursor", "pointer");
 	$(".zhuanjitupian").hover().css("cursor", "pointer");
 	$(".zhuanjibofang").hover().css("cursor", "pointer");
    	$(".xindiediyi").mouseover(function(){
@@ -364,26 +363,29 @@
     $(".xindiediyi").mouseleave(function(){
          $(this).find(".botupiao").hide();
     });	
-    
- 
-    $(".rementupian").click(function(){
-    	var aa="播放";
-        window.parent.$.judgelogin(aa);     
-    })
+     
  })
-   //推荐轮播点击事件
+   //推荐轮播点击详情页事件
    $(".tupianxe").click(function(){
 	   var zhuanjiid=parseInt($(this).text());
 	   location.href="zhuanjixiangqing?zhuanjiid="+zhuanjiid;
-		 
     })  
-
+  //推荐歌单播放点击事件
+   $(".rementupianbobiao").click(function(){
+	   var gedanid=$(this).find(".gedanid").text(); 
+	   window.parent.$.judgelogin(gedanid);//调用父页面自定义的jQuery方法 
+    }) 
     //新碟上架点击事件
     $(".zhuanjitupian").click(function(){
         var zhuanjiid=parseInt($(this).find(".zhuanid").text());
         location.href="zhuanjixiangqing?zhuanjiid="+zhuanjiid;
     });	
-  
+  //新碟上架点击播放事件
+  $(".botupiao").click(function(){
+	  var zhuanjname=$(this).find(".zhuanname").text();
+	  window.parent.$.judgezhuanji(zhuanjname);
+	 
+  })
 
    </script>
    <script type="text/javascript">

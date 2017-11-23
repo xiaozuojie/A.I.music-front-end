@@ -52,4 +52,12 @@ public class TestSongService {
 		}
 
 	}
+	@Test
+	public void getallsongs2() {
+		List<Song> list = ss.getsongbyalbumsname("∏« ¿”¢–€");
+		for (Song Song : list) {
+			System.out.println(Song);
+		}
+
+	}
 }

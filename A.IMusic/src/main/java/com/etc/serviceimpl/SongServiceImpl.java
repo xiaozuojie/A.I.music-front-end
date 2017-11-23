@@ -54,11 +54,18 @@ public class SongServiceImpl implements SongService {
 		return sd.allsongalbumsname(albumsname);
 	}
 
+
+//根据专辑名获取相关的所有歌曲
+	public List<Song> getsongbyalbumsname(String albumsname) {
+		// TODO Auto-generated method stub
+		return sd.allsongalbumsname(albumsname);
+	}
+
 	public List<Song> getsong() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+    
 
 	
 	

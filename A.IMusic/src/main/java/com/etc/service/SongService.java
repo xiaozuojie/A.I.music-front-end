@@ -14,7 +14,8 @@ public interface SongService {
 
 	//按照歌手的姓名来获取歌手按照收藏量的歌曲数据
 	public List<Song> getsongbysingerName(String singername);
-
+    //根据专辑名获取所有歌曲
+	public List<Song> getsongbyalbumsname(String albumsname);
 	/**
 	 * 获取新歌榜前十（倒序前十）
 	 * 

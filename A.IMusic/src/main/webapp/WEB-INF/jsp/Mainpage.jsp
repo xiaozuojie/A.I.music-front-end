@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -293,6 +294,7 @@
 								<input type="password" id="pwd" placeholder="密码 " />
 							</div>
 							<div id="changeuser"></div>
+							
 							<div id="btn_up">
 								<input type="submit" id="log" data-dismiss="modal"
 									aria-hidden="true" value="登录 " />
@@ -313,7 +315,6 @@
 		$(".logo").hover().css("cursor", "pointer");
 		$(".daohang").hover().css("cursor", "pointer");
 		$(".xialabioa").hover().css("cursor", "pointer");
-
 		$(".daohang").first().addClass("xcenteroneone");//先设置推荐是点击的	 	
 		$(".lefelist").first().addClass("navsearch");//先设置推荐是点击的	
 		/**
@@ -344,29 +345,37 @@
 			$("#vistor").hide();
 			$("#userxra").show();
 		});
+		//歌单点击播放的自定义函数事件
 		$.extend({
-			'judgelogin' : function(th) {
-				if (th != null) {			
-					alert("父页面");
+			'judgelogin' : function(typeid) {
+				if (typeid != null) {	
+				 var listenid=parseInt(typeid);
+			      $.get("listajaxsong/"+listenid,function(listajaxsong,status){
+			    	  showData(listajaxsong,status);	  	   
+				  })
 				}
 			}
 		});
-
-		$(".bofang").click(function() {
-			var t = {
-				playlist : [ {
-					file : "bootstrap/musicjs/伯牙绝弦.mp3",
-					thumb : "thumbs/01.jpg",
-					trackName : "飘向北方",
-					trackArtist : "王力宏",
-					trackAlbum : "Single",
+		//专辑点击播放事件
+		$.extend({
+			'judgezhuanji' : function(zhuanjiname) {
+				if (zhuanjiname != null) {	
+				 var listenname=zhuanjiname;
+			      $.get("zhuanjiajaxsong/"+listenname,function(listajaxsong,status){
+			    	  showData(listajaxsong,status);	  	   
+				  })
 				}
-
-				],
-				autoPlay : true
+			}
+		});
+		
+		
+		function showData(listajaxsong,satus){
+			var t = {
+				playlist : listajaxsong,
+			    autoPlay : true
 			}
 			$(".jAudio--player").jAudio(t);
-		})
+	}
 
 	});
 </script>
