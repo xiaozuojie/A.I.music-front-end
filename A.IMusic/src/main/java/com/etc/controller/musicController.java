@@ -12,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.etc.entity.Albums;
@@ -23,6 +23,7 @@ import com.etc.entity.Playlistsongs;
 import com.etc.entity.Singer;
 import com.etc.entity.Song;
 import com.etc.entity.SongJson;
+import com.etc.entity.User;
 import com.etc.service.AlbumsService;
 import com.etc.service.Albumscommentservice;
 import com.etc.service.CommentsService;
@@ -30,6 +31,7 @@ import com.etc.service.PlayListService;
 import com.etc.service.Playlistsongservice;
 import com.etc.service.SingerService;
 import com.etc.service.SongService;
+import com.etc.service.UserService;
 
 @Controller
 public class musicController {
@@ -43,6 +45,8 @@ public class musicController {
 	private SingerService sis;
 	@Resource
 	private Albumscommentservice ace;
+	@Resource
+	private UserService us;
    //专辑评论
 	@Resource
 	private CommentsService coms;
@@ -450,5 +454,105 @@ public class musicController {
 		listsongjson.add(songjson);
 		return listsongjson;
 		
+	}
+	
+	
+	/**
+	 * 登录功能的验证
+	 * 
+	 * @param textname
+	 * @param textpwd
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/loginin", method = RequestMethod.POST)
+	public String loginyz(@RequestParam("textname") String textname, @RequestParam("textpwd") String textpwd,
+			Model model) {
+		int n = us.selectByPhone(textname);
+		model.addAttribute("n", n);
+		if (n != 0) {
+			User i = us.selectByAccount(textname, textpwd);
+			if (i != null) {
+				model.addAttribute("x", 1);
+				model.addAttribute("useraccount", i.getUserAccount());
+				if(i.getUserinfo().getUserImage()!=null) {
+				model.addAttribute("utup", i.getUserinfo().getUserImage());}
+				else {
+					model.addAttribute("utup", "notx");
+				}
+			} else {
+				model.addAttribute("x", 0);
+			}
+		}
+		return "Mainpage";
+	}
+	
+	/**
+	 * 手机号重复验证
+	 * 
+	 * @param phone
+	 * @return
+	 */
+	@RequestMapping(value = "/LoginRegister", method = RequestMethod.GET)
+	public @ResponseBody String jsonSource(@RequestParam("ph") String phone) {
+		int n = us.selectByPhone(phone);
+		if (n == 1) {
+			return phone;
+		} else
+			return null;
+	}
+	/**
+	 * 用户名称重复验证
+	 * 
+	 * @param userName
+	 * @return
+	 */
+	@RequestMapping(value = "/LoginRegisteryh", method = RequestMethod.GET, produces = { "text/html;charset=UTF-8;",
+			"application/json;" })
+	public @ResponseBody String registerYh(@RequestParam("na") String userName) {
+		int n = us.selectByName(userName);
+		if (n != 0) {
+			return userName;
+		} else
+			return null;
+	}
+	/**
+	 * 注册添加数据库
+	 * 
+	 * @param userAccount
+	 * @param userPwd
+	 * @param userName
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/registerin", method = RequestMethod.GET)
+	public String registerin(@RequestParam("uph") String userAccount, @RequestParam("upw") String userPwd,
+			@RequestParam("una") String userName, Model model) {
+		int i = 0;
+		int n = us.insertUser(userAccount, userPwd);
+		if (n > 0) {
+			i = us.insertUserinfo(userName, userAccount);
+			if (i > 0) {
+				return "Mainpage";
+			}
+		}
+		return "register";
+	}
+	
+	/**
+	 * 登录头像变换ajax
+	 * 
+	 * @param textname
+	 * @return
+	 */
+	@RequestMapping(value = "/selecttouxiang", method = RequestMethod.GET, produces = { "text/html;charset=UTF-8;",
+			"application/json;" })
+	public @ResponseBody String selectToux(@RequestParam("tname") String textname) {
+		String n = us.selectTouxiang(textname);
+		if (n != null) {
+			return n;
+		} else {
+			return "cw";
+		}
 	}
 }

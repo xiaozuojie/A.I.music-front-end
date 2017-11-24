@@ -91,9 +91,9 @@
         -->
 
 
-							<li class="dropdown" id="userxra"><img
-								src="bootstrap/musicimage/mainpageimage/头像.jpg" width="44px"
-								height="40px" /> <span class="caret"
+							<li class="dropdown" id="userxra"><img id="maintx"
+								src="bootstrap/touxiangimage/moren/默认头像.png" width="44px"
+								height="44px" /> <span class="caret"
 								style="color: rgb(119, 136, 153);"></span> <!--
     	作者：offline
     	时间：2017-11-11
@@ -201,7 +201,7 @@
 
 			</div>
 		</div>
-<!--
+		<!--
 	作者：offline
 	时间：2017-11-11
 	描述：音乐播放器开始
@@ -278,18 +278,20 @@
 						<h4 class="modal-title" id="myModalLabel">账号登录</h4>
 					</div>
 					<div class="modal-body">
-						<form>
+						<img id="toux"
+							style="width: 80px; height:80px;  border-radius: 50%; margin-left: 44%; margin-bottom: 5%"
+							src="bootstrap/touxiangimage/moren/默认头像.png" />
+						<form action="loginin" method="post">
 							<div id="name">
-								<input type="text" id="textname" placeholder="用户名 " />
+								<input type="text" name="textname" id="textname"
+									placeholder="用户名 " />
 							</div>
 							<div id="password">
-								<input type="password" id="pwd" placeholder="密码 " />
+								<input type="password" name="textpwd" id="pwd" placeholder="密码 " />
 							</div>
 							<div id="changeuser"></div>
-							
 							<div id="btn_up">
-								<input type="submit" id="log" data-dismiss="modal"
-									aria-hidden="true" value="登录 " />
+								<input type="submit" id="log" value="登录 " />
 							</div>
 						</form>
 					</div>
@@ -300,10 +302,9 @@
 
 
 <script type="text/javascript">
- 
-	$(function(){
-		$("#vistor").show();
+	$(function() {
 		$("#userxra").hide();
+		$("#vistor").show();
 		$(".logo").hover().css("cursor", "pointer");
 		$(".daohang").hover().css("cursor", "pointer");
 		$(".xialabioa").hover().css("cursor", "pointer");
@@ -333,20 +334,21 @@
 			$("#vistor").show();
 			$("#userxra").hide();
 		});
-		$("#log").click(function() {
+		/* $("#log").click(function() {
 			$("#vistor").hide();
 			$("#userxra").show();
-		});
+		}); */
 
 		//歌单点击播放的自定义函数事件
-		
+
 		$.extend({
 			'judgelogin' : function(typeid) {
-				if (typeid != null) {	
-				 var listenid=parseInt(typeid);
-			      $.get("listajaxsong/"+listenid,function(listajaxsong,status){
-			    	  showData(listajaxsong,status);	  	   
-			      })
+				if (typeid != null) {
+					var listenid = parseInt(typeid);
+					$.get("listajaxsong/" + listenid, function(listajaxsong,
+							status) {
+						showData(listajaxsong, status);
+					})
 				}
 			}
 		});
@@ -354,54 +356,91 @@
 		//专辑点击播放事件
 		$.extend({
 			'judgezhuanji' : function(zhuanjiname) {
-				
-				if (zhuanjiname != null) {	
-				 var listenname=zhuanjiname;
-			      $.get("zhuanjiajaxsong/"+listenname,function(listajaxsong,status){
-			    	  showData(listajaxsong,status);	  	   
-				  })
+
+				if (zhuanjiname != null) {
+					var listenname = zhuanjiname;
+					$.get("zhuanjiajaxsong/" + listenname, function(
+							listajaxsong, status) {
+						showData(listajaxsong, status);
+					})
 				}
-			}
-		});
-	
-	/*//这里利用ajax获取到单曲的歌曲的内容
-		$.extend({
-				'judgeloginsong' : function(th) {
-					$.get("SongInfo?th="+th,function(listajaxsong,status){						
-						showData(listajaxsong,status); 
-		})
-		}judgeloginsongjudgelogin
-	}
-});
-	 */
-	 //单首歌曲被点击的时候
-	 $.extend({
-			'judgeloginsong' : function(th) {
-				
-			      $.get("SongInfo?th="+th,function(listsongjson,status){
-			    	  
-			    	  showData(listsongjson,status);	  	   
-				  })
-			
 			}
 		});
 
-	 
-	 
-	 
-	 
-	 
-	 
-	 
-	//播放器的封装方法
-			function showData(listajaxsong,satus){
-				var t = {
-					playlist : listajaxsong,
-				    autoPlay : true
-				}
-				$(".jAudio--player").jAudio(t);
+		/*//这里利用ajax获取到单曲的歌曲的内容
+			$.extend({
+					'judgeloginsong' : function(th) {
+						$.get("SongInfo?th="+th,function(listajaxsong,status){						
+							showData(listajaxsong,status); 
+			})
+			}judgeloginsongjudgelogin
+		}
+		});
+		 */
+		//单首歌曲被点击的时候
+		$.extend({
+			'judgeloginsong' : function(th) {
+
+				$.get("SongInfo?th=" + th, function(listsongjson, status) {
+
+					showData(listsongjson, status);
+				})
+
 			}
+		});
+
+		//播放器的封装方法
+		function showData(listajaxsong, satus) {
+			var t = {
+				playlist : listajaxsong,
+				autoPlay : true
+			}
+			$(".jAudio--player").jAudio(t);
+		}
 
 	})
+	
+
 </script>
+<!-- 登录事件 -->
+<script type="text/javascript">
+$(function() {
+	var pat1="bootstrap/touxiangimage/";
+	var pam1="bootstrap/touxiangimage/moren/默认头像.png";
+	if(${n==0}){
+		alert('用户名不存在');
+	}else if(${x==0}){
+		alert('密码错误');
+	}else if(${x==1}){
+		/* alert("${utup}"); */
+		 if("${utup}"=="notx"){
+			 $("#maintx").attr('src',pam1);
+		}else {
+			$("#maintx").attr('src',pat1+"${utup}");
+		}
+		$("#vistor").hide();
+		$("#userxra").show(); 
+	}
+	
+	});
+</script>
+<!-- 登录窗口头像变换  -->
+<script type="text/javascript">
+var path="bootstrap/touxiangimage/";
+var pamr="bootstrap/touxiangimage/moren/默认头像.png";
+		$(function() {
+			$("#textname").blur(function(){
+				$.get("selecttouxiang", {
+					"tname" : $("#textname").val()
+				}, function(data) {
+					if(data!="cw"){
+					$("#toux").attr('src',path+data);
+					}else{
+					$("#toux").attr('src',pamr);
+					}
+				});
+			});
+		});
+	</script>
+
 </html>
