@@ -107,25 +107,30 @@
                 	描述：第一歌单开始
 
                 -->	
-                <c:if test="${listgedannumber!=null}">
+                 <c:if test="${listgedannumber!=null}">
                 <c:forEach items="${listgedannumber}" var="gedan">
 			    <div id="" class="rementuibofangqi"  style="float:left; width: 25%;height: 200px;padding-bottom: 8px; text-align: left;padding-right: 8px;" >
+			    
 		               <div title="${gedan.playlistName}" id=""  style="padding-bottom: 5px;">
-		               	<a href="" class="dagedantupian"><img src="http://192.168.9.248:8080/AlMusic/${gedan.playlistImage}"/ height="150px" width="100%">	
+		               	<a  href="javascript:void();" class="dagedantupian"><img src="http://192.168.9.248:8080/AlMusic/${gedan.playlistImage}"/ height="150px" width="100%">	
 		          </a>
 		               <div class="bofangtubiao" style="position: absolute;margin-top: -20px;">
 		             	  <span class="glyphicon glyphicon-headphones" style="margin-left: 25px;"></span>	          	  	
 		             	  	${gedan.playlistComments}		               
 		                   <span class="glyphicon glyphicon-expand rementupianbobiao" style="margin-left: 80px;color: white">		                   		           
-		                   <h5 class="gedanid" hidden>${gedan.playlistId}</h5>
-		                   </span>            
+		                      
+		                      <h5 class="gedanid" hidden>${gedan.playlistId}</h5>
+		                   </div>
+		                   </span>           
 		             	   		             			             	  		             	
-		             </div>             
-		             </div>		 	    	
-			           <a href="" style="color:RGB(72,72,72);">${gedan.playlistName}</a>			   					    	
+		             </div>    <div class="gedanid1">         
+		             	 	 <h5 class="gedanid" hidden>${gedan.playlistId}</h5>    	
+			           <a  href="javascript:void();" style="color:RGB(72,72,72);">${gedan.playlistName}</a>
+			           </div>				   					    	
 			    </div>
 			    </c:forEach>
 			    </c:if>
+
 			     
 
 
@@ -442,7 +447,13 @@
 	window.parent.$.judgeloginsong(a);
 	});
 	
+	$(document).on("click",".gedanid1",function(){ 
+		//歌单播放
+		//歌曲的编号
+	var playlistId=$(this).find(".gedanid").text();
+	location.href="gedanxiangqing1?playlistId="+playlistId;     
 	
+	});
 	 	
 	
 	</script>

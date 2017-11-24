@@ -9,4 +9,20 @@ public interface PlayListService {
 	public List<Playlist> getallplaylist();
 	//根据歌单类型获取歌单
     public List<Playlist> getallplaylistbytypename(String typename);
+    
+    /**
+	 * 根据ID值获取相应的歌单信息
+	 * 
+	 * @param playlistId
+	 * @return
+	 */
+	public List<Playlist> getPlayListById(int playlistId);
+
+	/**
+	 * 热门歌单前十五
+	 * @return
+	 */
+	public List<Playlist> getremengedan();
+
+    
 }

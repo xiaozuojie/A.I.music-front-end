@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.PlaylistInfoDao">
+	
+ 	<select id="getPlayListInfoById" resultMap="PlaylistInfomap">
+		select * from playlistinfo,song where playlistinfo.songId = song.songId and playlistId = #{playlistId}
+	</select>
+	<!-- 自定义一个结果的映射 -->
+	<resultMap type="com.etc.entity.PlaylistInfo" id="PlaylistInfomap">
+		<!-- 指定主属性 -->
+		<id property="playlistId" column="playlistId" />
+		<!-- 其他属性 -->
+		<result property="playlistinfoId" column="playlistinfoId" />
+		<collection property="list" ofType="com.etc.entity.Song">
+			<id column="songId" property="songId"/>
+			<result column="songName" property="songName"/>
+			<result column="singerName" property="singerName"/>
+			<result column="albumsName" property="albumsName"/>
+			<result column="songTime" property="songTime"/>
+			<!-- <result column="lyrics" property="lyrics"/>
+			<result column="songImage" property="songImage"/>
+			<result column="collection" property="collection"/>
+			<result column="songComments" property="songComments"/>
+			<result column="songlocation" property="songlocation"/>
+			<result column="colletionnumber" property="colletionnumber"/> -->
+		</collection>
+	</resultMap>
+	
+</mapper>

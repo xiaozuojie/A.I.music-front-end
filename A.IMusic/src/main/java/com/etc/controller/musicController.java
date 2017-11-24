@@ -19,6 +19,7 @@ import com.etc.entity.Albums;
 import com.etc.entity.Albumscomment;
 import com.etc.entity.Comments;
 import com.etc.entity.Playlist;
+import com.etc.entity.PlaylistInfo;
 import com.etc.entity.Playlistsongs;
 import com.etc.entity.Singer;
 import com.etc.entity.Song;
@@ -28,6 +29,7 @@ import com.etc.service.AlbumsService;
 import com.etc.service.Albumscommentservice;
 import com.etc.service.CommentsService;
 import com.etc.service.PlayListService;
+import com.etc.service.PlaylistInfoService;
 import com.etc.service.Playlistsongservice;
 import com.etc.service.SingerService;
 import com.etc.service.SongService;
@@ -53,6 +55,9 @@ public class musicController {
 	//根据歌单id获取所有的歌曲到播放器中
 	@Resource
 	private Playlistsongservice pce;
+	@Resource
+	private PlaylistInfoService pis;
+
 	/**
 	 * 首页
 	 */
@@ -324,7 +329,7 @@ public class musicController {
     	Date now = new Date(); 
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");//可以方便地修改日期格式
 		String usernow = dateFormat.format(now); 
-    	Comments usercomments=new Comments(4, usernow, usercomment, "二哈", zhuanjiid);
+    	Comments usercomments=new Comments(4, usernow, usercomment, "哈士奇", zhuanjiid);
     	coms.gaddcomments(usercomments);
     	List<Albumscomment> zhuajiajax=ace.getallalbumscomment(zhuanjiid); 
     	return zhuajiajax;
@@ -555,4 +560,34 @@ public class musicController {
 			return "cw";
 		}
 	}
+	
+	
+	
+	/**
+	 * 根据ID值获取相应的歌单信息
+	 */
+	@RequestMapping(value = "/gedanxiangqing1", method = RequestMethod.GET)
+	public String getPlayListById(int playlistId,Model model) {
+		List<Playlist> playlist = ps.getPlayListById(playlistId);
+		List<PlaylistInfo> playlistinfolist = pis.getPlayListInfoById(playlistId);
+		List<Song> songlist = new ArrayList<Song>();
+		for (PlaylistInfo playlistInfo : playlistinfolist) {
+			songlist = playlistInfo.getList();
+		}
+		List<Playlist> remengedan = ps.getremengedan();
+		model.addAttribute("playlist", playlist);
+		model.addAttribute("songlist", songlist);
+		model.addAttribute("remengedan", remengedan);
+		return "gedanxiangqing";
+
+}
+	
+
+	
+	
+	
+	
+	
+	
+	
 }

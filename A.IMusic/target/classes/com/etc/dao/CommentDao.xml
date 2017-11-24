@@ -6,9 +6,7 @@
 	
 	<!-- 再解释 select id 就是接口中的方法名 使用了自定义的resultMap,此时resultType属性就要删除咯 -->
 	<insert id="addcomment">
-	
 	 insert into comments (commentsType,commentsDate,commentsContent,userName,commentstypeid) value(#{commentsType},#{commentsDate},#{commentsContent},#{userName},#{commentstypeId})
-	
 	</insert>
 	<!-- 自定义一个结果的映射 -->
 	<resultMap type="com.etc.entity.Comments" id="commentsMap">

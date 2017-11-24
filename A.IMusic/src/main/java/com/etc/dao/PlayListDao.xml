@@ -11,6 +11,16 @@
 	<select id="allplaylistbyplaylistTypeName" resultMap="Playlistmap">
 		SELECT * FROM playlist where  playlistTypeName like concat('%',#{typename},'%') 
 	</select> 
+	
+	<select id="getPlayListById" resultMap="Playlistmap">
+		select * from playlist where playlistId = #{playlistId}
+	</select>
+	<select id="getremengedan" resultType="com.etc.entity.Playlist">
+		select * from playlist order by playlistComments desc limit 0,4
+	</select>
+	
+	
+	
 	<!-- 自定义一个结果的映射 -->
 	<resultMap type="com.etc.entity.Playlist" id="Playlistmap">
 		<!-- 指定主属性 -->

@@ -93,9 +93,16 @@
                                                         <a href="#" style="position: absolute;margin-left: 120px;margin-top: -20px;">
                                               <span title="播放" class="glyphicon glyphicon-expand"></span>
                                             </a>
+                                            				   <div class="gedanid1">         
+		             	 	 <h5 class="gedanid" hidden>${gedan.playlistId}</h5>  
 														<p class="dec" style="margin-top: 8px;">
 														<a title="${gedan.playlistName}"  href="#" class="tit f-thide s-fc0">${gedan.playlistName}</a>
-													</p>								
+													</p>	
+													 </div>	
+									  	
+			         
+			          
+																				
 												</div>
 											</div>
 									</li>
@@ -140,9 +147,13 @@
 						"<span class='icon-headset'></span>"+
                                 "<a href='#' style='position: absolute;margin-left: 120px;margin-top: -20px;'>"+
                       "<span title='播放' class='glyphicon glyphicon-expand'></span></a>"+                                   
-								"<p class='dec' style='margin-top: 8px;'>"+
+								
+                      "<div class='gedanid1'>"+         
+	             	 	"<h5 class='gedanid' hidden>"+gedan.playlistId+"</h5>"+  
+                      "<p class='dec' style='margin-top: 8px;'>"+
 								"<a title='title='"+gedan.playlistName+"'  href='#' class='tit f-thide s-fc0'>"+gedan.playlistName+"</a>"+
-							"</p>"+								
+							"</p>"+
+							 "</div>"+	
 						"</div>"+
 					"</div>"+
 				"</li>");
@@ -151,6 +162,20 @@
 			});	
 			
 			})
+			
+			
+			
+			
+			
+			
+			$(document).on("click",".gedanid1",function(){ 
+				//歌单播放
+				//歌曲的编号
+			var playlistId=$(this).find(".gedanid").text();
+			location.href="gedanxiangqing1?playlistId="+playlistId;     
+			
+			});
+			
 		})
 	
 	   

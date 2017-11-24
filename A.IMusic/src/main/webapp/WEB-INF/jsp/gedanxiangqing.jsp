@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -178,14 +179,15 @@
 	描述：专辑图片以及一些属性
 -->	
 			<div class="col-md-8 column" style=" width: 75%;margin: 0px;padding: 0px;border: 1px solid gray;">		
+		<c:forEach items="${requestScope.playlist}" var="pl">
 				<div  class="zhuyao"  style="width: 90%;float: right; height: 40px; ">
-					<img id="tupian4" width="170px" height="170px" src="bootstrap/musicimage/mainpageimage/头像.jpg"/>
-					<div id="tupian4-1" >
+					<img id="tupian4" width="170px" height="170px" src="http://192.168.9.248:8080/AlMusic/${pl.playlistImage}"/>
+					<div id="tupian4-1" >					
          				 <span><img src="bootstrap/musicimage/mymusic/icon.png"/></span>
-     					 <h3>reputation</h3><br />
+     					 <h3>${pl.playlistName}</h3><br />
 						 <span><img src="bootstrap/musicimage/mainpageimage/touxiang1.jpg"/>&nbsp;&nbsp;&nbsp;<a>Taylor Swift</a> </span>
 						 &nbsp;&nbsp;&nbsp;&nbsp;
-						 <span>发行时间:&nbsp;&nbsp;&nbsp; 2001-9-29</span><br />
+						 <span>发行时间:&nbsp;&nbsp;&nbsp; ${pl.playlistCreateTime}</span><br />
 						 <button type="button" class="btn btn-default btn-sm "><i class="fa fa-caret-square-o-right fa-inverse-red">播放</i></button>
 						 <button type="button" class="btn btn-default btn-sm"><i class="fa fa-plus-square">收藏</i></button>
 						 <button type="button" class="btn btn-default btn-sm"><i class="fa fa-external-link">转发(21312)</i></button>
@@ -193,8 +195,7 @@
 						 <button type="button" class="btn btn-default btn-sm"><i class="fa fa-commenting-o">(23123)</i></button><br /><br />
 						 <span id="biaoqian">标签：
 			    		 <input type="button" class="btn btn-default btn-sm" id="bq" value="华语" style="border-radius: 12px;"/>
-			    		 <input type="button" class="btn btn-default btn-sm" id="bq" value="华语" style="border-radius: 12px;"/>
-			    	 	 <input type="button" class="btn btn-default btn-sm" id="bq" value="华语" style="border-radius: 12px;"/>
+			    		 <input type="button" class="btn btn-default btn-sm" id="bq" value="流行" style="border-radius: 12px;"/>			    	 	
 			    		 </span><br />
 					</div>
 		           
@@ -202,16 +203,13 @@
 			   
 			    <div id="content"  class="zhuyao1"  style="width: 90%;float: right;">
 			    	<h5 style="font-weight:bold;">歌单介绍:</h5>
-					<span id="wenzi1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们谁不曾在城市里盲目流动，努力生长。人海中浮动的万千面孔陌生、机械化，冷漠的外表下都有一个被压抑了的生动灵魂。金玟岐2017第三张个人EP《沙发》三组歌曲也许能在共鸣感中给你慰藉，让你转身回望到那个舒适的港湾。
-第三张EP《沙发》包含三首原创歌曲《沙发》《711》《手机》依然由金玟岐全揽词曲创作，著名制作人薛琳可完成完成编曲，默契十足的两人将这张EP诠释得明快又生活。金玟岐将自己投入到每一首歌的场景里，描写每一个冷漠外表下被压抑了的生动灵魂。
-主打歌《沙发》是家的象征，很久以前我们每天都可以回到自己的客厅每一个家都是一座岛屿，在城市的无垠大海中飘荡的你啊，累了就停泊上岸喘口气，你不需要满载而归，你不需要凯旋胜利，卸下所有盔甲和身份，这里有遮风挡雨的一方天地。
-《711》这首歌注入了鼓和打击乐，旋律更加清朗明快，都市感十足。金玟岐抖落之前发布歌曲舒缓、低沉的氛围，多了几分戏谑的唱腔，白描化的语言，画面感十足，在这个孤独，缺憾又不失美好的城市，为你歌唱灵魂的归属与认同。
-压轴歌曲《手机》将听众的认同感升华，为我们展现了一段暖心的故事。智能手机颠覆了人们的生活，让我们的距离既亲密又疏离。聚会的时候，先自拍一下帮我记录我现在快乐的样子，然后再Po到社交媒体告诉大家我快乐的样子。手机也是记录我们快乐或悲伤的载体，而音乐是宣泄情绪的载体。这首歌特邀了立式贝斯手，配合金玟岐的词曲一同展现了音乐的张力。
-			 </span></div>
+					<span id="wenzi1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${pl.playlistProfile}</span>
+				</div>
+					</c:forEach>
 			  <div class="yllist" style="width: 90%;float: right;">
 			  	<h4>&nbsp;</h4>
 			  	<h3 style="font-weight:bold;">包含歌曲列表
-			  		<small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4首歌</small>
+			  		
 			  		<small style="float: right; margin-top: 10px;">播放:
 			  			<span id="bofangcishu" style="color: red;">
 			  			53020
@@ -237,76 +235,21 @@
 		</tr>
 	</thead>
 	<tbody>
+		<c:forEach items="${requestScope.songlist}" var="song">
 		<tr>
 			<td>1</td>
-			<td>沙发</td>
-			<td>04:21</td>
-			<td>金玟岐</td>
-			<td>Sandy</td>
+			<td>${song.songName}</td>
+			<td>${song.songTime}</td>
+			<td>${song.singerName}</td>
+			<td>${song.albumsName}</td>
+			<td class='yinyue'><h4 hidden  class="songid">${song.songId}</h4>
+	    				                     <a href="#"><span class="glyphicon glyphicon-music"></span></a>
+	    				                     </td>
+	    				                     <td><a href="#"><span class="glyphicon glyphicon-plus"></span></a></td>
+													  <td> <a class="glyphicon glyphicon-save" style="color: rgb(51,122,183)" href="http://192.168.9.248:8080/AlMusic/${song.songlocation}" download="${song.songName}"></a></td>
+		
 		</tr>
-		<tr>
-			<td>2</td>
-			<td>第一个清晨</td>
-			<td>04:21</td>
-			<td>王力宏</td>
-			<td>Sandy</td>
-		</tr>
-		<tr>
-			<td>3</td>
-			<td>肖大陆</td>
-			<td>04:21</td>
-			<td>肖作杰</td>
-			<td>Sandy</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>我们不一样</td>
-			<td>04:43</td>
-			<td>大壮</td>
-			<td>Sandy</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>我们不一样</td>
-			<td>04:43</td>
-			<td>大壮</td>
-			<td>Sandy</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>我们不一样</td>
-			<td>04:43</td>
-			<td>大壮</td>
-			<td>Sandy</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>我们不一样</td>
-			<td>04:43</td>
-			<td>大壮</td>
-			<td>Sandy</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>我们不一样</td>
-			<td>04:43</td>
-			<td>大壮</td>
-			<td>Sandy</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>我们不一样</td>
-			<td>04:43</td>
-			<td>大壮</td>
-			<td>Sandy</td>
-		</tr>
-		<tr>
-			<td>4</td>
-			<td>我们不一样</td>
-			<td>04:43</td>
-			<td>大壮</td>
-			<td>Sandy</td>
-		</tr>
+		</c:forEach>
 	</tbody>
 </table>
  </div>
@@ -322,7 +265,7 @@
             	时间：2017-11-12
             	描述：评论开始
             -->
-            <div class="pinglunStar" style="width: 90%;" >
+              <div class="pinglunStar" style="width: 90%;" >
        <form>    
     	<div>    
             <p id="face" style="position:absolute;margin-left: 10px;margin-top: 10px;"><img width="55px" height="55px" src="bootstrap/musicimage/mainpageimage/cover.png" class="current" /></p>
@@ -340,17 +283,22 @@
        <h5 style="font-weight:bold;">精彩评论</h5>
        <div style="border-top: 1px solid gray;"></div>
         <div id="plh">        
-        		<ul>
-        		<li>
+        		<ul class="zhuanjilun">
+        		<c:if test="${Albumscomment!=null}">
+        		<c:forEach items="${Albumscomment}" var="Albumscomment">
+        		<li style="margin-left: -35px;">
         		<div  class="tupian1" style=" float: left;" >
-        			<img height="55px" width="55px" src="bootstrap/musicimage/mainpageimage/cover.png"/>
+        			<img height="55px" width="55px" src="http://192.168.9.248:8080/AlMusic/${Albumscomment.userImage}"/>
         		</div>	
         		
         		<div id="personpl" style="width: 80%;" >
-        		   <div class="userName"><a href="#" style="color: orangered;">伯牙绝弦</a>:<span >下一季的中国有嘻哈的水电费撒的发生股份大胜多负少的发斯蒂芬撒大声地的发生的范德萨就是你了</span></div> 
-        		    <span>9月13日 00:00</span>  <a id="dianz"><i class="fa fa-thumbs-up"></i></a><span>(2399)</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span><a>回复</a></span>
+        		   <div class="userName"><a href="#" style="color: orangered;">${Albumscomment.userName}</a>:<span >${Albumscomment.commentsContent}</span></div> 
+        		    <span>${Albumscomment.commentsDate}</span><a id="dianz"><i class="fa fa-thumbs-up"></i></a> <span style="color:#080808;"  class="glyphicon glyphicon-thumbs-up zhuanjidianzan">${Albumscomment.commentzan}        		            		  	    
+        		    </span>&nbsp;|&nbsp;<span><a>回复</a></span>
         		</div>
         		</li>
+        		</c:forEach>
+        		</c:if>
         	</ul>
         	
         	
@@ -382,61 +330,17 @@
             <div style="border-top: 2px solid gray;"></div>
                	<span >&nbsp;</span>              
                 <ul class="remengedan">
+                	<c:forEach items="${requestScope.remengedan}" var="gd">
             		<li>
             			<div id="tupian3" style=" float: left;">
-            				<img  width="55px" height="55px"  src="bootstrap/musicimage/mainpageimage/cover2.jpg"/>
+            				<img  width="55px" height="55px"  src="http://192.168.9.248:8080/AlMusic/${gd.playlistImage}"/>
             			</div>
-            			<div id="tupianmingzi">
-            				<span style="font-size: 22px;">&nbsp;&nbsp;&nbsp;reputation</span><br />
-            				<span style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;&nbsp;<a href="#">楠</a></span>
-            			</div>
-            		</li>
-            		<li>
-            			<div id="tupian3" style=" float: left;">
-            				<img  width="55px" height="55px"  src="bootstrap/musicimage/mainpageimage/cover2.jpg"/>
-            			</div>
-            			<div id="tupianmingzi">
-            				<span style="font-size: 22px;">&nbsp;&nbsp;&nbsp;reputation</span><br />
-            				<span style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;&nbsp;<a href="#">楠</a></span>
+            			<div class="tupianmingzi">
+            				<input type="hidden" class="playlistId" value="${gd.playlistId}">
+            				<span style="font-size: 10px;color: black;">&nbsp;&nbsp;&nbsp;<a href="#" class="gdn">${gd.playlistName}</a></span><br />
             			</div>
             		</li>
-            		<li>
-            			<div id="tupian3" style=" float: left;">
-            				<img  width="55px" height="55px"  src="bootstrap/musicimage/mainpageimage/cover2.jpg"/>
-            			</div>
-            			<div id="tupianmingzi">
-            				<span style="font-size: 22px;">&nbsp;&nbsp;&nbsp;reputation</span><br />
-            				<span style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;&nbsp;<a href="#">楠</a></span>
-            			</div>
-            		</li>
-            		<li>
-            			<div id="tupian3" style=" float: left;">
-            				<img  width="55px" height="55px"  src="bootstrap/musicimage/mainpageimage/cover2.jpg"/>
-            			</div>
-            			<div id="tupianmingzi">
-            				<span style="font-size: 22px;">&nbsp;&nbsp;&nbsp;reputation</span><br />
-            				<span style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;&nbsp;<a href="#">楠</a></span>
-            			</div>
-            		</li>
-            		<li>
-            			<div id="tupian3" style=" float: left;">
-            				<img  width="55px" height="55px"  src="bootstrap/musicimage/mainpageimage/cover2.jpg"/>
-            			</div>
-            			<div id="tupianmingzi">
-            				<span style="font-size: 22px;">&nbsp;&nbsp;&nbsp;reputation</span><br />
-            				<span style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;&nbsp;<a href="#">楠</a></span>
-            			</div>
-            		</li>
-            		<li>
-            			<div id="tupian3" style=" float: left;">
-            				<img  width="55px" height="55px"  src="bootstrap/musicimage/mainpageimage/cover2.jpg"/>
-            			</div>
-            			<div id="tupianmingzi">
-            				<span style="font-size: 22px;">&nbsp;&nbsp;&nbsp;reputation</span><br />
-            				<span style="font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp;by&nbsp;&nbsp;<a href="#">楠</a></span>
-            			</div>
-            		</li>
-            		
+            		</c:forEach>
             	</ul>
             
             
@@ -518,104 +422,65 @@
    })
    
    
-});
-/**
- * 播放器点击事件
- */
-$(function(){
-/**
- * 添加歌曲事件，可以陆续添加
- */
-	var song = [
-		{
-			'cover' : 'bootstrap/musicimage/mainpageimage/封面1.jpg',
-			'src' : 'bootstrap/music/王力宏-第一个清晨.mp3',
-			'title' : '王力宏-第一个清晨'
-		},
-		{
-			'cover' : 'bootstrap/musicimage/mainpageimage/封面3.jpg',
-			'src' : 'bootstrap/music/薛之谦 - 意外.mp3',
-			'title' : '薛之谦 - 意外'
-		},
-		{
-			'cover' : 'bootstrap/musicimage/mainpageimage/封面4.jpg',
-			'src' : 'bootstrap/music/王力宏-花田错.mp3',
-			'title' : '王力宏-花田错'
-		},	
-		{
-			'cover' : 'bootstrap/musicimage/mainpageimage/封面5.jpg',
-			'src' : 'bootstrap/music/陶喆 - Angel.mp3',
-			'title' : '陶喆 - Angel'
-		},	
-		{
-			'cover' : 'bootstrap/musicimage/mainpageimage/封面6.jpg',
-			'src' : 'bootstrap/music/陶喆 - Melody.mp3',
-			'title' : '陶喆 - Melody'
-		},	
-	];
-
-	var audioFn = audioPlay({
-		song : song,
-		autoPlay : false  //是否立即播放第一首，autoPlay为true且song为空，会alert文本提示并退出
+   
+  /*  
+    
+	   $(document).on("click",".tupianmingzi",function(){
+		   alert("aa");
+		   
+	   }) */
+	   $(".tupianmingzi").click(function(){
+		  
+		  var playlistId = $(this).find(".playlistId").val();
+		  location.href="gedanxiangqing1?playlistId="+playlistId;
+	   });
+   
+   
+   
+ //音乐播放的歌曲编号传递到父页面
+	$(document).on("click",".yinyue",function(){ 
+		//这里需要获取这首歌曲的音频地址、图片地址、歌曲名、歌手名、和trackAlbum : "Single" 这里只能用list
+		//歌曲的编号
+	var a=$(this).find(".songid").text();
+   window.parent.$.judgeloginsong(a); 
 	});
 
-	/* 向歌单中添加新曲目，
-	 * 第二个参数true为新增后立即播放该曲目，false则不播放
-	 * 意识是，当你在听第一首歌的时候，列表还有很多歌没放，但是当你在浏览的网页的歌曲时候，突然发现有立刻想听的歌曲，然后添加列表中，如果为true，则点击
-	 * 下一首时，会立刻播放刚刚添加的这首，如果为false则，默认最后播放
-	 * 
-	 * */
-	audioFn.newSong({
-		'cover' : 'bootstrap/musicimage/mainpageimage/封面2.jpg',
-		'src' : 'bootstrap/music/王力宏-大城小爱.mp3',
-		'title' : '王力宏-大城小爱'
-	},false);
+ 
+ 
+	$("#sendBtn").click(function(){
+	    var usercomment=$(".teratext").val();
+	    var zhuanjiid=parseInt($("#pinglunzhuanjiid").text());
+	    if(usercomment!=("")){	
+	   			$(".zhuanjilun li").remove();
+	   		    $.get("zhuanjipinglun/"+zhuanjiid+"?usercomment="+usercomment,function(zhuajiajax,status){					
+	 			$.each(zhuajiajax, function(index,zhuanjicomment) {
+	 				$(".zhuanjilun").append("<li style='margin-left: -35px;'>"+
+	 		        		"<div  class='tupian1' style=' float: left;' >"+
+	 		        			"<img height='55px' width='55px' src='http://192.168.9.248:8080/AlMusic/"+zhuanjicomment.userImage+"' />"+
+	 		        		"</div>"+	
+	 		        		"<div id='personpl' style='width: 80%;' >"+
+	 		        		   "<div class='userName'><a href='#' style='color: orangered;'>"+zhuanjicomment.userName+"</a>:<span >"+zhuanjicomment.commentsContent+"</span></div>"+ 
+	 		        		    "<span>"+zhuanjicomment.commentsDate+"</span>  <a id='dianz'><i class='fa fa-thumbs-up'></i></a> <span class='glyphicon glyphicon-thumbs-up'>"+zhuanjicomment.commentzan+"</span>&nbsp;&nbsp;|&nbsp;&nbsp;<span><a>回复</a></span>"+
+	 		        		"</div>"+
+	 		        		"</li>");  	   	
+	 
+	 			});	
+	 			});	
 
-	/* 暂停播放 */
-	//audioFn.stopAudio();
-
-	/* 开启播放 */
-	//audioFn.playAudio();
-
-	/* 选择歌单中索引为3的曲目(索引是从0开始的)，第二个参数true立即播放该曲目，false则不播放 */
+	    }else{
+	    	alert("内容不能为空");
+	    }
+	    
+	    $(".teratext").val("");
+	})
 	
-	//audioFn.selectMenu(3,true);
-
-	/* 查看歌单中的曲目 */
-	//console.log(audioFn.song);
-
-	/* 当前播放曲目的对象 */
-	//console.log(audioFn.audio);
+ 
+ 
+   
 });
 
-/**
- * 专辑介绍的文字展开和收起
- */
- function init(){  
-      var len =200;      //默认显示字数  
-      var ctn = document.getElementById("content");  //获取div对象  
-      var content = ctn.innerHTML;                   //获取div里的内容  
-      
-      //alert(content);  
-      var span = document.createElement("span");     //创建<span>元素  
-      var a = document.createElement("a");           //创建<a>元素  
-      span.innerHTML = content.substring(0,len);     //span里的内容为content的前len个字符  
-      a.innerHTML = content.length>len?"....展开":"";  //设置a的显示  
-      a.href = "javascript:void(0)";  
-      a.onclick = function(){  
-          if(a.innerHTML.indexOf("展开")>0){    //如果a中含有"展开"则显示"收起"  
-            a.innerHTML = "收起";  
-            span.innerHTML = content;  
-          }else{  
-              a.innerHTML = "...展开";  
-              span.innerHTML = content.substring(0,len);  
-          }  
-      }  
-      // 设置div内容为空，span元素 a元素加入到div中  
-      ctn.innerHTML = "";  
-      ctn.appendChild(span);  
-      ctn.appendChild(a);  
-        
-   }  
+
+	   
+	 
 </script>     
 </html>

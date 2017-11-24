@@ -21,5 +21,17 @@ public class PlayListServiceimpl implements PlayListService {
 		 
 		return po.allplaylistbyplaylistTypeName(typename);
 	}
+	
+	public List<Playlist> getPlayListById(int playlistId) {
+		// TODO Auto-generated method stub
+		return po.getPlayListById(playlistId);
+	}
+
+	public List<Playlist> getremengedan() {
+		// TODO Auto-generated method stub
+		return po.getremengedan();
+	}
+
+	
 
 }
