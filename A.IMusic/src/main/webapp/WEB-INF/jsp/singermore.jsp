@@ -81,7 +81,7 @@
 														<a id="zhaungji" href="javascript:void(0)">歌手专辑</a>
 													</li>
 													<li class="">
-														<a href="#" id="geshoujies" href="javascript:void(0)">歌手介绍</a>
+														<a href='javascript:void(0);' id="geshoujies" href="javascript:void(0)">歌手介绍</a>
 													</li>
 												</ul>
 												<div id="" style="background-color:rgb(192,12,12) ; margin: 0 5%; width:90%; height: 3px;">
@@ -117,9 +117,9 @@
 							<a href="javascript:void(0);">${song.albumsName}</a>
 						</td>
 						<td class='yinyue'><h4 hidden  class="songid">${song.songId}</h4>
-	    				  <a href="#"><span class="glyphicon glyphicon-music"></span></a>
+	    				  <a href='javascript:void(0);'><span class="glyphicon glyphicon-music"></span></a>
 	    				 </td>
-	    				<td><a href="#"><span class="glyphicon glyphicon-plus"></span></a></td>
+	    				<td><a href='javascript:void(0);'><span class="glyphicon glyphicon-plus"></span></a></td>
     <td> <a class="glyphicon glyphicon-save" style="color: rgb(51,122,183)" href="http://192.168.9.248:8080/AlMusic/${song.songlocation}" download="${song.songName}"></a></td>
 	    			</tr>
 					</c:forEach>
@@ -323,11 +323,11 @@
 				$("tbody").append("<div class='albuum'>"+
 						"<div id='' class='rementuibofangqi' style='float:left;text-align: left;'>"+
 							"<div id='' style='padding-bottom: 5px;'>"+
-								"<a href=''><img src='http://192.168.9.248:8080/AlMusic/"+listgetallzhuanji.albumsImage+"'  height='150px' width='150px' style='padding: 8px;'>"+
+								"<a href='javascript:void(0);'><img src='http://192.168.9.248:8080/AlMusic/"+listgetallzhuanji.albumsImage+"'  height='150px' width='150px' style='padding: 8px;'>"+
 								"</a>"+				
 							"</div>"+
 							"<div id='zi' style='padding-top: 10px; padding-left: 15px;'>"+
-								"<a href='' style='color:RGB(72,72,72);'>"+listgetallzhuanji.albumsName+"</a>"+
+								"<a href='javascript:void(0);' style='color:RGB(72,72,72);'>"+listgetallzhuanji.albumsName+"</a>"+
 							"</div>"+
 						"</div>"+
 						"</div>");
@@ -364,9 +364,9 @@
 							"<a href='javascript:void(0);'>"+listsong.albumsName+"</a>"+
 						"</td>"+
 						"<td class='yinyue'><h4 hidden  class='songid'>"+listsong.songId+"</h4>"+
-	    				  "<a href='#'><span class='glyphicon glyphicon-music'></span></a>"+
+	    				  "<a href='javascript:void(0);'><span class='glyphicon glyphicon-music'></span></a>"+
 	    				 "</td>"+
-	    				"<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
+	    				"<td><a href='javascript:void(0);'><span class='glyphicon glyphicon-plus'></span></a></td>"+
 	    				"<td> <a class='glyphicon glyphicon-save' style='color: rgb(51,122,183)' href='"+"http://192.168.9.248:8080/AlMusic/"+listsong.songlocation+"' download='"+listsong.songName+"'></a></td>"+
 	"</tr>");
 			})

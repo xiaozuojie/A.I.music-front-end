@@ -175,9 +175,9 @@
 											        	<td><a href="javascript:void(0);">${song.singerName}</a></td>
 											  <td> <a class="glyphicon glyphicon-save" style="color: rgb(51,122,183)" href="http://192.168.9.248:8080/AlMusic/${song.songlocation}" download="${song.songName}"></a></td>
 											        	<td class='yinyue'><h4 hidden  class="songid">${song.songId}</h4>
-	    				                     <a href="#"><span class="glyphicon glyphicon-music"></span></a>
+	    				                     <a href='javascript:void(0);'><span class="glyphicon glyphicon-music"></span></a>
 	    				                     </td>
-	    				                     <td><a href="#"><span class="glyphicon glyphicon-plus"></span></a></td>
+	    				                     <td><a href='javascript:void(0);'><span class="glyphicon glyphicon-plus"></span></a></td>
 													</tr>
 													
 												</c:forEach>
@@ -233,9 +233,9 @@
 						"<a href='javascript:void(0);'>"+biaoshenlist.singerName+"</a></td>"+
 	    				"<td> <a class='glyphicon glyphicon-save' style='color: rgb(51,122,183)' href='"+"http://192.168.9.248:8080/AlMusic/"+biaoshenlist.songlocation+"' download='"+biaoshenlist.songName+"'></a></td>"+
                      	"<td class='yinyue'><h4 hidden  class='songid'>"+biaoshenlist.songId+"</h4>"+
-	                    "<a href='#'><span class='glyphicon glyphicon-music'></span></a>"+
+	                    "<a href='javascript:void(0);'><span class='glyphicon glyphicon-music'></span></a>"+
 	                    "</td>"+
-	                    "<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
+	                    "<td><a href='javascript:void(0);'><span class='glyphicon glyphicon-plus'></span></a></td>"+
 						"</tr>");
 			})
 		}); 
@@ -261,9 +261,9 @@
 						"<a href='javascript:void(0);'>"+newsonglist.singerName+"</a></td>"+
 	    				"<td> <a class='glyphicon glyphicon-save' style='color: rgb(51,122,183)' href='"+"http://192.168.9.248:8080/AlMusic/"+newsonglist.songlocation+"' download='"+newsonglist.songName+"'></a></td>"+
                         "<td class='yinyue'><h4 hidden  class='songid'>"+newsonglist.songId+"</h4>"+
-	                    "<a href='#'><span class='glyphicon glyphicon-music'></span></a>"+
+	                    "<a href='javascript:void(0);'><span class='glyphicon glyphicon-music'></span></a>"+
 	                    "</td>"+
-	                    "<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
+	                    "<td><a href='javascript:void(0);'><span class='glyphicon glyphicon-plus'></span></a></td>"+
 						"</tr>");
 			})
 		});

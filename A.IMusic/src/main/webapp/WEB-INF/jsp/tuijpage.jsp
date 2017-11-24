@@ -405,8 +405,8 @@
 	    				"<td class='yinyue'>"+
 	    				"<div class='biaoshengban'>"+
 	    				"<h4 hidden  class='songid'>"+biaoshenlist.songId+"</h4>"+
-	    				"<a href='#'><span class='glyphicon glyphicon-music'></span></a></td></div>"+
-	    				"<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
+	    				"<a href='javascript:void(0);'><span class='glyphicon glyphicon-music'></span></a></td></div>"+
+	    				"<td><a href='javascript:void(0);'><span class='glyphicon glyphicon-plus'></span></a></td>"+
 	    	            "<td> <a class='glyphicon glyphicon-save' style='color: rgb(51,122,183)' href='"+"http://192.168.9.248:8080/AlMusic/"+biaoshenlist.songlocation+"' download='"+biaoshenlist.songName+"'></a></td>"+
                         "</tr>");
 	    	});
@@ -424,8 +424,8 @@
 	    				"<td class='yinyue'>"+
 	    				"<div class='paihangban'>"+
 	    				"<h4 hidden  class='songid'>"+newsonglist.songId+"</h4>"+
-	    				"<a ><span class='glyphicon glyphicon-music'></span></a></td></div>"+
-	    				"<td><a href='#'><span class='glyphicon glyphicon-plus'></span></a></td>"+
+	    				"<a href='javascript:void(0);'><span class='glyphicon glyphicon-music'></span></a></td></div>"+
+	    				"<td><a href='javascript:void(0);'><span class='glyphicon glyphicon-plus'></span></a></td>"+
 	    				"<td> <a class='glyphicon glyphicon-save' style='color: rgb(51,122,183)' href='"+"http://192.168.9.248:8080/AlMusic/"+newsonglist.songlocation+"' download='"+newsonglist.songName+"'></a></td>"+
 	    				"</tr>");
 	    	});

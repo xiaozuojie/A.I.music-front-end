@@ -94,9 +94,9 @@
 			<td>${zhuanjige.singerName}</td>
 	<td> <a class="glyphicon glyphicon-save" style="color: rgb(51,122,183)" href="http://192.168.9.248:8080/AlMusic/${zhuanjige.songlocation}" download="${zhuanjige.songName}"></a></td>
 			<td class='yinyue'><h4 hidden  class="songid">${zhuanjige.songId}</h4>
-	    				  <a href="#"><span class="glyphicon glyphicon-music"></span></a>
+	    				  <a href='javascript:void(0);'><span class="glyphicon glyphicon-music"></span></a>
 	    				 </td>
-	    				<td><a href="#"><span class="glyphicon glyphicon-plus"></span></a></td>
+	    				<td><a href='javascript:void(0);'><span class="glyphicon glyphicon-plus"></span></a></td>
 		</tr>
 	</c:forEach>
 	</c:if>

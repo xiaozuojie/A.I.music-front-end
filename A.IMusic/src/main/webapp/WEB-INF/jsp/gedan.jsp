@@ -96,7 +96,7 @@
                                             				   <div class="gedanid1">         
 		             	 	 <h5 class="gedanid" hidden>${gedan.playlistId}</h5>  
 														<p class="dec" style="margin-top: 8px;">
-														<a title="${gedan.playlistName}"  href="#" class="tit f-thide s-fc0">${gedan.playlistName}</a>
+														<a title="${gedan.playlistName}"  href='javascript:void(0);' class="tit f-thide s-fc0">${gedan.playlistName}</a>
 													</p>	
 													 </div>	
 									  	
