@@ -6,6 +6,24 @@ public class User {
 	private String userAccount;// 用户账号
 	private String userPwd;// 用户密码
 	private String userType;// 用户类型
+	private Userinfo userinfo;
+
+	public User(int userId, String userAccount, String userPwd, String userType, Userinfo userinfo) {
+		super();
+		this.userId = userId;
+		this.userAccount = userAccount;
+		this.userPwd = userPwd;
+		this.userType = userType;
+		this.userinfo = userinfo;
+	}
+
+	public Userinfo getUserinfo() {
+		return userinfo;
+	}
+
+	public void setUserinfo(Userinfo userinfo) {
+		this.userinfo = userinfo;
+	}
 
 	public int getUserId() {
 		return userId;
@@ -42,7 +60,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", userAccount=" + userAccount + ", userPwd=" + userPwd + ", userType="
-				+ userType + "]";
+				+ userType + ", userinfo=" + userinfo + "]";
 	}
 
 	public User(int userId, String userAccount, String userPwd, String userType) {

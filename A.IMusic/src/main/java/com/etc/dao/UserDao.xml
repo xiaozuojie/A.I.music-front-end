@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.etc.dao.UserDao">
+	<select id="selectByAccount" resultMap="UserMap">
+		select
+		userId,user.userAccount,userPwd,userType,userName,userImage from
+		user,userinfo
+		where
+		user.userAccount=userinfo.userAccount	and
+		user.userAccount=#{userAccount} and user.userPwd=#{userPwd} and
+		userType='用户'
+	</select>
+	<select id="selectByPhone" resultType="java.lang.Integer">
+		select count(1) from user
+		where userAccount=#{userAccount} and userType='用户'
+	</select>
+
+	<select id="selectByName" resultType="java.lang.Integer">
+		select count(1) from
+		userinfo
+		where userName=#{userName}
+	</select>
+	<select id="selectTouxiang" resultType="java.lang.String">
+		select userImage from userinfo
+		where userAccount=#{userAccount}
+	</select>
+
+	<insert id="insertUser">
+		insert into user
+		value(null,#{userAccount},#{userPwd},'用户','已启用')
+	</insert>
+
+	<insert id="insertUserinfo">
+		insert into userinfo
+		value(null,#{userName},null,null,null,null,#{userAccount},null)
+	</insert>
+
+
+	<resultMap type="com.etc.entity.User" id="UserMap">
+		<!-- 指定主属性 -->
+		<id property="userId" column="userId" />
+		<!-- 其他属性 -->
+		<result property="userAccount" column="userAccount" />
+		<result property="userPwd" column="userPwd" />
+		<result property="userType" column="userType" />
+		<!-- 关联有关的额节点 -->
+		<association property="userinfo" javaType="com.etc.entity.Userinfo"
+			column="userAccount">
+
+			<!-- authors有关的属性信息 -->
+			<id property="userName" column="userName" />
+			<result property="userImage" column="userImage" />
+		</association>
+	</resultMap>
+</mapper>
