@@ -118,7 +118,7 @@
 		             	  	${gedan.playlistComments}		               
 		                   <span class="glyphicon glyphicon-expand rementupianbobiao" style="margin-left: 80px;color: white">		                   		           
 		                   <h5 class="gedanid" hidden>${gedan.playlistId}</h5>
-		                   </span>           
+		                   </span>            
 		             	   		             			             	  		             	
 		             </div>             
 		             </div>		 	    	

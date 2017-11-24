@@ -72,7 +72,7 @@
 						<div class="col-md-5 xcenterone">
 							<ul>
 								<li class="daohang" id="li1" onclick="tiaozuan1()"><span
-									class="glyphicon glyphicon-home"><a href="list">首页</a></li>
+									class="glyphicon glyphicon-home"><a href="list" >首页</a></li>
 								<li class="daohang" id="li2" onclick="tiaozuan()"><a
 									href="mymusiclist" target="vistorcontent">我的音乐</a></li>
 							</ul>
